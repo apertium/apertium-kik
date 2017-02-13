@@ -1,0 +1,8 @@
+prefix=@prefix@
+exec_prefix=${prefix}
+srcdir=@datarootdir@/apertium/apertium-kik
+
+Name: apertium-kik
+Description: Finite-state morphological transducer and constraint grammar for Kikuyu 
+Version: @VERSION@
+
