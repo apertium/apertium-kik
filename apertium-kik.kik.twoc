@@ -1,0 +1,181 @@
+Alphabet
+  %[%-sg%]:0 %[%-pl%]:0
+  %[%+sg%]:0 %[%+pl%]:0
+
+%[%-foc%]:0
+%[%+foc%]:0
+%[%-seq%]:0
+%[%+seq%]:0
+
+%[%-rempast%]:0
+%[%-nearpast%]:0
+%[%-currpast%]:0
+%[%-pres%]:0
+%[%-currfut%]:0
+%[%-remfut%]:0
+
+%[%+rempast%]:0
+%[%+nearpast%]:0
+%[%+currpast%]:0
+%[%+pres%]:0
+%[%+currfut%]:0
+%[%+remfut%]:0
+
+%[%-p1%]:0
+%[%-p2%]:0
+%[%+p1%]:0
+%[%+p2%]:0
+
+%[%-cl1%]:0 ! Noun class 1
+%[%-cl3%]:0 ! Noun class 3
+%[%-cl5%]:0 ! Noun class 6
+%[%-cl7%]:0 ! Noun class 7
+%[%-cl9p6%]:0   ! Noun class 9p6
+%[%-cl9p1%0%]:0  ! Noun class 9p1%0
+%[%-cl11p6%]:0  ! Noun class 11p6
+%[%-cl11p1%0%]:0 ! Noun class 11p1%0
+%[%-cl12p6%]:0 ! Noun class 12p6
+%[%-cl12p13%]:0 ! Noun class 12p13
+%[%-cl14%]:0    ! Noun class 14
+%[%-cl15%]:0    ! Noun class 15
+
+%[%+cl1%]:0 ! Noun class 1
+%[%+cl3%]:0 ! Noun class 3
+%[%+cl5%]:0 ! Noun class 6
+%[%+cl7%]:0 ! Noun class 7
+%[%+cl9p6%]:0   ! Noun class 9p6
+%[%+cl9p1%0%]:0  ! Noun class 9p1%0
+%[%+cl11p6%]:0  ! Noun class 11p6
+%[%+cl11p1%0%]:0 ! Noun class 11p1%0
+%[%+cl12p6%]:0 ! Noun class 12p6
+%[%+cl12p13%]:0 ! Noun class 12p13
+%[%+cl14%]:0    ! Noun class 14
+%[%+cl15%]:0    ! Noun class 15
+
+%[%-refl%]:0
+%[%+refl%]:0
+%[%-imp%]:0
+%[%+imp%]:0
+%[%-neg1%]:0
+%[%+neg1%]:0
+%[%-neg2%]:0
+%[%+neg2%]:0
+;
+
+Rules
+
+"Match number prefixes and person"
+Tx:0 /<= _ ;
+   except
+       _ (:*) Ty:0 ;
+   where Tx in ( %[%-sg%] %[%-pl%] )
+         Ty in ( %[%+sg%] %[%+pl%] )
+   matched ;
+
+"Match number prefixes and person 2"
+Tx:0 /<= _ ;
+   except
+       _ (:*) Ty:0 ;
+   where Tx in ( %[%-p1%] %[%-p2%] )
+         Ty in ( %[%+p1%] %[%+p2%] )
+   matched ;
+
+"Match tense and focus, part 1a"
+Tx:0 /<= _ ;
+   except
+       _ (:*) Ty:0 ;
+   where Tx in ( %[%-currpast%] %[%-pres%] )
+         Ty in ( %[%+currpast%] %[%+pres%] )
+   matched ;
+
+"Match tense and focus, part 1b"
+Tx:0 /<= _ ;
+   except
+       _ (:*) Ty:0 ;
+   where Tx in ( %[%currfut%] %[%-remfut%] )
+         Ty in ( %[%-currfut%] %[%+remfut%] )
+   matched ;
+
+"Match tense and focus, part 2a"
+Tx:0 /<= _ ;
+   except
+       _ (:*) Ty:0 ;
+   where Tx in ( %[%-foc%] %[%-seq%] )
+         Ty in ( %[%+foc%] %[%+seq%] )
+   matched ;
+
+"Match tense and focus, part 2b"
+Tx:0 /<= _ ;
+   except
+       _ (:*) Ty:0 ;
+   where Tx in ( %[%-rempast%] %[%-nearpast%] )
+         Ty in ( %[%+rempast%] %[%+nearpast%] )
+   matched ;
+
+"Match noun class and person, part 1a"
+Tx:0 /<= _ ;
+   except
+       _ (:*) Ty:0 ;
+   where Tx in  ( %[%-cl1%] %[%-cl3%] )
+         Ty in ( %[%+cl1%] %[%+cl3%] )
+   matched ;
+
+"Match noun class and person, part 2a"
+Tx:0 /<= _ ;
+   except
+       _ (:*) Ty:0 ;
+   where Tx in  (  %[%-cl9p6%] %[%-cl9p1%0%] )
+         Ty in ( %[%+cl9p6%] %[%+cl9p1%0%] )
+   matched ;
+
+"Match noun class and person, part 3a"
+Tx:0 /<= _ ;
+   except
+       _ (:*) Ty:0 ;
+   where Tx in  ( %[%-cl12p6%] %[%-cl12p13%] )
+         Ty in ( %[%+cl12p6%] %[%+cl12p13%] )
+   matched ;
+
+"Match noun class and person, part 1b"
+Tx:0 /<= _ ;
+   except
+       _ (:*) Ty:0 ;
+   where Tx in  ( %[%-cl5%] %[%-cl7%] )
+         Ty in ( %[%+cl5%] %[%+cl7%] )
+   matched ;
+
+"Match noun class and person, part 2b"
+Tx:0 /<= _ ;
+   except
+       _ (:*) Ty:0 ;
+   where Tx in  ( %[%-cl11p6%] %[%-cl11p1%0%] )
+         Ty in ( %[%+cl11p6%] %[%+cl11p1%0%] )
+   matched ;
+
+"Match noun class and person, part 3b"
+Tx:0 /<= _ ;
+   except
+       _ (:*) Ty:0 ;
+   where Tx in  ( %[%-cl14%] %[%-cl15%] )
+         Ty in ( %[%+cl14%] %[%+cl15%] )
+   matched ;
+
+"Match reflexive, imperative, and negative part 1"
+Tx:0 /<= _ ;
+   except
+       _ (:*) Ty:0 ;
+   where Tx in  ( %[%-refl%] %[%-imp%] )
+         Ty in ( %[%+refl%] %[%+imp%] )
+   matched ;
+
+"Match reflexive, imperative, and negative part 2"
+Tx:0 /<= _ ;
+   except
+       _ (:*) Ty:0 ;
+   where Tx in  ( %[%-neg%] )
+         Ty in ( %[%+neg%] )
+   matched ;
+
+
+
+

@@ -1,17 +1,30 @@
 Alphabet
- A B Ç D E Ä F G H I J Ž K L M N Ň O Ö P R S Ş T U Ü W Y Ý Z
- a b ç d e ä f g h i j ž k l m n ň o ö p r s ş t u ü w y ý z
- %{A%}:a %>:0  ;
+ A B C Ç D E Ä F G H I Ĩ J Ž K L M N Ň O Ö P Q R S Ş T U Ũ Ü V W X Y Ý Z
+ a b c ç d e ä f g h i ĩ j ž k l m n ň o ö p q r s ş t u ũ ü v w x y ý z
+ %>:0
+ %{K%}:k %{K%}:g
+ %{C%}:0 %{C%}:c
+ %{RRI%}:r %{RRI%}:0 %{IRI%}:i %{IRI%}:ĩ
+ %{N%}:n %{N%}:m %{N%}:0
+ %{I%}:i %{I%}:0
+ %{Ũ%}:ũ %{Ũ%}:w %{Ũ%}:0 %{Ũ%}:o
+ %{Ĩ%}:ĩ %{Ĩ%}:0
+ %{RD%}:r %{RD%}:d
+ %[%+sg%]:0 %[%+pl%]:0 %[%-sg%]:0 %[%-pl%]:0
+ %{ĨE%}:ĩ %{ĨE%}:e
+ %{A%}:a %{A%}:0 ! o before ũ, e before ĩ
+ %{NND%}:0 %{NND%}:d %{NNĨŨ%}:0 %{NNĨŨ%}:ĩ %{NNĨŨ%}:ũ
+ ;
 
 Sets
 
 Vowel = A E Ä I O Ö U Ü Y Ý 
         a e ä i o ö u ü y ý ;
 
-Rules 
+Rules
 
 "Remove suffix vowel with vowel-ending stem"
-i:0 <=> Vow %{VSUF%}:0 _ [ m | n ] ;
+a:a <=> _ ;
 
 ! Resources:
 ! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Enter_twol
