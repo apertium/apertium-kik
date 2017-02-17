@@ -1,0 +1,27 @@
+Config:
+  hfst:
+    App: hfst-lookup
+    Gen: ./kik.autogen.hfst
+    Morph: ./kik.automorf.hfst
+Tests: 
+  Common Words:
+    na<prep>: na 
+    <unk>: ni
+    gui<n><cl12p13><sg>: kagui
+    <unk>: thiomi
+    aĩ<n><cl5><pl>: maĩ
+    <unk>: kana
+    <unk>: nako
+    <unk>: no
+    <unk>: Abĩrika
+    o<quant>: o
+    <unk>: mũtego
+    <unk>: ũndũ
+    <unk>: ũyũ
+    <unk>: rũũi
+    <unk>: Mũtiiri
+    <unk>: harĩa
+    <unk>: mũtiiri 
+    <unk>: ta
+    <unk>: hamwe
+    <unk>: eni

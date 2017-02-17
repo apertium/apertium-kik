@@ -20,7 +20,9 @@ Multichar_Symbols
 %<n%>   ! Noun
 %<v%>   ! Verb
 %<adj%> ! Adjective
-%>pro%> ! Pronoun
+%<pro%> ! Pronoun
+%<prep%> ! preposition?
+%<quant%> ! quantifier?
 
 ! Number morphology
 %<pl%>  ! Plural
@@ -149,6 +151,7 @@ VerbPrefix ;
 AdjPrefix ;
 Assoc ;
 PersPro ;
+LittleWord ;
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!                          L E X I C O N                                  !!!
@@ -203,7 +206,7 @@ embe:embe Cl5 ; ! mango
 rigũ:rigũ Cl5 ; ! banana
 inabu:inabu Cl5 ; 
 ĩciria:ĩciria Cl5 ;
-
+aĩ:aĩ Cl5 ; ! water
 
 LEXICON Cl5
 
@@ -283,6 +286,7 @@ ihũri:ihũri Cl12p13 ; ! gourd
 hũa:hũa Cl12p13 ; ! coffee
 hĩĩ:hĩĩ Cl12p13 ; ! boy
 hiũ:hiũ Cl12p13 ; ! knife
+gui:gui Cl12p13 ; ! dog
 
 LEXICON Cl12p13
 
@@ -335,12 +339,12 @@ LEXICON NounPrefixCl3
 LEXICON NounPrefixCl5
 
 %[%-sg%]:%{RRI%}%{IRI%} NounRootCl5 ;
-%[%-pl%]:ma NounRootCl5 ;
+%[%-pl%]:m%{A%} NounRootCl5 ;
 
 LEXICON NounPrefixCl7
 
 %[%-sg%]:%{K%}ĩ NounRootCl7 ;
-%[%-pl%]:%{C%}i NounRootCl7 ;
+%[%-pl%]:%{C%}%{I%} NounRootCl7 ;
 
 LEXICON NounPrefixCl9p1%0
 
@@ -450,6 +454,7 @@ VerbStem ;
 
 LEXICON VerbStem
 
+kiny:kiny VerbAfterStem ; ! arrive
 kũr:kũr VerbAfterStem ; ! grow
 ũk:%{Ũ%}k VerbAfterStem ; ! come
 in:in VerbAfterStem ; ! sing
@@ -724,6 +729,11 @@ o%<pro%>%<p3%>%<cl14%>%<sg%>:guo # ;
 o%<pro%>%<p3%>%<cl14%>%<pl%>:mo # ;
 o%<pro%>%<p3%>%<cl15%>%<sg%>:kuo # ;
 o%<pro%>%<p3%>%<cl15%>%<pl%>:mo # ;
+
+LEXICON LittleWord
+
+na%<prep%>:na # ; ! with
+o%<quant%>:o # ; ! all
 
 ! Resources:
 ! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Lexicon
