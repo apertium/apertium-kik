@@ -72,8 +72,8 @@ Rules
 "Turn e into ĩ after r"
 %{E%}:ĩ <=> :r %>: _ ;
 
-"Turn FV e into ĩ after ĩ"
-%{EE%}:ĩ <=> %{Ĩ%}: %>: _ ;
+"Turn FV e into ĩ after i"
+%{EE%}:ĩ <=> %{I%}: %>: _ ;
 
 "Turn ũ into o after a"
 %{Ũ%}:o <=> %{A%}: ( %>: ) _ ;

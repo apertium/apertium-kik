@@ -477,7 +477,7 @@ LEXICON VerbTense
 %[%-pres%]%[%-noasp%]%[%-proc%]:%{RAR%}%{A%}%> VerbObjectAgreement ;
 %[%-pres%]%[%-hab%]: VerbObjectAgreement ; ! highly dubious... but exists sometimes like in nĩainaga
 %[%-currfut%]%[%-noasp%]%:%{K%}%{Ũ%}%> VerbObjectAgreement ; ! maybe habitual is possible ???
-! %[%-currfut%][%-fvE%]%[%-hab%]%[%-noasp%]: VerbObjectAgreement ;
+! %[%-currfut%]%[%-fvE%]%[%-hab%]%[%-noasp%]: VerbObjectAgreement ;
 %[%-remfut%]%[%-noasp%]:%{K%}%{A%}%> VerbObjectAgreement ;
 ! %[%-remfut%]%[%-noasp%]%[%-remfutagr%]: VerbObjectAgreement ; ! Difference between ka and null form unclear; may be predictable
 %[%-seq%]%[%-noasp%]:%{K%}%{tĨ%}%> VerbObjectAgreement ;
