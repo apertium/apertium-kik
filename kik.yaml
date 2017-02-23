@@ -28,7 +28,7 @@ Tests:
   Adjectives: {}
   Aspect:
     in<v><currpast><compl><p3><cl1><sg><foc>: nĩainire
-    in<v><pres><prog><p3><cl1><pl><foc>: nĩmaraina
+    in<v><pres><p3><cl1><pl><foc>: nĩmaraina
     rĩm<v><currpast><hab><p3><cl1><sg>: arĩmaga
     thamb<v><pres><proc><p1><sg><foc>: nĩndĩrathambĩra
     thi<v><currpast><perf><p3><cl1><sg><foc>: nĩagũthiĩte
@@ -86,9 +86,9 @@ Tests:
     gũ<v><rempast><compl><neg><p3><cl5><pl>: matiagũire
     gũ<v><rempast><compl><neg><p3><cl3><pl>: ndĩagũire
     gũ<v><rempast><compl><neg><p3><cl5><sg>: rĩtiagũire
-    thi<v><currfut><neg><p1><sg>: ndgũthiĩ
+    thi<v><currfut><neg><p1><sg>: ndigũthiĩ
     thi<v><pres><hab><neg><p2><sg>: ndũthiaga
-    ũk<v><pres><prog><neg><p3><cl1><sg>: ndaroka
+    ũk<v><pres><neg><p3><cl1><sg>: ndaroka
   Nouns: {}
   Other: {}
   Personal Pronouns:
@@ -121,7 +121,7 @@ Tests:
     hith<v><nearpast><compl><refl><p3><cl1><sg><foc>: nĩarehithire
     humb<v><seq><app><refl><p3><cl12p6><sg>: gakĩĩhumbĩra
     ror<v><seq><app><refl><p3><cl12p6><sg>: gakĩĩrorera
-    thamb<v><currpast><compl><trans><refl><p3><cl1><sg><foc>: nĩathambirie
+    thamb<v><currpast><compl><trans><p3><cl1><sg><foc>: nĩathambirie
     thi<v><seq><proc><refl><p3><cl12p6><sg>: gagĩthiĩra
   Regular Singular and Plural:
     aki<n><cl3><pl>: mĩaki
@@ -147,11 +147,11 @@ Tests:
   Tense and Remoteness:
     kũr<v><rempast><compl><p3><cl9p10><pl><foc>: nĩciakũrire
     thom<v><currfut><p3><cl1><pl><foc>: nĩmagũthoma
-    ũk<v><pres><prog><p1><sg><foc>: nĩndĩroka
+    ũk<v><pres><p1><sg><foc>: nĩndĩroka
   Tense, Aspect, and Remoteness: {}
   The Sequential:
-    on<v><seq><p3><cl1><sg>: akona
+    on<v><pres><p3><cl1><sg>: akona
   Verbal Subject Agreement:
     rĩm<v><rempast><hab><p3><cl1><sg>: arĩmaga
-    ũr<v><pres><prog><p1><sg><foc>: nĩndĩrora
+    ũr<v><pres><p1><sg><foc>: nĩndĩrora
   Verbs: {}

@@ -2,29 +2,232 @@ Alphabet
  A B C Ç D E Ä F G H I Ĩ J Ž K L M N Ň O Ö P Q R S Ş T U Ũ Ü V W X Y Ý Z
  a b c ç d e ä f g h i ĩ j ž k l m n ň o ö p q r s ş t u ũ ü v w x y ý z
  %>:0
- %{K%}:k %{K%}:g
- %{C%}:0 %{C%}:c
+ %{K%}:k ! %{K%}:g
+ %{C%}:c 
+ %{CC%}:0 ! %{C%}:0
  %{RRI%}:r %{RRI%}:0 %{IRI%}:i %{IRI%}:ĩ %{IRI%}:0
- %{N%}:n %{N%}:m %{N%}:0
- %{I%}:i %{I%}:0
- %{Ũ%}:ũ %{Ũ%}:w %{Ũ%}:0 %{Ũ%}:o
- %{Ĩ%}:ĩ %{Ĩ%}:0
- %{RD%}:r %{RD%}:d
- %[%+sg%]:0 %[%+pl%]:0 %[%-sg%]:0 %[%-pl%]:0
- %{ĨE%}:ĩ %{ĨE%}:e
- %{A%}:a %{A%}:0 ! o before ũ, e before ĩ
- %{NND%}:0 %{NND%}:d %{NNĨŨ%}:0 %{NNĨŨ%}:ĩ %{NNĨŨ%}:ũ
+ %{N%}:n
+ %{N2%}:0
+ %{N3%}:0
+ %{I%}:i ! 
+ %{Ũ%}:ũ ! 
+ %{Ĩ%}:ĩ ! 
+ %{O%}:o
+ %{U%}:u
+ %{R%}:r ! %{RD%}:r %{RD%}:d
+ %{T%}:t
+ %{RAR%}:r 
+ %{E%}:e 
+ %{RRI%}:0
+ %{IRI%}:i
+ %{A%}:a !
+ %{tĨ%}:ĩ ! true Ĩ
+ %{EE%}:e
+ %>:0
  ;
 
 Sets
 
-Vowel = A E Ä I O Ö U Ü Y Ý 
-        a e ä i o ö u ü y ý ;
+Vowels = A E Ä I Ĩ O Ö U Ü Ũ Y Ý 
+        a e ä i ĩ o ö u ü ũ y ý ;
+
+UnderVowels = %{A%} %{E%} %{I%} %{O%} %{U%} %{Ĩ%} %{Ũ%} %{tĨ%} ;
 
 Rules
 
-"Remove suffix vowel with vowel-ending stem"
-a:a <=> _ ;
+!!!!! VOWEL COALESCENCE RULES !!!!!
+
+"Remove repeated i"
+%{I%}:0 <=> _ ( %>: ) %{I%}: ;
+
+"Remove repeated ĩ"
+%{Ĩ%}:0 <=> %{Ĩ%}: ( %>: ) _ ;
+        except
+            _ ( %>: ) %{Ũ%}: ;
+            _ ( %>: ) %{A%}: ;
+            _ ( %>: ) %{E%}: ;
+            _ ( %>: ) %{O%}: ;
+            _ ( %>: ) %{U%}: ;
+            %{I%}: ( %>: ) %{Ĩ%}: ( %>: ) _ ;
+
+"Remove a before certain vowels"
+%{A%}:0 <=> _  ( %>: )   Vo: ;
+        except
+            _ ( %>: ) %{Ĩ%}: %{Ũ%}: ;
+            _ ( %>: ) %{Ĩ%}: %{A%}: ;
+            _ ( %>: ) %{Ĩ%}: %{E%}: ;
+            _ ( %>: ) %{Ĩ%}: %{O%}: ;
+            _ ( %>: ) %{Ĩ%}: %{U%}: ;
+        where Vo in ( %{A%} %{E%} %{O%} %{Ĩ%} %{Ũ%} ) ;              
+
+"Turn ĩ into e after a"
+%{Ĩ%}:e <=> %{A%}: ( %>: )  _ ;
+        except
+            _ ( %>: ) %{Ũ%}: ;
+            _ ( %>: ) %{A%}: ;
+            _ ( %>: ) %{E%}: ;
+            _ ( %>: ) %{O%}: ;
+            _ ( %>: ) %{U%}: ;
+
+"Turn e into ĩ after r"
+%{E%}:ĩ <=> :r %>: _ ;
+
+"Turn FV e into ĩ after ĩ"
+%{EE%}:ĩ <=> %{Ĩ%}: %>: _ ;
+
+"Turn ũ into o after a"
+%{Ũ%}:o <=> %{A%}: ( %>: ) _ ;
+        except
+            _ ( %>: ) %{A%}: ;
+            _ ( %>: ) %{O%}: ;
+
+"Turn ĩ into 0 after e"
+%{Ĩ%}:0 <=> %{E%}: ( %>: ) _  ;
+        except
+            _ ( %>: ) %{Ũ%}: ;
+            _ ( %>: ) %{A%}: ;
+            _ ( %>: ) %{E%}: ;
+            _ ( %>: ) %{O%}: ;
+            _ ( %>: ) %{U%}: ;
+
+
+!!!!! VOWEL CHANGE RULES !!!!!
+
+"Turn ũ into u before o" ! not working as intended because syllables
+%{Ũ%}:u <=> _ ( %>: ) %{O%}: ;
+        except
+            %{A%}: (%>: ) _ ;
+            _ (%>: ) %{A%}: ; 
+            _ (%>: ) %{O%}: ;
+
+"Turn ĩ into i before u"
+%{Ĩ%}:i <=> _ ( %>: ) %{U%}: ;
+        except
+            %>: _ ;
+
+!!!!! GLIDE FORMATION RULES !!!!!
+
+"Turn ũ into w before certain vowels (?)" ! not working as intended because syllables
+%{Ũ%}:w <=> _  ( %>: ) V1: ;
+        where V1 in ( %{A%} %{O%} ) ;
+
+
+!"Turn ĩ into y syllable-intially before vowel"
+!%{Ĩ%}:y <=> %>: _ ( %>: ) Vo: ;
+!        where Vo in ( %{A%} %{E%} %{O%} %{U%} %{Ũ%} ) ;
+
+
+!!!!! RULES SPECIFIC TO CERTAIN MORPHEMES !!!!! 
+
+"Make i- into ci- when before vowel"
+%{CC%}:c <=> _  %{I%}: ( %>: ) Vo: ;
+         where Vo in UnderVowels ;
+
+"Convert prefix i- to rĩ- when vowel initial, part 1"
+%{RRI%}:r <=> _ %{IRI%}: ( %>: ) V1: ;
+         where V1 in UnderVowels ;
+
+"Convert prefix i- to rĩ when vowel initial, part 2"
+%{IRI%}ĩ <=> _ ( %>: ) V1: ; 
+         where V1 in UnderVowels ;
+
+!!!!! NASAL PREFIX RULES !!!!!
+
+"Convert nasal prefix to m"
+%{N%}:m <=> _ %{N2%}: %{N3%}: ( %>: ) :Co ;
+        where Co in ( b ) ;
+
+"Delete nasal prefix"
+%{N%}:0 <=> _ %{N2%}: %{N3%}: ( %>: ) :Na ;
+        where Na in ( n m h ) ;
+
+"Delete nasal prefix before th"
+%{N%}:0 <=> _ %{N2%}: %{N3%}: ( %>: ) :t :h ;
+
+"Convert character after nasal prefix 1"
+%{C%}:j <=> %{N%}: %{N2%}: %{N3%}: ( %>: ) _ ;
+
+"Convert character after nasal prefix 2"
+%{K%}:g <=> %{N%}: %{N2%}: %{N3%}: ( %>: ) _ ;
+
+"Convert character after nasal prefix 3"
+C1p:d <=> %{N%}: %{N2%}: %{N3%}: ( %>: ) _ ;
+        where C1p in ( %{T%} %{R%} ) ;
+
+"Convert nasal prefix before vowel"
+%{N2%}:j <=> _ %{N3%}: ( %>: ) Vo: ;
+         except
+             _ %{N3%}: ( %>: ) %{Ũ%}: :m ; 
+             _ %{N3%}: ( %>: ) %{Ĩ%}: :m ; 
+             _ %{N3%}: ( %>: ) %{U%}: :m ; 
+             _ %{N3%}: ( %>: ) %{O%}: :m ; 
+             _ %{N3%}: ( %>: ) %{I%}: :m ; 
+             _ %{N3%}: ( %>: ) %{E%}: :m ; 
+             _ %{N3%}: ( %>: ) %{A%}: :m ;
+             _ %{N3%}: ( %>: ) %{tĨ%}: :m ; 
+             _ %{N3%}: ( %>: ) %{Ũ%}: :n ; 
+             _ %{N3%}: ( %>: ) %{Ĩ%}: :n ; 
+             _ %{N3%}: ( %>: ) %{U%}: :n ; 
+             _ %{N3%}: ( %>: ) %{O%}: :n ; 
+             _ %{N3%}: ( %>: ) %{I%}: :n ; 
+             _ %{N3%}: ( %>: ) %{E%}: :n ; 
+             _ %{N3%}: ( %>: ) %{A%}: :n ;
+             _ %{N3%}: ( %>: ) %{tĨ%}: :n ; 
+         where Vo in UnderVowels ;
+
+"Convert nasal prefix before vowel and nasal"
+%{N2%}:y <=> _ %{N3%}: ( %>: ) Vo: :Na ;
+         where Vo in UnderVowels 
+               Na in ( m n ) ;
+
+"Convert final nasal prefix to ĩ"
+%{N3%}:ĩ <=> _ ( %>: ) %{RAR%}: ;
+
+"Convert second nasal prefix to d"
+%{N2%}:d <=> _ %{N3%}: ( %>: ) %{RAR%}: ;
+
+!!!!! OTHER RULES !!!!!
+
+"Convert k to g before certain consonants"
+%{K%}:g <=> _ [ V1: ] ( %>: ) UC1: ;
+        except 
+            %{N3%}: ( %>: ) _ ;
+        where V1 in UnderVowels 
+              UC1 in ( %{T%} %{C%} %{K%} ) ;
+
+"Convert k to g before certain consonants part 2"
+%{K%}:g <=> _  [ V1: ] ( %>: ) :C1 ;
+        except
+            _ %{U%}: ( %>: ) %{T%}: ;
+            _ %{U%}: ( %>: ) %{C%}: ;
+            _ %{U%}: ( %>: ) %{K%}: ;
+            _ %{A%}: ( %>: ) %{T%}: ;
+            _ %{A%}: ( %>: ) %{C%}: ;
+            _ %{A%}: ( %>: ) %{K%}: ;
+            _ %{E%}: ( %>: ) %{T%}: ;
+            _ %{E%}: ( %>: ) %{C%}: ;
+            _ %{E%}: ( %>: ) %{K%}: ;
+            _ %{I%}: ( %>: ) %{T%}: ;
+            _ %{I%}: ( %>: ) %{C%}: ;
+            _ %{I%}: ( %>: ) %{K%}: ;
+            _ %{O%}: ( %>: ) %{T%}: ;
+            _ %{O%}: ( %>: ) %{C%}: ;
+            _ %{O%}: ( %>: ) %{K%}: ;
+            _ %{Ũ%}: ( %>: ) %{T%}: ;
+            _ %{Ũ%}: ( %>: ) %{C%}: ;
+            _ %{Ũ%}: ( %>: ) %{K%}: ;
+            _ %{Ĩ%}: ( %>: ) %{T%}: ;
+            _ %{Ĩ%}: ( %>: ) %{C%}: ;
+            _ %{Ĩ%}: ( %>: ) %{K%}: ;
+            _ %{tĨ%}: ( %>: ) %{T%}: ;
+            _ %{tĨ%}: ( %>: ) %{C%}: ;
+            _ %{tĨ%}: ( %>: ) %{K%}: ;
+            _ ( %>: ) %{T%}: ;
+            _ ( %>: ) %{C%}: ;
+            _ ( %>: ) %{K%}: ;
+            %{N3%}: ( %>: ) _ ; 
+        where V1 in UnderVowels 
+              C1 in ( t c k ) ;
 
 ! Resources:
 ! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Enter_twol

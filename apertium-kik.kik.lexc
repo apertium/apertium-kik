@@ -15,6 +15,7 @@ Multichar_Symbols
 %<cl12p13%> ! Noun class 12p13
 %<cl14%>    ! Noun class 14
 %<cl15%>    ! Noun class 15
+%<???%>     ! helpful placeholder
 
 ! Part of speech categories
 %<n%>   ! Noun
@@ -124,22 +125,49 @@ Multichar_Symbols
 %[%+neg%]
 %[%-neg%]
 
+%[%-hab%]
+%[%-perf%]
+%[%-noasp%]
+%[%-compl%]
+%[%-proc%]
+
+%[%+hab%]
+%[%+perf%]
+%[%+noasp%]
+%[%+compl%]
+%[%+proc%]
+
+%[%-fvA%]
+%[%+fvA%]
+%[%-fvE%]
+%[%+fvE%]
+%[%+fvĨ%]
+%[%-fvĨ%]
+
 ! Archiphonemes
 
 %{A%}
 %{K%}
-%{C%}
+%{C%} 
+%{CC%}
 %{R%}
 %{N%}
+%{N2%} 
+%{N3%}
 %{I%}
 %{Ũ%}
 %{Ĩ%}
-%{RD%}
+%{T%}
+%{U%}
+%{E%}
+%{O%}
+%{RAR%}
 %{RRI%}
 %{IRI%}
-%{ĨE%}    ! generally for suffixes where the first letter can be ĩ or e 
-%{NND%}   ! second character in verb agreement
-{%NNĨŨ%}  ! third character in verb agreement
+%{Ĩ%}
+%{tĨ%}
+%{EE%} ! fv e
+
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!                       M O R P H O T A C T I C S                         !!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -163,15 +191,18 @@ LEXICON NounPluralAgreement
 
 LEXICON NounRootCl1
 
-ndũ:ndũ Cl1 ; ! person
-arimũ:arimũ Cl1 ; ! teacher
-rĩmi:rĩmi Cl1 ; ! farmer
-timia:timia Cl1 ; ! woman
-nyina:nyina Cl1 ; ! mother
-thomi:thomi Cl1 ; ! student
-thuri:thuri Cl1 ; ! man
-arĩ:arĩ Cl1 ; ! daughter
-wagui:wagui Cl1 ;
+ndũ:nd%{Ũ%} Cl1 ; ! person
+arimũ:arim%{Ũ%} Cl1 ; ! teacher
+rĩmi:%{R%}ĩm%{I%} Cl1 ; ! farmer
+timia:%{T%}imi%{A%} Cl1 ; ! woman
+nyina:nyin%{A%} Cl1 ; ! mother
+thomi:thom%{I%} Cl1 ; ! student
+thuri:thur%{I%} Cl1 ; ! man
+arĩ:%{A%}r%{Ĩ%} Cl1 ; ! daughter
+
+LEXICON NounRootCl1Irr
+
+wagui:wagu%{I%} Cl1 ;
 
 LEXICON Cl1
 
@@ -179,14 +210,14 @@ LEXICON Cl1
 
 LEXICON NounRootCl3
 
-aki:aki Cl3 ; ! fire
-ithikiri:ithikiri Cl3 ; ! bicycle
-bira:bira Cl3 ; ! ball
-rango:rango Cl3 ; ! door
-ciĩ:ciĩ Cl3 ; ! home
-tĩ:tĩ Cl3 ; ! tree
-cuha:cuha Cl3 ; ! swing
-rũthi:rũthi Cl3 ; ! lion
+aki:%{A%}k%{I%} Cl3 ; ! fire
+ithikiri:%{I%}thikir%{I%} Cl3 ; ! bicycle
+bira:bir%{A%} Cl3 ; ! ball
+rango:rang%{O%} Cl3 ; ! door
+ciĩ:%{C%}i%{Ĩ%} Cl3 ; ! home
+tĩ:%{T%}%{Ĩ%} Cl3 ; ! tree
+cuha:%{C%}uh%{A%} Cl3 ; ! swing
+rũthi:%{R%}ũth%{I%} Cl3 ; ! lion
 
 LEXICON Cl3
 
@@ -194,19 +225,19 @@ LEXICON Cl3
 
 LEXICON NounRootCl5
 
-hũa:hũa Cl5 ; ! flower
-tunda:tunda Cl5 ; ! fruit
-rima:rima Cl5 ; ! hole
-ria:ria Cl5 ; ! milk
-bera:bera Cl5 ; ! pear
-gũrũ:gũrũ Cl5 ; ! leg
-aĩ:aĩ Cl5 ; ! water
-higa:higa Cl5 ; ! stone
-embe:embe Cl5 ; ! mango
-rigũ:rigũ Cl5 ; ! banana
-inabu:inabu Cl5 ; 
-ĩciria:ĩciria Cl5 ;
-aĩ:aĩ Cl5 ; ! water
+hũa:hũ%{A%} Cl5 ; ! flower
+tunda:%{T%}und%{A%} Cl5 ; ! fruit
+rima:%{R%}im%{A%} Cl5 ; ! hole
+ria:%{R%}i%{A%} Cl5 ; ! milk
+bera:ber%{A%} Cl5 ; ! pear
+gũrũ:gũr%{Ũ%} Cl5 ; ! leg
+aĩ:%{A%}%{Ĩ%} Cl5 ; ! water
+higa:hig%{a%} Cl5 ; ! stone
+embe:%{E}%mb%{e%} Cl5 ; ! mango
+rigũ:%{R%}ig%{Ũ%} Cl5 ; ! banana
+inabu:%{I%}nab%{U%} Cl5 ; 
+ĩciria:%{Ĩ%}ciri%{A%} Cl5 ;
+aĩ:%{A%}%{Ĩ%} Cl5 ; ! water
 
 LEXICON Cl5
 
@@ -214,45 +245,49 @@ LEXICON Cl5
 
 LEXICON NounRootCl7
 
-rĩma:rĩma Cl7 ; ! mountain
-tĩ:tĩ Cl7 ; ! chair
-rio:rio Cl7 ; ! food
-kombe:kombe Cl7 ; ! cup
-ũra:ũra Cl7 ; ! frog
-rot:rot Cl7 ; ! dream
-rathi:rathi Cl7 ; ! class
-boko:boko Cl7 ;
-imba:imba Cl7 ;
+rĩma:%{R%}ĩm%{A%} Cl7 ; ! mountain
+tĩ:%{T%}%{Ĩ%} Cl7 ; ! chair
+rio:%{R%}i%{O%} Cl7 ; ! food
+kombe:%{K%}omb%{E%} Cl7 ; ! cup
+ũra:%{Ũ%}r%{A%} Cl7 ; ! frog
+rot:%{R%}ot Cl7 ; ! dream
+rathi:%{R%}ath%{A%} Cl7 ; ! class
+boko:bok%{O%} Cl7 ;
+imba:%{I%}mb%{A%} Cl7 ;
 
 LEXICON Cl7
 
 %<n%>%<cl7%>: NounPluralAgreement ;
 
 LEXICON NounRootCl9p1%0
-bata:bata Cl9p1%0 ;
-buku:buku Cl9p1%0 ; ! book
-bembe:bembe Cl9p1%0 ; ! corn
-gathĩ:gathĩ Cl9p1%0 ; ! ladder
-gui:gui Cl9p1%0 ; ! dog, plural category uncertain
-nyamũ:nyamũ Cl9p1%0 ; ! animal, plural category uncertain
-cukuru:cukuru Cl9p1%0 ; ! school, plural category uncertain
-ca:ca Cl9p1%0 ; ! outside, plural category uncertain
-kari:kari Cl9p1%0 ; ! car, plural category uncertain
-benjũ:benjũ Cl9p1%0 ; ! pencil
-timũ:timũ Cl9p1%0 ; ! lime
-koma:koma Cl9p1%0 ; ! spirit, singular category uncertain
-metha:metha Cl9p1%0 ; ! table
-tũmĩrĩri:tũmĩrĩri Cl9p1%0 ; ! message, plural category uncertain
-thimũ:thimũ Cl9p1%0 ; ! phone, plural category uncertain
-thitembũ:thitembũ Cl9p1%0 ; ! stamp, plural category uncertain
-bahaca:bahaca Cl9p1%0 ; ! envelope, plural category uncertain
-yama:yama Cl9p1%0 ; ! meat, plural category uncertain
-gũkũ:gũkũ Cl9p1%0 ; ! chicken, plural category uncertain
-thaa:thaa Cl9p1%0 ; ! hour, plural category uncertain
-batĩ:batĩ Cl9p1%0 ;
-bakũri:bakũri Cl9p1%0 ; 
-dahi:dahi Cl9p1%0 ;
-thia:thia Cl9p1%0 ;
+
+bata:bat%{A%} Cl9p1%0 ;
+buku:buk%{U%} Cl9p1%0 ; ! book
+bembe:bemb%{E%} Cl9p1%0 ; ! corn
+gathĩ:gath%{Ĩ%} Cl9p1%0 ; ! ladder
+gui:gu%{I%} Cl9p1%0 ; ! dog, plural category uncertain
+nyamũ:nyam%{Ũ%} Cl9p1%0 ; ! animal, plural category uncertain
+cukuru:%{C%}ukur%{U%} Cl9p1%0 ; ! school, plural category uncertain
+ca:%{C%}%{A%} Cl9p1%0 ; ! outside, plural category uncertain
+kari:%{K%}ar%{I%} Cl9p1%0 ; ! car, plural category uncertain
+benjũ:benj%{Ũ%} Cl9p1%0 ; ! pencil
+timũ:%{T%}im%{Ũ%} Cl9p1%0 ; ! lime
+koma:%{K%}om%{A%} Cl9p1%0 ; ! spirit, singular category uncertain
+metha:meth%{A%} Cl9p1%0 ; ! table
+tũmĩrĩri:%{T%}ũmĩrĩr%{I%} Cl9p1%0 ; ! message, plural category uncertain
+thimũ:thim%{Ũ%} Cl9p1%0 ; ! phone, plural category uncertain
+thitembũ:thitemb%{Ũ%} Cl9p1%0 ; ! stamp, plural category uncertain
+bahaca:bahac%{A%} Cl9p1%0 ; ! envelope, plural category uncertain
+yama:yam%{A%} Cl9p1%0 ; ! meat, plural category uncertain
+gũkũ:gũk%{Ũ%} Cl9p1%0 ; ! chicken, plural category uncertain
+thaa:tha%{A%} Cl9p1%0 ; ! hour, plural category uncertain
+bakũri:bakũr%{I%} Cl9p1%0 ; 
+dahi:dah%{I%} Cl9p1%0 ;
+thia:thi%{A%} Cl9p1%0 ;
+
+LEXICON NounRootCl9p1%0Irr
+
+batĩ:bat%{Ĩ%} Cl9p1%0 ;
 
 LEXICON Cl9p1%0
 
@@ -260,11 +295,11 @@ LEXICON Cl9p1%0
 
 LEXICON NounRootCl11p1%0
 
-rũigi:%{RD%}ũigi Cl11p1%0 ;
-gĩrĩ:gĩrĩ Cl11p1%0 ; ! fence, plural category uncertain
-imbo:imbo Cl11p1%0 ; ! song, plural category uncertain
-ũĩ:ũĩ Cl11p1%0 ; ! river, plural category uncertain
-ĩgĩ:ĩgĩ Cl11p1%0 ; ! eagle, plural category uncertain
+rũigi:%{R%}ũig%{I%} Cl11p1%0 ;
+gĩrĩ:gĩr%{Ĩ%} Cl11p1%0 ; ! fence, plural category uncertain
+imbo:%{I%}mb%{O%} Cl11p1%0 ; ! song, plural category uncertain
+ũĩ:%{Ũ%}%{Ĩ%} Cl11p1%0 ; ! river, plural category uncertain
+ĩgĩ:%{Ĩ%}g%{Ĩ%} Cl11p1%0 ; ! eagle, plural category uncertain
 
 LEXICON Cl11p1%0
 
@@ -272,7 +307,7 @@ LEXICON Cl11p1%0
 
 LEXICON NounRootCl11p6
 
-guoya:guoya Cl11p6 ;
+guoya:guoy%{A%} Cl11p6 ;
 
 LEXICON Cl11p6
 
@@ -280,13 +315,13 @@ LEXICON Cl11p6
 
 LEXICON NounRootCl12p13
 
-nua:nua Cl12p13 ;
-ana:ana Cl12p13 ; ! child
-ihũri:ihũri Cl12p13 ; ! gourd
-hũa:hũa Cl12p13 ; ! coffee
-hĩĩ:hĩĩ Cl12p13 ; ! boy
-hiũ:hiũ Cl12p13 ; ! knife
-gui:gui Cl12p13 ; ! dog
+nua:nu%{A%} Cl12p13 ;
+ana:%{A%}n%{A%} Cl12p13 ; ! child
+ihũri:%{I%}hũr%{I%} Cl12p13 ; ! gourd
+hũa:hũ%{A%} Cl12p13 ; ! coffee
+hĩĩ:hĩ%{Ĩ%} Cl12p13 ; ! boy
+hiũ:hi%{Ũ%} Cl12p13 ; ! knife
+gui:gu%{I%} Cl12p13 ; ! dog
 
 LEXICON Cl12p13
 
@@ -294,9 +329,9 @@ LEXICON Cl12p13
 
 LEXICON NounRootCl14
 
-wendi:wendi Cl14 ;
-cũrũ:cũrũ Cl14 ; ! porridge
-goro:goro Cl14 ; ! expense
+wendi:wend%{I%} Cl14 ;
+cũrũ:%{C%}ũr%{Ũ%} Cl14 ; ! porridge
+goro:gor%{o%} Cl14 ; ! expense
 
 LEXICON Cl14
 
@@ -304,10 +339,10 @@ LEXICON Cl14
 
 LEXICON NounRootCl15
 
-tũ:tũ Cl15 ;
-rug:rug Cl15 ; ! cook/cooking
+tũ:%{T%}%{Ũ%} Cl15 ;
+rug:%{R%}ug Cl15 ; ! cook/cooking
 thek:thek Cl15 ; ! laugh
-oko:oko Cl15 ;
+oko:%{O%}k%{O%} Cl15 ;
 
 LEXICON Cl15
 
@@ -328,53 +363,57 @@ NounPrefixCl15 ;
 
 LEXICON NounPrefixCl1
 
-%[%-sg%]:m%{Ũ%} NounRootCl1 ;
-%[%-pl%]:a NounRootCl1 ;
+%[%-sg%]:m%{Ũ%}%> NounRootCl1 ;
+%[%-pl%]:%{A%}%> NounRootCl1 ;
+%[%-sg%]: NounRootCl1Irr ;
+%[%-pl%]: NounRootCl1Irr ;
 
 LEXICON NounPrefixCl3
 
-%[%-sg%]:m%{Ũ%} NounRootCl3 ;
-%[%-pl%]:mĩ NounRootCl3 ;
+%[%-sg%]:m%{Ũ%}%> NounRootCl3 ;
+%[%-pl%]:m%{Ĩ%}%> NounRootCl3 ;
 
 LEXICON NounPrefixCl5
 
-%[%-sg%]:%{RRI%}%{IRI%} NounRootCl5 ;
-%[%-pl%]:m%{A%} NounRootCl5 ;
+%[%-sg%]:%{RRI%}%{IRI%}%> NounRootCl5 ;
+%[%-pl%]:m%{A%}%> NounRootCl5 ;
 
 LEXICON NounPrefixCl7
 
-%[%-sg%]:%{K%}ĩ NounRootCl7 ;
-%[%-pl%]:%{C%}%{I%} NounRootCl7 ;
+%[%-sg%]:%{K%}%{Ĩ%}%> NounRootCl7 ;
+%[%-pl%]:%{CC%}%{I%}%> NounRootCl7 ;
 
 LEXICON NounPrefixCl9p1%0
 
-%[%-sg%]:%{N%} NounRootCl9p1%0 ;
-%[%-pl%]:%{N%} NounRootCl9p1%0 ;
+%[%-sg%]:%{N%}%{N2%}%{N3%}%> NounRootCl9p1%0 ;
+%[%-pl%]:%{N%}%{N2%}%{N3%}%> NounRootCl9p1%0 ;
+%[%-sg%]: NounRootCl9p1%0Irr ;
+%[%-pl%]: NounRootCl9p1%0Irr ;
 
 LEXICON NounPrefixCl11p1%0
 
-%[%-sg%]:r%{Ũ%} NounRootCl11p1%0 ;
-%[%-pl%]:%{N%} NounRootCl11p1%0 ;
+%[%-sg%]:%{R%}%{Ũ%}%> NounRootCl11p1%0 ;
+%[%-pl%]:%{N%}%{N2%}%{N3%}%> NounRootCl11p1%0 ;
 
 LEXICON NounPrefixCl11p6
 
-%[%-sg%]:r%{Ũ%} NounRootCl11p6 ;
-%[%-pl%]:ma NounRootCl11p6 ;
+%[%-sg%]:%{R%}%{Ũ%}%> NounRootCl11p6 ;
+%[%-pl%]:m%{A%}%> NounRootCl11p6 ;
 
 LEXICON NounPrefixCl12p13
 
-%[%-sg%]:%{K%}a NounRootCl12p13 ;
-%[%-pl%]:t%{Ũ%} NounRootCl12p13 ;
+%[%-sg%]:%{K%}%{A%}%> NounRootCl12p13 ;
+%[%-pl%]:%{T%}%{Ũ%}%> NounRootCl12p13 ;
 
 LEXICON NounPrefixCl14
 
 %[%-sg%]: NounRootCl14 ;
-%[%-pl%]:ma NounRootCl14 ;
+%[%-pl%]:m%{A%}%> NounRootCl14 ;
 
 LEXICON NounPrefixCl15
 
-%[%-sg%]:%{K%}%{Ũ%} NounRootCl15 ;
-%[%-pl%]:m%{A%} NounRootCl15 ;
+%[%-sg%]:%{K%}%{Ũ%}%> NounRootCl15 ;
+%[%-pl%]:m%{A%}%> NounRootCl15 ;
 
 
 LEXICON VerbPrefix
@@ -384,64 +423,64 @@ VerbFoc ;
 
 LEXICON VerbFoc
 
-%[%-foc%]:nĩ VerbNeg1 ;
+%[%-foc%]:n%{Ĩ%}%> VerbNeg1 ;
 VerbNeg1 ;
 
 LEXICON VerbNeg1
 
-%[%-neg]%:nd VerbSubjectConcord ;
-! 0:nd VerbSubjectConcord ;
+%[%-neg%]:nd%> VerbSubjectConcord ;
 VerbSubjectConcord ;
 
 LEXICON VerbSubjectConcord
 
-%[%-p1%]%[%-sg%]:%{N%}%{NND%}{%NNĨŨ%} VerbNeg2 ;
-%[%-p1%]%[%-pl%]:tũ VerbNeg2 ;
-%[%-p2%]%[%-sg%]:ũ VerbNeg2 ;
-%[%-p2%]%[%-pl%]:mũ VerbNeg2 ;
-%[%-cl1%]%[%-sg%]:%{A%} VerbNeg2 ;
-%[%-cl1%]%[%-pl%]:m%{A%} VerbNeg2 ;
-%[%-cl3%]%[%-sg%]:%{Ũ%} VerbNeg2 ;
-%[%-cl3%]%[%-pl%]:ĩ VerbNeg2 ;
-%[%-cl5%]%[%-sg%]:rĩ VerbNeg2 ;
-%[%-cl5%]%[%-pl%]:m%{A%} VerbNeg2 ;
-%[%-cl7%]%[%-sg%]:%{K%}ĩ VerbNeg2 ;
-%[%-cl7%]%[%-pl%]:%{C%}i VerbNeg2 ;
-%[%-cl9p6%]%[%-sg%]:ĩ VerbNeg2 ;
-%[%-cl9p6%]%[%-pl%]:m%{A%} VerbNeg2 ;
-%[%-cl9p1%0%]%[%-sg%]:ĩ VerbNeg2 ;
-%[%-cl9p1%0%]%[%-pl%]:ci VerbNeg2 ;
-%[%-cl11p6%]%[%-sg%]:rũ VerbNeg2 ;
-%[%-cl11p6%]%[%-pl%]:m%{A%} VerbNeg2 ;
-%[%-cl11p1%0%]%[%-sg%]:rũ VerbNeg2 ;
-%[%-cl11p1%0%]%[%-pl%]:ci VerbNeg2 ;
-%[%-cl12p6%]%[%-sg%]:%{K%}a VerbNeg2 ;
-%[%-cl12p6%]%[%-pl%]:ma VerbNeg2 ;
-%[%-cl12p13%]%[%-sg%]:ka VerbNeg2 ;
-%[%-cl12p13%]%[%-pl%]:tũ VerbNeg2 ;
-%[%-cl14%]%[%-sg%]:ũ VerbNeg2 ;
-%[%-cl14%]%[%-pl%]:ma VerbNeg2 ;
-%[%-cl15%]%[%-sg%]:%{K%}ũ VerbNeg2 ;
-%[%-cl15%]%[%-pl%]:ma VerbNeg2 ;
+%[%-p1%]%[%-sg%]:%{N%}%{N2%}%{N3%}%> VerbNeg2 ;
+%[%-p1%]%[%-pl%]:%{T%}%{Ũ%}%> VerbNeg2 ;
+%[%-p2%]%[%-sg%]:%{Ũ%}%> VerbNeg2 ;
+%[%-p2%]%[%-pl%]:m%{Ũ%}%> VerbNeg2 ;
+%[%-cl1%]%[%-sg%]:%{A%}%> VerbNeg2 ;
+%[%-cl1%]%[%-pl%]:m%{A%}%> VerbNeg2 ;
+%[%-cl3%]%[%-sg%]:%{Ũ%}%> VerbNeg2 ;
+%[%-cl3%]%[%-pl%]:%{Ĩ%}%> VerbNeg2 ;
+%[%-cl5%]%[%-sg%]:r%{Ĩ%}%> VerbNeg2 ;
+%[%-cl5%]%[%-pl%]:m%{A%}%> VerbNeg2 ;
+%[%-cl7%]%[%-sg%]:%{K%}%{Ĩ%}%> VerbNeg2 ;
+%[%-cl7%]%[%-pl%]:%{C%}%{I%}%> VerbNeg2 ;
+%[%-cl9p6%]%[%-sg%]:%{Ĩ%}%> VerbNeg2 ;
+%[%-cl9p6%]%[%-pl%]:m%{A%}%> VerbNeg2 ;
+%[%-cl9p1%0%]%[%-sg%]:%{Ĩ%}%> VerbNeg2 ;
+%[%-cl9p1%0%]%[%-pl%]:%{C%}%{I%}%> VerbNeg2 ;
+%[%-cl11p6%]%[%-sg%]:%{R%}%{Ũ%}%> VerbNeg2 ;
+%[%-cl11p6%]%[%-pl%]:m%{A%}%> VerbNeg2 ;
+%[%-cl11p1%0%]%[%-sg%]:%{R%}%{Ũ%}%> VerbNeg2 ;
+%[%-cl11p1%0%]%[%-pl%]:%{C%}%{I%}%> VerbNeg2 ;
+%[%-cl12p6%]%[%-sg%]:%{K%}%{A%}%> VerbNeg2 ;
+%[%-cl12p6%]%[%-pl%]:m%{A%}%> VerbNeg2 ;
+%[%-cl12p13%]%[%-sg%]:%{K%}%{A%}%> VerbNeg2 ;
+%[%-cl12p13%]%[%-pl%]:%{T%}%{Ũ%}%> VerbNeg2 ;
+%[%-cl14%]%[%-sg%]:%{Ũ%}%> VerbNeg2 ;
+%[%-cl14%]%[%-pl%]:m%{A%}%> VerbNeg2 ;
+%[%-cl15%]%[%-sg%]:%{K%}%{Ũ%}%> VerbNeg2 ;
+%[%-cl15%]%[%-pl%]:m%{A%}%> VerbNeg2 ;
 
 LEXICON VerbNeg2
 
-%[%-neg%]:ti VerbTense ;
+%[%-neg%]:%{T%}%{I%}%> VerbTense ;
 VerbTense ;
 
 LEXICON VerbTense
 
-%[%-rempast%]:%{A%} VerbObjectAgreement ;
-%[%-nearpast%]:r%{A%} VerbObjectAgreement ;
-%[%-currpast%]:%{K%}%{Ũ%} VerbObjectAgreement ;
-%[%-currpast%]: VerbObjectAgreement ;
-%[%-pres%]:%{K%}%{A%} VerbObjectAgreement ;
-%[%-pres%]:r%{A%} VerbObjectAgreement ;
-%[%-pres%]: VerbObjectAgreement ;
-%[%-currfut%]:%{K%}%{Ũ%} VerbObjectAgreement ;
-%[%-remfut%]:%{K%}%{A%} VerbObjectAgreement ;
-%[%-remfut%]: VerbObjectAgreement ; ! Difference between ka and null form unclear; may be predictable
-%[%-seq%]:%{K%}%{Ĩ%} VerbObjectAgreement ;
+%[%-rempast%]%[%-perf%]%[%-compl%]%[%-hab%]:%{A%}%> VerbObjectAgreement ;
+%[%-nearpast%]%[%-perf%]%[%-compl%]%[%-hab%]:r%{A%}%> VerbObjectAgreement ;
+%[%-currpast%]%[%-hab%]%[%-perf%]%[%-noasp%]:%{K%}%{Ũ%}%> VerbObjectAgreement ;
+%[%-currpast%]%[%-compl%]%[%-noasp%]%[%-hab%]%[%-noasp%]:%{A%}%> VerbObjectAgreement ;
+%[%-pres%]%[%-noasp%]:%{K%}%{A%}%> VerbObjectAgreement ; ! existence is dubious, see ndũkagũe, whose meaning is not really what we are going for with present... even though that's how it glosses. appears only in imperatives, conditionals
+%[%-pres%]%[%-noasp%]%[%-proc%]:%{RAR%}%{A%}%> VerbObjectAgreement ;
+%[%-pres%]%[%-hab%]: VerbObjectAgreement ; ! highly dubious... but exists sometimes like in nĩainaga
+%[%-currfut%]%[%-noasp%]%:%{K%}%{Ũ%}%> VerbObjectAgreement ; ! maybe habitual is possible ???
+! %[%-currfut%][%-fvE%]%[%-hab%]%[%-noasp%]: VerbObjectAgreement ;
+%[%-remfut%]%[%-noasp%]:%{K%}%{A%}%> VerbObjectAgreement ;
+! %[%-remfut%]%[%-noasp%]%[%-remfutagr%]: VerbObjectAgreement ; ! Difference between ka and null form unclear; may be predictable
+%[%-seq%]%[%-noasp%]:%{K%}%{tĨ%}%> VerbObjectAgreement ;
 
 LEXICON VerbObjectAgreement
 
@@ -449,116 +488,121 @@ VerbReflexive ;
 
 LEXICON VerbReflexive
 
-%[%-refl%]:%{ĨE%} VerbStem ; 
+%[%-refl%]:%{Ĩ%}%> VerbStem ; 
 VerbStem ;
 
 LEXICON VerbStem
 
-kiny:kiny VerbAfterStem ; ! arrive
-kũr:kũr VerbAfterStem ; ! grow
+kiny:%{K%}iny VerbAfterStem ; ! arrive
+kũr:%{K%}ũr VerbAfterStem ; ! grow
 ũk:%{Ũ%}k VerbAfterStem ; ! come
-in:in VerbAfterStem ; ! sing
-thi:thi VerbAfterStem ; ! go
+in:%{I%}n VerbAfterStem ; ! sing
+thi:th%{I%} VerbAfterStem ; ! go
+!thi%[%-fvĨ%]:th%{I%} VerbAfterStem; ! go
 thom:thom VerbAfterStem ; ! read
 thamb:thamb VerbAfterStem ;
-rĩm:rĩm VerbAfterStem ; ! cultivate
+rĩm:%{R%}ĩm VerbAfterStem ; ! cultivate
 haic:haic VerbAfterStem ;
 on:on VerbAfterStem ;
 humb:humb VerbAfterStem ;
-ror:ror VerbAfterStem ;
+ror:%{R%}or VerbAfterStem ;
 gũ:g%{Ũ%} VerbAfterStem ; ! fall
 ũr:%{Ũ%}r VerbAfterStem ; ! run away
-cok:cok VerbAfterStem ;
-ik:ik VerbAfterStem ; ! throw
+cok:%{C%}ok VerbAfterStem ;
+ik:%{I%}k VerbAfterStem ; ! throw
 nyit:nyit VerbAfterStem ; ! catch
 tin:tin VerbAfterStem ; ! cut
 hanyũk:hanyũk VerbAfterStem ; ! run
-ikar:ikar VerbAfterStem ; ! stay
-rĩ:rĩ VerbAfterStem ; ! eat
-ririkan:ririkan VerbAfterStem ; ! remember
-ĩtĩk:ĩtĩk VerbAfterStem ; ! believe
+ikar:%{I%}kar VerbAfterStem ; ! stay
+rĩ:%{R%}%{Ĩ%} VerbAfterStem ; ! eat
+ririkan:%{R%}irikan VerbAfterStem ; ! remember
+ĩtĩk:%{Ĩ%}tĩk VerbAfterStem ; ! believe
 iy:%{I%}y VerbAfterStem ; ! steal
-igu:igu VerbAfterStem ; ! hear 
-ug:ug VerbAfterStem ; ! say
-ĩr:ĩr VerbAfterStem ; ! tell
+igu:%{I%}g%{U%} VerbAfterStem ; ! hear 
+ug:%{U%}g VerbAfterStem ; ! say
+ĩr:%{Ĩ%}r VerbAfterStem ; ! tell
 dũm:dũm VerbAfterStem ; ! send
-tuĩk:tuĩk VerbAfterStem ; ! become
-end:end VerbAfterStem ; ! want
+tuĩk:%{T%}uĩk VerbAfterStem ; ! become
+end:%{E%}nd VerbAfterStem ; ! want
 thambĩr:thambĩr VerbAfterStem ; ! swim
-ringĩr:ringĩr VerbAfterStem ; ! persuade
+ringĩr:%{R%}ingĩr VerbAfterStem ; ! persuade
 hing:hing VerbAfterStem ; ! close
-amb:amb VerbAfterStem ; ! start
-ĩrĩgĩr:%{ĨE%}rĩgĩr VerbAfterStem ; ! intend
-ĩtĩkĩr:%{ĨE%}tĩkĩr VerbAfterStem ; ! allow
-rut:rut VerbAfterStem ; ! learn 
-ribot:ribot VerbAfterStem ; ! report
-anĩrĩr:anĩrĩr VerbAfterStem ; ! announce
-on:on VerbAfterStem ; ! see
-ĩcir:%{ĨE%}cir VerbAfterStem ; ! think
-ĩtu:%{ĨE%}tu VerbAfterStem ; ! pretend
-rot:rot VerbAfterStem ; ! dream
+amb:%{A%}mb VerbAfterStem ; ! start
+ĩrĩgĩr:%{Ĩ%}rĩgĩr VerbAfterStem ; ! intend
+ĩtĩkĩr:%{Ĩ%}tĩkĩr VerbAfterStem ; ! allow
+rut:%{R%}ut VerbAfterStem ; ! learn 
+ribot:%{R%}ibot VerbAfterStem ; ! report
+anĩrĩr:%{A%}nĩrĩr VerbAfterStem ; ! announce
+on:%{O%}n VerbAfterStem ; ! see
+ĩcir:%{Ĩ%}cir VerbAfterStem ; ! think
+ĩtu:%{Ĩ%}t%{U%} VerbAfterStem ; ! pretend
+rot:%{R%}ot VerbAfterStem ; ! dream
 ĩrir:%{ĨE%}rir VerbAfterStem ; ! regret
-ken:ken VerbAfterStem ; ! be happy
-rakar:rakar VerbAfterStem ; ! be angry
-ĩhok:%{ĨE%}hok VerbAfterStem ; ! hope
-no:no VerbAfterStem ; ! can/must (?)
+ken:{%K%}en VerbAfterStem ; ! be happy
+rakar:%{R%}akar VerbAfterStem ; ! be angry
+ĩhok:%{Ĩ%}hok VerbAfterStem ; ! hope
+no:n%{O%} VerbAfterStem ; ! can/must (?)
 hot:hot VerbAfterStem ; ! might
-tũm:tũm VerbAfterStem ; ! 
+tũm:%{T%}ũm VerbAfterStem ; ! 
 ũm:%{Ũ%}m VerbAfterStem ; ! dry
 hith:hith VerbAfterStem ; ! hide
 humb:humb VerbAfterStem ; ! cover
-ror:ror VerbAfterStem ; 
+
 
 LEXICON VerbAfterStem
 
 %<v%>: VerbTenseAgreement ;
-%<v%>%[%+imp%]%<imp%>:ĩ # ;
+%<v%>%[%+imp%]%<imp%>:%>%{Ĩ%} # ;
 
 LEXICON VerbRecip
 
-%<recip%>:an VerbIntens ;
+%<recip%>:%>%{A%}n VerbIntens ;
 VerbIntens ;
 
 LEXICON VerbIntens
 
-%<intens%>:ĩrĩr VerbRevers ;
-%<intens%>:ũrũr VerbRevers ;
+%<intens%>:%>%{Ĩ%}rĩr VerbRevers ;
+%<intens%>:%>%{Ũ%}rũr VerbRevers ;
 VerbRevers ;
 
 LEXICON VerbRevers
 
-%<revers%>:ũr VerbCaus ;
+%<revers%>:%>%{Ũ%}r VerbCaus ;
 VerbCaus ;
 
 LEXICON VerbCaus
 
-%<caus%>:ith VerbApp ;
+%<caus%>:%>%{I%}th VerbApp ;
 VerbApp ;
 
 LEXICON VerbApp
 
-%<app%>:%{ĨE%}r VerbAspect ;
+%<app%>:%>%{Ĩ%}r VerbAspect ;
 VerbAspect ;
 
 LEXICON VerbAspect
 
-%<proc%>:ĩr VerbTrans ;
-%<hab%>:ag VerbTrans ;
-%<perf%>:%{ĨE%}t VerbTrans ;
-%<compl%>:ir VerbTrans ;
-%<prog%>: VerbTrans ;
-VerbTrans ;
+%[%+proc%]%[%-fvA%]%<proc%>:%>%{Ĩ%}r VerbTrans ;
+%[%+hab%]%[%-fvA%]%<hab%>:%>%{A%}g VerbTrans ;
+%[%+perf%]%[%-fvE%]%<perf%>:%>%{Ĩ%}t VerbTrans ;
+%[%+compl%]%[%-fvE%]%<compl%>:%>%{I%}r VerbTrans ;
+! %[%+hab%]%<hab%>:%>%{A%}g VerbTrans ;
+! %[%+noasp%]: VerbTrans ;
+! %<prog%>: VerbTrans ;
+%[%+noasp%]%[%-fvA%]: VerbTrans ;
 
 LEXICON VerbTrans
 
-%<trans%>:i VerbFinalVowel ;
+%<trans%>:%>%{I%} VerbFinalVowel ;
 VerbFinalVowel ;
 
 LEXICON VerbFinalVowel
 
-0:e VerbReflexiveAgreement ;
-0:a VerbReflexiveAgreement ;
-0:ĩ VerbReflexiveAgreement ;
+%[%+fvE%]:%>%{EE%} VerbReflexiveAgreement ;
+%[%+fvA%]:%>%{A%} VerbReflexiveAgreement ;
+! %[%+fvĨ%]:%>%{Ĩ%} VerbReflexiveAgreement ;
+! %[%+nofv%]: VerbReflexiveAgreement ;
+! VerbReflexiveAgreement ;
 
 LEXICON VerbReflexiveAgreement 
 
@@ -577,15 +621,14 @@ LEXICON VerbTenseAgreement
 %[%+currpast%]%<currpast%>: VerbRecip ;
 %[%+pres%]%<pres%>: VerbRecip ;
 %[%+currfut%]%<currfut%>: VerbRecip ;
-%[%+nearfut%]%<nearfut%>: VerbRecip ;
+! %[%+nearfut%]%<nearfut%>: VerbRecip ;
 %[%+remfut%]%<remfut%>: VerbRecip ;
 %[%+seq%]%<seq%>: VerbRecip ;
-VerbRecip ;
 
 LEXICON VerbSubjectNumberAgreement
 
-%[+sg%]%<sg%>: VerbFocAgreement ;
-%[+pl%]%<pl%>: VerbFocAgreement ;
+%[%+sg%]%<sg%>: VerbFocAgreement ;
+%[%+pl%]%<pl%>: VerbFocAgreement ;
 
 LEXICON VerbSubjectConcordAgreement
 
@@ -618,15 +661,15 @@ LEXICON AdjPrefix
 %[%-cl5%]%[%-sg%]:%{RRI%}%{IRI%} AdjRoot ;
 %[%-cl5%]%[%-pl%]:ma AdjRoot ;
 %[%-cl7%]%[%-sg%]:%{K%}ĩ AdjRoot ;
-%[%-cl7%]%[%-pl%]:%{N%} AdjRoot ;
-%[%-cl9p6%]%[%-sg%]:%{N%} AdjRoot ;
+%[%-cl7%]%[%-pl%]:%{N%}%{N2%}%{N3%} AdjRoot ;
+%[%-cl9p6%]%[%-sg%]:%{N%}%{N2%}%{N3%} AdjRoot ;
 %[%-cl9p6%]%[%-pl%]:ma AdjRoot ;
-%[%-cl9p1%0%]%[%-sg%]:%{N%} AdjRoot ;
-%[%-cl9p1%0%]%[%-pl%]:%{N%} AdjRoot ;
+%[%-cl9p1%0%]%[%-sg%]:%{N%}%{N2%}%{N3%} AdjRoot ;
+%[%-cl9p1%0%]%[%-pl%]:%{N%}%{N2%}%{N3%} AdjRoot ;
 %[%-cl11p6%]%[%-sg%]:rũ AdjRoot ;
 %[%-cl11p6%]%[%-pl%]:ma AdjRoot ;
 %[%-cl11p1%0%]%[%-sg%]:rũ AdjRoot ;
-%[%-cl11p1%0%]%[%-pl%]:%{N%} AdjRoot ;
+%[%-cl11p1%0%]%[%-pl%]:%{N%}%{N2%}%{N3%} AdjRoot ;
 %[%-cl12p6%]%[%-sg%]:ka AdjRoot ;
 %[%-cl12p6%]%[%-pl%]:ma AdjRoot ;
 %[%-cl12p13%]%[%-sg%]:%{K%}a AdjRoot ;
