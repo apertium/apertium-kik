@@ -17,6 +17,23 @@ Multichar_Symbols
 %<cl15%>    ! Noun class 15
 %<???%>     ! helpful placeholder
 
+! Secondary noun classes
+! e.g. noun class of owner for personal pronouns
+! e.g. noun class of of object for verbs
+
+%<scl1%> ! Noun class 1
+%<scl3%> ! Noun class 3
+%<scl5%> ! Noun class 6
+%<scl7%> ! Noun class 7
+%<scl9p6%>   ! Noun class 9p6
+%<scl9p1%0%>  ! Noun class 9p1%0
+%<scl11p6%>  ! Noun class 11p6
+%<scl11p1%0%> ! Noun class 11p1%0
+%<scl12p6%>  ! Noun class 12p6
+%<scl12p13%> ! Noun class 12p13
+%<scl14%>    ! Noun class 14
+%<scl15%>    ! Noun class 15
+
 ! Part of speech categories
 %<n%>   ! Noun
 %<v%>   ! Verb
@@ -28,6 +45,10 @@ Multichar_Symbols
 ! Number morphology
 %<pl%>  ! Plural
 %<sg%>  ! Singular
+
+! Secondary number morphology (for owner of object in possessive, object agreement on verb, etc.)
+%<spl%> ! Secondary plural
+%<ssg%> ! Secondary singular
 
 ! Tense, Remoteness, and Aspect
 %<rempast%>    ! Remote past
@@ -46,6 +67,8 @@ Multichar_Symbols
 %<seq%>     ! Sequential
 %<foc%>     ! Focus
 
+%<pass%>    ! passive
+
 %<refl%>    ! reflexive
 
 ! Other verb morphology
@@ -58,6 +81,28 @@ Multichar_Symbols
 %<recip%> ! Reciprocal
 %<revers%>! Reversive 
 %<intens%>! Intensive
+
+%<cop%> ! copula
+
+! Pronoun types
+
+%<dep%> ! dependent pronoun
+%<poss%> ! possessive pronoun
+%<rel%> ! relative pronoun
+%<dist%> ! distal demonstrative ! far
+%<dem%> ! demonstrative
+%<prox%> ! proximal demonstrative ! nearby
+%<ana%> ! anaphoric demonstrative ! not physically there
+
+! Punctuation 
+
+%<sent%> ! sentence end
+%<cm%> ! comma
+%<quot%> ! quotation mark
+! Number
+
+%<num%> ! number
+\
 ! Other symbols
 
 %>      ! Morpheme boundary
@@ -149,7 +194,7 @@ Multichar_Symbols
 %{A%}
 %{K%}
 %{C%} 
-%{CC%}
+!%{CC%}
 %{R%}
 %{N%}
 %{N2%} 
@@ -166,7 +211,11 @@ Multichar_Symbols
 %{IRI%}
 %{Ĩ%}
 %{tĨ%}
+%{II%} ! triggers final vowel alternation
 %{EE%} ! fv e
+%{AA%} ! fv a
+%{D%} ! for nasal prefix
+%{BLOCK%} ! coalescence-blocking, only surfaces as 0
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!                       M O R P H O T A C T I C S                         !!!
@@ -178,8 +227,13 @@ NounPrefix ;
 VerbPrefix ;
 AdjPrefix ;
 Assoc ;
-PersPro ;
+Pronoun ;
+Numeral ;
 LittleWord ;
+ProperName ;
+! Quantifier ;
+Miscellany ;
+Punctuation ;
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!                          L E X I C O N                                  !!!
@@ -237,7 +291,9 @@ embe:%{E}%mb%{e%} Cl5 ; ! mango
 rigũ:%{R%}ig%{Ũ%} Cl5 ; ! banana
 inabu:%{I%}nab%{U%} Cl5 ; 
 ĩciria:%{Ĩ%}ciri%{A%} Cl5 ;
-aĩ:%{A%}%{Ĩ%} Cl5 ; ! water
+aĩ:%{A%}%{BLOCK%}%{Ĩ%} Cl5 ; ! water
+taha:%{T%}ah%{A%} Cl5 ; ! mataha (a food made with corn and beans!)
+thangũ:thang%{Ũ%} Cl5 ; ! leaf 
 
 LEXICON Cl5
 
@@ -254,6 +310,7 @@ rot:%{R%}ot Cl7 ; ! dream
 rathi:%{R%}ath%{A%} Cl7 ; ! class
 boko:bok%{O%} Cl7 ;
 imba:%{I%}mb%{A%} Cl7 ;
+ana:%{A%}n%{A%} Cl7 ; ! child
 
 LEXICON Cl7
 
@@ -341,7 +398,7 @@ LEXICON NounRootCl15
 
 tũ:%{T%}%{Ũ%} Cl15 ;
 rug:%{R%}ug Cl15 ; ! cook/cooking
-thek:thek Cl15 ; ! laugh
+theka:theka Cl15 ; ! laugh
 oko:%{O%}k%{O%} Cl15 ;
 
 LEXICON Cl15
@@ -381,7 +438,7 @@ LEXICON NounPrefixCl5
 LEXICON NounPrefixCl7
 
 %[%-sg%]:%{K%}%{Ĩ%}%> NounRootCl7 ;
-%[%-pl%]:%{CC%}%{I%}%> NounRootCl7 ;
+%[%-pl%]:%{C%}%{I%}%> NounRootCl7 ;
 
 LEXICON NounPrefixCl9p1%0
 
@@ -416,10 +473,135 @@ LEXICON NounPrefixCl15
 %[%-pl%]:m%{A%}%> NounRootCl15 ;
 
 
+LEXICON Copula
+
+CopVerbNeg1 ;
+IrregularCopula ;
+
+LEXICON IrregularCopula
+
+%<cop%>%<pres%>%<p3%>:nĩ IrregularCopulaClass ;
+%<cop%>%<pres%>%<neg%>%<p3%>:ti IrregularCopulaClass ;
+rĩ%<cop%>%<pres%>%<p1%>%<sg%>:ndĩ # ; 
+
+LEXICON IrregularCopulaNumber
+
+%<sg%>: # ;
+%<pl%>: # ;
+
+LEXICON IrregularCopulaClass
+
+%<cl1%>: IrregularCopulaNumber ;
+%<cl3%>: IrregularCopulaNumber ;
+%<cl5%>: IrregularCopulaNumber ; 
+%<cl7%>: IrregularCopulaNumber ;
+%<cl9p6%>: IrregularCopulaNumber ;
+%<cl9p1%0%>: IrregularCopulaNumber ;
+%<cl11p6%>: IrregularCopulaNumber ;
+%<cl11p1%0%>: IrregularCopulaNumber ;
+%<cl12p6%>: IrregularCopulaNumber ;
+%<cl12p13%>: IrregularCopulaNumber ;
+%<cl14%>: IrregularCopulaNumber ;
+%<cl15%>: IrregularCopulaNumber ;
+
+LEXICON CopVerbNeg1
+
+%[%-neg%]:n%{D%}%> CopVerbSubjectConcord ;
+CopVerbSubjectConcord ;
+
+LEXICON CopVerbSubjectConcord
+
+%[%-p1%]%[%-sg%]:%{N%}%{N2%}%{N3%}%> CopVerbNeg2 ;
+%[%-p1%]%[%-pl%]:%{T%}%{Ũ%}%> CopVerbNeg2 ;
+%[%-p2%]%[%-sg%]:%{Ũ%}%> CopVerbTense ;
+%[%-p2%]%[%-pl%]:m%{Ũ%}%> CopVerbNeg2 ;
+%[%-cl1%]%[%-sg%]:%{A%}%> CopVerbTense ;
+%[%-cl1%]%[%-pl%]:m%{A%}%> CopVerbNeg2 ;
+%[%-cl3%]%[%-sg%]:%{Ũ%}%> CopVerbTense ;
+%[%-cl3%]%[%-pl%]:%{Ĩ%}%> CopVerbTense ;
+%[%-cl5%]%[%-sg%]:r%{Ĩ%}%> CopVerbNeg2 ;
+%[%-cl5%]%[%-pl%]:m%{A%}%> CopVerbNeg2 ;
+%[%-cl7%]%[%-sg%]:%{K%}%{Ĩ%}%> CopVerbNeg2 ;
+%[%-cl7%]%[%-pl%]:%{C%}%{I%}%> CopVerbNeg2 ;
+%[%-cl9p6%]%[%-sg%]:%{Ĩ%}%> CopVerbTense ;
+%[%-cl9p6%]%[%-pl%]:m%{A%}%> CopVerbNeg2 ;
+%[%-cl9p1%0%]%[%-sg%]:%{Ĩ%}%> CopVerbTense ;
+%[%-cl9p1%0%]%[%-pl%]:%{C%}%{I%}%> CopVerbNeg2 ;
+%[%-cl11p6%]%[%-sg%]:%{R%}%{Ũ%}%> CopVerbNeg2 ;
+%[%-cl11p6%]%[%-pl%]:m%{A%}%> CopVerbNeg2 ;
+%[%-cl11p1%0%]%[%-sg%]:%{R%}%{Ũ%}%> CopVerbNeg2 ;
+%[%-cl11p1%0%]%[%-pl%]:%{C%}%{I%}%> CopVerbNeg2 ;
+%[%-cl12p6%]%[%-sg%]:%{K%}%{A%}%> CopVerbNeg2 ;
+%[%-cl12p6%]%[%-pl%]:m%{A%}%> CopVerbNeg2 ;
+%[%-cl12p13%]%[%-sg%]:%{K%}%{A%}%> CopVerbNeg2 ;
+%[%-cl12p13%]%[%-pl%]:%{T%}%{Ũ%}%> CopVerbNeg2 ;
+%[%-cl14%]%[%-sg%]:%{Ũ%}%> CopVerbTense ;
+%[%-cl14%]%[%-pl%]:m%{A%}%> CopVerbNeg2 ;
+%[%-cl15%]%[%-sg%]:%{K%}%{Ũ%}%> CopVerbNeg2 ;
+%[%-cl15%]%[%-pl%]:m%{A%}%> CopVerbNeg2 ;
+
+! %{N%}%{N2%}%{N3%}%>%{T%}%{I%}%>%{
+
+LEXICON CopVerbNeg2
+
+%[%-neg%]:%{T%}%{I%}%> CopVerbTense ;
+CopVerbTense ;
+
+LEXICON CopVerbTense
+
+%[%-rempast%]:%{A%}%> CopRoot1 ;
+%[%-nearpast%]:r%{A%}%> CopRoot1 ;
+%[%-currpast%]: CopRoot2 ;
+%[%-pres%]: CopRoot1 ;
+
+LEXICON CopRoot1
+
+rĩ%<cop%>:r%{Ĩ%} CopTenseAgreement ;
+rĩ%<cop%>%[%+pres%]%<pres%>:%{Ĩ%} CopNegAgreement ;
+
+LEXICON CopRoot2
+
+uma%<cop%>:%{U%}ma CopTenseAgreement ;
+
+LEXICON CopTenseAgreement
+
+%[%+rempast%]%<rempast%>: CopNegAgreement ;
+%[%+nearpast%]%<nearpast%>: CopNegAgreement ;
+%[%+currpast%]%<currpast%>: CopNegAgreement ;
+%[%+pres%]%<pres%>: CopNegAgreement ;
+
+LEXICON CopNegAgreement
+
+%[%+neg%]%<neg%>: CopSubjectConcordAgreement ;
+CopSubjectConcordAgreement ;
+
+LEXICON CopSubjectConcordAgreement 
+
+%[%+p1%]%<p1%>: CopSubjectNumberAgreement ;
+%[%+p2%]%<p2%>: CopSubjectNumberAgreement ;
+%[%+cl1%]%<p3%>%<cl1%>: CopSubjectNumberAgreement ; ! Noun class 1
+%[%+cl3%]%<p3%>%<cl3%>: CopSubjectNumberAgreement ; ! Noun class 3
+%[%+cl5%]%<p3%>%<cl5%>: CopSubjectNumberAgreement ; ! Noun class 6
+%[%+cl7%]%<p3%>%<cl7%>: CopSubjectNumberAgreement ; ! Noun class 7
+%[%+cl9p6%]%<p3%>%<cl9p6%>: CopSubjectNumberAgreement ;   ! Noun class 9p6
+%[%+cl9p1%0%]%<p3%>%<cl9p1%0%>: CopSubjectNumberAgreement ; ! Noun class 9p1%0
+%[%+cl11p6%]%<p3%>%<cl11p6%>: CopSubjectNumberAgreement ; ! Noun class 11p6
+%[%+cl11p1%0%]%<p3%>%<cl11p1%0%>: CopSubjectNumberAgreement ; ! Noun class 11p1%0
+%[%+cl12p6%]%<p3%>%<cl12p6%>: CopSubjectNumberAgreement  ; ! Noun class 12p6
+%[%+cl12p13%]%<p3%>%<cl12p13%>: CopSubjectNumberAgreement ; ! Noun class 12p13
+%[%+cl14%]%<p3%>%<cl14%>: CopSubjectNumberAgreement ;   ! Noun class 14
+%[%+cl15%]%<p3%>%<cl14%>: CopSubjectNumberAgreement ;   ! Noun class 15
+
+LEXICON CopSubjectNumberAgreement
+
+%[%+sg%]%<sg%>: # ;
+%[%+pl%]%<pl%>: # ;
+
 LEXICON VerbPrefix
 
 VerbFoc ;
 %[%-imp%]: VerbStem ; 
+Copula ;
 
 LEXICON VerbFoc
 
@@ -428,26 +610,26 @@ VerbNeg1 ;
 
 LEXICON VerbNeg1
 
-%[%-neg%]:nd%> VerbSubjectConcord ;
+%[%-neg%]:n%{D%}%> VerbSubjectConcord ;
 VerbSubjectConcord ;
 
 LEXICON VerbSubjectConcord
 
 %[%-p1%]%[%-sg%]:%{N%}%{N2%}%{N3%}%> VerbNeg2 ;
 %[%-p1%]%[%-pl%]:%{T%}%{Ũ%}%> VerbNeg2 ;
-%[%-p2%]%[%-sg%]:%{Ũ%}%> VerbNeg2 ;
+%[%-p2%]%[%-sg%]:%{Ũ%}%> VerbTense ;
 %[%-p2%]%[%-pl%]:m%{Ũ%}%> VerbNeg2 ;
-%[%-cl1%]%[%-sg%]:%{A%}%> VerbNeg2 ;
+%[%-cl1%]%[%-sg%]:%{A%}%> VerbTense ;
 %[%-cl1%]%[%-pl%]:m%{A%}%> VerbNeg2 ;
-%[%-cl3%]%[%-sg%]:%{Ũ%}%> VerbNeg2 ;
-%[%-cl3%]%[%-pl%]:%{Ĩ%}%> VerbNeg2 ;
+%[%-cl3%]%[%-sg%]:%{Ũ%}%> VerbTense ;
+%[%-cl3%]%[%-pl%]:%{Ĩ%}%> VerbTense ;
 %[%-cl5%]%[%-sg%]:r%{Ĩ%}%> VerbNeg2 ;
 %[%-cl5%]%[%-pl%]:m%{A%}%> VerbNeg2 ;
 %[%-cl7%]%[%-sg%]:%{K%}%{Ĩ%}%> VerbNeg2 ;
 %[%-cl7%]%[%-pl%]:%{C%}%{I%}%> VerbNeg2 ;
-%[%-cl9p6%]%[%-sg%]:%{Ĩ%}%> VerbNeg2 ;
+%[%-cl9p6%]%[%-sg%]:%{Ĩ%}%> VerbTense ;
 %[%-cl9p6%]%[%-pl%]:m%{A%}%> VerbNeg2 ;
-%[%-cl9p1%0%]%[%-sg%]:%{Ĩ%}%> VerbNeg2 ;
+%[%-cl9p1%0%]%[%-sg%]:%{Ĩ%}%> VerbTense ;
 %[%-cl9p1%0%]%[%-pl%]:%{C%}%{I%}%> VerbNeg2 ;
 %[%-cl11p6%]%[%-sg%]:%{R%}%{Ũ%}%> VerbNeg2 ;
 %[%-cl11p6%]%[%-pl%]:m%{A%}%> VerbNeg2 ;
@@ -457,7 +639,7 @@ LEXICON VerbSubjectConcord
 %[%-cl12p6%]%[%-pl%]:m%{A%}%> VerbNeg2 ;
 %[%-cl12p13%]%[%-sg%]:%{K%}%{A%}%> VerbNeg2 ;
 %[%-cl12p13%]%[%-pl%]:%{T%}%{Ũ%}%> VerbNeg2 ;
-%[%-cl14%]%[%-sg%]:%{Ũ%}%> VerbNeg2 ;
+%[%-cl14%]%[%-sg%]:%{Ũ%}%> VerbTense ;
 %[%-cl14%]%[%-pl%]:m%{A%}%> VerbNeg2 ;
 %[%-cl15%]%[%-sg%]:%{K%}%{Ũ%}%> VerbNeg2 ;
 %[%-cl15%]%[%-pl%]:m%{A%}%> VerbNeg2 ;
@@ -473,10 +655,11 @@ LEXICON VerbTense
 %[%-nearpast%]%[%-perf%]%[%-compl%]%[%-hab%]:r%{A%}%> VerbObjectAgreement ;
 %[%-currpast%]%[%-hab%]%[%-perf%]%[%-noasp%]:%{K%}%{Ũ%}%> VerbObjectAgreement ;
 %[%-currpast%]%[%-compl%]%[%-noasp%]%[%-hab%]%[%-noasp%]:%{A%}%> VerbObjectAgreement ;
+! %[%-currpast%]%[%-compl%]: VerbObjectAgreement ;
 %[%-pres%]%[%-noasp%]:%{K%}%{A%}%> VerbObjectAgreement ; ! existence is dubious, see ndũkagũe, whose meaning is not really what we are going for with present... even though that's how it glosses. appears only in imperatives, conditionals
 %[%-pres%]%[%-noasp%]%[%-proc%]:%{RAR%}%{A%}%> VerbObjectAgreement ;
 %[%-pres%]%[%-hab%]: VerbObjectAgreement ; ! highly dubious... but exists sometimes like in nĩainaga
-%[%-currfut%]%[%-noasp%]%:%{K%}%{Ũ%}%> VerbObjectAgreement ; ! maybe habitual is possible ???
+%[%-currfut%]%[%-noasp%]:%{K%}%{Ũ%}%> VerbObjectAgreement ; ! maybe habitual is possible ???
 ! %[%-currfut%]%[%-fvE%]%[%-hab%]%[%-noasp%]: VerbObjectAgreement ;
 %[%-remfut%]%[%-noasp%]:%{K%}%{A%}%> VerbObjectAgreement ;
 ! %[%-remfut%]%[%-noasp%]%[%-remfutagr%]: VerbObjectAgreement ; ! Difference between ka and null form unclear; may be predictable
@@ -497,7 +680,7 @@ kiny:%{K%}iny VerbAfterStem ; ! arrive
 kũr:%{K%}ũr VerbAfterStem ; ! grow
 ũk:%{Ũ%}k VerbAfterStem ; ! come
 in:%{I%}n VerbAfterStem ; ! sing
-thi:th%{I%} VerbAfterStem ; ! go
+thi:th%{II%} VerbAfterStem ; ! go
 !thi%[%-fvĨ%]:th%{I%} VerbAfterStem; ! go
 thom:thom VerbAfterStem ; ! read
 thamb:thamb VerbAfterStem ;
@@ -513,7 +696,7 @@ ik:%{I%}k VerbAfterStem ; ! throw
 nyit:nyit VerbAfterStem ; ! catch
 tin:tin VerbAfterStem ; ! cut
 hanyũk:hanyũk VerbAfterStem ; ! run
-ikar:%{I%}kar VerbAfterStem ; ! stay
+ikar:%{I%}kar VerbAfterStem ; ! stay/sit
 rĩ:%{R%}%{Ĩ%} VerbAfterStem ; ! eat
 ririkan:%{R%}irikan VerbAfterStem ; ! remember
 ĩtĩk:%{Ĩ%}tĩk VerbAfterStem ; ! believe
@@ -547,12 +730,14 @@ tũm:%{T%}ũm VerbAfterStem ; !
 ũm:%{Ũ%}m VerbAfterStem ; ! dry
 hith:hith VerbAfterStem ; ! hide
 humb:humb VerbAfterStem ; ! cover
-
+ĩk:%{tĨ%}k VerbAfterStem ; ! put
+thek:thek VerbAfterStem ; ! laugh
+tah:tah VerbAfterStem ; ! fetch
 
 LEXICON VerbAfterStem
 
 %<v%>: VerbTenseAgreement ;
-%<v%>%[%+imp%]%<imp%>:%>%{Ĩ%} # ;
+%<v%>%[%+imp%]%<imp%>%[%-fvA%]: VerbFinalVowel ;
 
 LEXICON VerbRecip
 
@@ -599,7 +784,9 @@ VerbFinalVowel ;
 LEXICON VerbFinalVowel
 
 %[%+fvE%]:%>%{EE%} VerbReflexiveAgreement ;
-%[%+fvA%]:%>%{A%} VerbReflexiveAgreement ;
+%[%+fvA%]:%>%{AA%} VerbReflexiveAgreement ;
+%[%+fvA%]%<pass%>:%>wo VerbReflexiveAgreement ;
+%[%+fvE%]%<pass%>:%>wo VerbReflexiveAgreement ; 
 ! %[%+fvĨ%]:%>%{Ĩ%} VerbReflexiveAgreement ;
 ! %[%+nofv%]: VerbReflexiveAgreement ;
 ! VerbReflexiveAgreement ;
@@ -746,37 +933,350 @@ a%<assoc%>%<cl14%>%<pl%>:ma # ;
 a%<assoc%>%<cl15%>%<sg%>:kũa # ;
 a%<assoc%>%<cl15%>%<pl%>:ma # ;
 
+LEXICON Pronoun 
+
+PersPro ; ! personal pronouns
+DepPro ; ! dependent pronouns ("and/with X")
+PossPro ; ! possessive pronouns (follow nouns)
+RelPro ; ! relative pronouns (relativize nouns)
+DemPro ; ! demonstrative pronouns (that one, etc.)
+
 LEXICON PersPro
 
 %<pro%>%<p1%>%<sg%>:niũ # ;
 %<pro%>%<p1%>%<pl%>:ithuĩ # ; 
 %<pro%>%<p2%>%<sg%>:weũ # ;
 %<pro%>%<p2%>%<pl%>:inyuũ # ;
-o%<pro%>%<p3%>%<cl1%>%<sg%>:we # ; 
-o%<pro%>%<p3%>%<cl1%>%<pl%>:mo # ;
-o%<pro%>%<p3%>%<cl3%>%<sg%>:guo # ;
-o%<pro%>%<p3%>%<cl3%>%<pl%>:yo # ;
-o%<pro%>%<p3%>%<cl5%>%<sg%>:rĩo # ;
-o%<pro%>%<p3%>%<cl5%>%<pl%>:mo # ;
-o%<pro%>%<p3%>%<cl7%>%<sg%>:kĩo # ;
-o%<pro%>%<p3%>%<cl7%>%<pl%>:cio # ;
-o%<pro%>%<p3%>%<cl9p1%0%>%<sg%>:yo # ;
-o%<pro%>%<p3%>%<cl9p1%0%>%<pl%>:cio # ;
-o%<pro%>%<p3%>%<cl11p6%>%<sg%>:ruo # ;
-o%<pro%>%<p3%>%<cl11p6%>%<pl%>:mo # ;
-o%<pro%>%<p3%>%<cl11p1%0%>%<sg%>:ruo # ;
-o%<pro%>%<p3%>%<cl11p1%0%>%<pl%>:cio # ;
-o%<pro%>%<p3%>%<cl12p13%>%<sg%>:ko # ;
-o%<pro%>%<p3%>%<cl12p13%>%<pl%>:tuo # ;
-o%<pro%>%<p3%>%<cl14%>%<sg%>:guo # ;
-o%<pro%>%<p3%>%<cl14%>%<pl%>:mo # ;
-o%<pro%>%<p3%>%<cl15%>%<sg%>:kuo # ;
-o%<pro%>%<p3%>%<cl15%>%<pl%>:mo # ;
+%<pro%>%<p3%>%<cl1%>%<sg%>:we # ; 
+%<pro%>%<p3%>%<cl1%>%<pl%>:mo # ;
+%<pro%>%<p3%>%<cl3%>%<sg%>:guo # ;
+%<pro%>%<p3%>%<cl3%>%<pl%>:yo # ;
+%<pro%>%<p3%>%<cl5%>%<sg%>:rĩo # ;
+%<pro%>%<p3%>%<cl5%>%<pl%>:mo # ;
+%<pro%>%<p3%>%<cl7%>%<sg%>:kĩo # ;
+%<pro%>%<p3%>%<cl7%>%<pl%>:cio # ;
+%<pro%>%<p3%>%<cl9p1%0%>%<sg%>:yo # ;
+%<pro%>%<p3%>%<cl9p1%0%>%<pl%>:cio # ;
+%<pro%>%<p3%>%<cl11p6%>%<sg%>:ruo # ;
+%<pro%>%<p3%>%<cl11p6%>%<pl%>:mo # ;
+%<pro%>%<p3%>%<cl11p1%0%>%<sg%>:ruo # ;
+%<pro%>%<p3%>%<cl11p1%0%>%<pl%>:cio # ;
+%<pro%>%<p3%>%<cl12p13%>%<sg%>:ko # ;
+%<pro%>%<p3%>%<cl12p13%>%<pl%>:tuo # ;
+%<pro%>%<p3%>%<cl14%>%<sg%>:guo # ;
+%<pro%>%<p3%>%<cl14%>%<pl%>:mo # ;
+%<pro%>%<p3%>%<cl15%>%<sg%>:kuo # ;
+%<pro%>%<p3%>%<cl15%>%<pl%>:mo # ;
+
+LEXICON DepPro 
+
+%<dep%>:na PersPro ;
+
+LEXICON PossPro 
+
+%<poss%>: PossProObject ;
+
+LEXICON PossProObject
+
+%<cl1%>%<sg%>:w%{A%}%> PossProOwner ;
+%<cl1%>%<pl%>:%{A%}%> PossProOwner ;
+%<cl3%>%<sg%>:w%{A%}%> PossProOwner ;
+%<cl3%>%<pl%>:y%{A%}%> PossProOwner ;
+%<cl5%>%<sg%>:rĩ%{A%}%> PossProOwner ;
+%<cl5%>%<pl%>:m%{A%}%> PossProOwner ;
+%<cl7%>%<sg%>:gĩ%{A%}%> PossProOwner ;
+%<cl7%>%<pl%>:ci%{A%}%> PossProOwner ;
+%<cl9p6%>%<sg%>:y%{A%}%> PossProOwner ;
+%<cl9p6%>%<pl%>:m%{A%}%> PossProOwner ;
+%<cl9p10%>%<sg%>:y%{A%}%> PossProOwner ;
+%<cl9p10%>%<pl%>:ci%{A%}%> PossProOwner ;
+%<cl11p6%>%<sg%>:rũ%{A%}%> PossProOwner ;
+%<cl11p6%>%<pl%>:m%{A%}%> PossProOwner ;
+%<cl11p10%>%<sg%>:rũ%{A%}%> PossProOwner ;
+%<cl11p10%>%<pl%>:ci%{A%}%> PossProOwner ;
+%<cl12p6%>%<sg%>:g%{A%}%> PossProOwner ;
+%<cl12p6%>%<pl%>:m%{A%}%> PossProOwner ;
+%<cl12p13%>%<sg%>:g%{A%}%> PossProOwner ;
+%<cl12p13%>%<pl%>:tũ%{A%}%> PossProOwner ;
+%<cl14%>%<sg%>:w%{A%}%> PossProOwner ;
+%<cl14%>%<pl%>:m%{A%}%> PossProOwner ;
+%<cl15%>%<sg%>:gũ%{A%}%> PossProOwner ;
+%<cl15%>%<pl%>:m%{A%}%> PossProOwner ;
+
+LEXICON PossProOwner
+
+%<p1%>%<ssg%>:%{A%}kwa # ;
+%<p1%>%<spl%>:%{I%}tũ # ;
+%<p2%>%<ssg%>:%{A%}ku # ;
+%<p2%>%<spl%>:%{A%}nyu # ;
+%<p3%>%<scl1%>%<ssg%>:%{A%}ke # ;
+%<p3%>%<scl1%>%<spl%>:%{A%}o # ;
+
+LEXICON RelPro
+
+%<rel%>%<pro%>: RelProRoot ; 
+
+!TODO: What is going on here???
+
+LEXICON RelProRoot
+
+%<cl1%>%<sg%>:ũrĩa # ;
+%<cl1%>%<pl%>:%{A%}rĩa # ;
+%<cl3%>%<sg%>:ũrĩa # ;
+%<cl3%>%<pl%>:ĩrĩa # ;
+%<cl5%>%<sg%>:rĩrĩa # ;
+%<cl5%>%<pl%>:m%{A%}rĩa # ;
+%<cl7%>%<sg%>:kĩrĩa # ;
+%<cl7%>%<pl%>:irĩa # ;
+%<cl9p6%>%<sg%>:ĩria # ;
+%<cl9p6%>%<pl%>:m%{A%}rĩa # ;
+%<cl9p10%>%<sg%>:irĩa # ;
+%<cl9p10%>%<pl%>:iria # ;
+%<cl11p6%>%<sg%>:rũrĩa # ;
+%<cl11p6%>%<pl%>:m%{A%rĩa # ;
+%<cl11p10%>%<sg%>:rũrĩa # ;
+%<cl11p10%>%<pl%>:iria # ;
+%<cl12p6%>%<sg%>:k%{A%}rĩa # ;
+%<cl12p6%>%<pl%>:m%{A%}rĩa # ;
+%<cl12p13%>%<sg%>:k%{A%}rĩa # ;
+%<cl12p13%>%<pl%>:tũrĩa # ;
+%<cl14%>%<sg%>:ũrĩa # ;
+%<cl14%>%<pl%>:m%{A%}rĩa # ;
+%<cl15%>%<sg%>:kũrĩa # ;
+%<cl15%>%<pl%>:m%{A%}rĩa # ;
+
+LEXICON DemPro
+
+%<dem%>%<dist%>: DistDem ;
+%<dem%>%<prox%>: ProxDem ;
+%<dem%>%<ana%>: AnaDem ;
+
+LEXICON DistDem
+
+RelProRoot ; ! relative pronouns have same orthography as distal demonstratives
+
+LEXICON ProxDem
+
+%<cl1%>%<sg%>:ũyũ # ;
+%<cl1%>%<pl%>:aya # ;
+%<cl3%>%<sg%>:ũyũ # ;
+%<cl3%>%<pl%>:ĩno # ;
+%<cl5%>%<sg%>:rĩrĩ # ;
+%<cl5%>%<pl%>:maya # ;
+%<cl7%>%<sg%>:gĩkĩ # ;
+%<cl7%>%<pl%>:ici # ;
+%<cl9p6%>%<sg%>:ĩno # ;
+%<cl9p6%>%<pl%>:maya # ;
+%<cl9p10%>%<sg%>:ĩno # ;
+%<cl9p10%>%<pl%>:ici # ;
+%<cl11p6%>%<sg%>:rũrũ # ;
+%<cl11p6%>%<pl%>:maya # ;
+%<cl11p10%>%<sg%>:rũrũ # ;
+%<cl11p10%>%<pl%>:ici # ;
+%<cl12p6%>%<sg%>:gaka # ;
+%<cl12p6%>%<pl%>:maya # ;
+%<cl12p13%>%<sg%>:gaka # ;
+%<cl12p13%>%<pl%>:tũtũ # ;
+%<cl14%>%<sg%>:ũyũ # ;
+%<cl14%>%<pl%>:maya # ;
+%<cl15%>%<sg%>:gũkũ # ;
+%<cl15%>%<pl%>:maya # ;
+
+LEXICON AnaDem
+
+%<cl1%>%<sg%>:ũcio # ;
+%<cl1%>%<sg%>:ũu # ;
+%<cl1%>%<pl%>:acio # ;
+%<cl1%>%<pl%>:au # ;
+%<cl3%>%<sg%>:ũcio # ;
+%<cl3%>%<sg%>:ũu # ;
+%<cl3%>%<pl%>:ĩyo # ;
+%<cl3%>%<pl%>:ĩu # ;
+%<cl5%>%<sg%>:rĩu # ;
+%<cl5%>%<pl%>:macia # ;
+%<cl5%>%<pl%>:mau # ;
+%<cl7%>%<sg%>:kĩu # ;
+%<cl7%>%<pl%>:icio # ;
+%<cl7%>%<pl%>:iu # ;
+%<cl9p6%>%<sg%>:ĩyo # ;
+%<cl9p6%>%<sg%>:ĩu # ;
+%<cl9p6%>%<pl%>:macio # ;
+%<cl9p6%>%<pl%>:mau # ;
+%<cl9p10%>%<sg%>:ĩno # ;
+%<cl9p10%>%<sg%>:ĩno # ;
+%<cl9p10%>%<pl%>:icio # ;
+%<cl9p10%>%<pl%>:iu # ;
+%<cl11p6%>%<sg%>:rũu # ;
+%<cl11p6%>%<pl%>:macio # ;
+%<cl11p6%>%<pl%>:mau # ;
+%<cl11p10%>%<sg%>:rũu # ;
+%<cl11p10%>%<pl%>:icio # ;
+%<cl11p10%>%<pl%>:iu # ;
+%<cl12p6%>%<sg%>:kau # ;
+%<cl12p6%>%<pl%>:macio # ;
+%<cl12p6%>%<pl%>:mau # ;
+%<cl12p13%>%<sg%>:kau # ;
+%<cl12p13%>%<pl%>:tũu # ;
+%<cl14%>%<sg%>:ũcio # ;
+%<cl14%>%<sg%>:ũu # ;
+%<cl14%>%<pl%>:macio # ;
+%<cl14%>%<pl%>:mau # ;
+%<cl15%>%<sg%>:kũu # ;
+%<cl15%>%<pl%>:macio # ;
+%<cl15%>%<pl%>:mau # ;
+
+LEXICON Numeral
+
+NumeralPrefix ;
+NumeralIrregular ;
+LargeNumber ;
+SpecialOrdinal ; !
+
+! Default noun class for a number is 12p13 for some reason, but it agrees with a noun if there is one
+
+LEXICON SpecialOrdinal
+
+! Most ordinals are just assoc + cardinal, but first is special and has different words to replace the cardinal kĩmwe
+
+mbere%<num%>: # ; ! first
+kĩambĩrĩria%<num%>%<cl7%>%<sg%>: # ; ! first
+
+mũthia%<num%>: # ; ! last
+
+LEXICON LargeNumber 
+
+gana%<num%>%<cl5%>%<sg%>:igana # ; ! one hundred
+gana%<num%>%<cl5%>%<pl%>:magana # ; ! hundreds
+giri%<num%>%<cl9p10%>%<sg%>:ngiri # ; ! one thousand
+giri%<num%>%<cl9p10%>%<pl%>:ngiri # ; ! thousands
+kũmi%<num%>%<cl3%>%<sg%>:ikũmi # ; ! ten
+rongo%<num%>%<cl3%>%<pl%>:mĩrongo # ; ! tens
+
+LEXICON NumeralPrefix 
+
+%[%-cl1%]%[%-sg%]:ũ NumRoot ;
+%[%-cl1%]%[%-pl%]:%{A%} NumRootPl ;
+%[%-cl3%]%[%-sg%]:ũ NumRoot ;
+%[%-cl3%]%[%-pl%]:y%{A%} NumRootPl ;
+%[%-cl5%]%[%-sg%]:rĩ NumRoot ;
+%[%-cl5%]%[%-pl%]:m%{A%} NumRootPl ;
+%[%-cl9p6%]%[%-pl%]:m%{A%} NumRootPl ;
+%[%-cl11p6%]%[%-pl%]:m%{A%} NumRootPl ;
+%[%-cl7%]%[%-sg%]:kĩ NumRoot ;
+%[%-cl7%]%[%-pl%]:i NumRootPl ;
+%[%-cl9p6%]%[%-sg%]:ĩ NumRoot ;
+%[%-cl9p1%0%]%[%-sg%]:ĩ NumRoot ;
+%[%-cl11p6%]%[%-sg%]:rũ NumRoot ;
+%[%-cl11p1%0%]%[%-sg%]:rũ NumRoot ;
+%[%-cl12p13%]%[%-sg%]:k%{A%} NumRoot ;
+%[%-cl12p13%]%[%-pl%]:tũ NumRootPl ;
+%[%-cl14%]%[%-sg%]:w%{A%} NumRoot ;
+%[%-cl14%]%[%-pl%]:m%{A%} NumRootPl ;
+%[%-cl15%]%[%-sg%]:kũ NumRoot ;
+%[%-cl15%]%[%-pl%]:m%{A%} NumRootPl ;
+
+! Shortcuts for exceptions
+
+%[%-cl7%]%[%-pl%]: ExceptionalNumeral ;
+%[%-cl9p1%0%]%[%-pl%]: ExceptionalNumeral ;
+%[%-cl11p1%0%]%[%-pl%]: ExceptionalNumeral ;
+
+LEXICON ExceptionalNumeral
+
+ĩrĩ%<num%>:igĩrĩ NumAgreement ; ! two
+atũ%<num%>:ithatũ NumAgreement ; ! three
+na%<num%>:inya NumAgreement ; ! four
+ano%<num%>:ithano NumAgreement ; ! five
+tandatũ%<num%>:ithathatũ NumAgreement ; ! six
+nana%<num%>:inyanya NumAgreement ; ! eight 
+
+LEXICON NumRoot
+
+mwe%<num%>:mwe NumAgreement ; ! one
+kũmi%<num%>:kũmi NumAgreement ; ! ten
+
+LEXICON NumRootPl
+
+ĩrĩ%<num%>:%{Ĩ%}rĩ NumAgreement ; ! two
+tatũ%<num%>:tatũ NumAgreement ; ! three
+na%<num%>:na NumAgreement ; ! four
+tano%<num%>:tano NumAgreement ; ! five
+tandatũ%<num%>:tandatũ NumAgreement ; ! six
+nana%<num%>:nana NumAgreement ; ! eight
+rongo%<num%>:rongo NumAgreement ; ! tens
+
+LEXICON NumAgreement
+
+%[%+cl1%]%<cl1%>: NumNumber ; ! Noun class 1
+%[%+cl3%]%<cl3%>: NumNumber ; ! Noun class 3
+%[%+cl5%]%<cl5%>: NumNumber ; ! Noun class 6
+%[%+cl7%]%<cl7%>: NumNumber ; ! Noun class 7
+%[%+cl9p6%]%<cl9p6%>: NumNumber ;   ! Noun class 9p6
+%[%+cl9p1%0%]%<cl9p1%0%>: NumNumber ; ! Noun class 9p1%0
+%[%+cl11p6%]%<cl11p6%>: NumNumber ; ! Noun class 11p6
+%[%+cl11p1%0%]%<cl11p1%0%>: NumNumber ; ! Noun class 11p1%0
+%[%+cl12p6%]%<cl12p6%>: NumNumber ; ! Noun class 12p6
+%[%+cl12p13%]%<cl12p13%>: NumNumber ; ! Noun class 12p13
+%[%+cl14%]%<cl14%>: NumNumber ;   ! Noun class 14
+%[%+cl15%]%<cl15%>: NumNumber ;   ! Noun class 15
+
+LEXICON NumNumber 
+
+%[%+sg%]%<sg%>: # ;
+%[%+pl%]%<pl%>: # ;
+
+LEXICON NumeralIrregular
+
+mũgwanja%<num%>:mũgwanja NumIrregularAgreement ; ! seven
+kenda%<num%>:kenda NumIrregularAgreement ; ! nine
+
+LEXICON NumIrregularAgreement
+
+%<cl1%>%<pl%>: # ;
+%<cl3%>%<pl%>: # ;
+%<cl5%>%<pl%>: # ;
+%<cl7%>%<pl%>: # ;
+%<cl9p6%>%<pl%>: # ;
+%<cl9p10%>%<pl%>: # ;
+%<cl11p6%>%<pl%>: # ;
+%<cl11p10%>%<pl%>: # ;
+%<cl12p6%>%<pl%>: # ;
+%<cl12p13%>%<pl%>: # ;
+%<cl14%>%<pl%>: # ;
+%<cl15%>%<pl%>: # ;
 
 LEXICON LittleWord
 
 na%<prep%>:na # ; ! with
 o%<quant%>:o # ; ! all
+kuma%<prep%>:kuma # ; ! from
+kana:kana # ; ! if 
+no:no # ; ! but
+mũno:mũno # ; ! very 
+
+LEXICON ProperName
+
+Kenya:Kenya # ; ! Kenya
+Abĩrika:Abĩrika # ; ! Africa
+Abirika:Abirika # ; ! Africa
+Mũtiiri:Mũtiiri # ; ! Mũtiiri
+Gĩgĩkũyũ:Gĩgĩkũyũ # ; ! Gĩgĩkũyũ
+
+! LEXICON Quantifier
+
+! # ;
+
+LEXICON Miscellany 
+
+makĩria:makĩria # ; ! exceeding(?)
+
+LEXICON Punctuation
+
+.%<sent%>:. # ;
+%;%<sent%>:%; # ;
+%!%<sent%>:%! # ;
+,%<cm%>:, # ;
+%"%<quot%>:%: # ;
 
 ! Resources:
 ! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Lexicon

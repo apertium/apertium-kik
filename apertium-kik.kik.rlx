@@ -4,12 +4,27 @@ DELIMITERS = "<.>" ;
 # We can define sets for common tag clusters
 LIST Case = (n s) (n p) ; # A set that matches either a Noun Singular or a Noun Plural
 
+LIST Nominal = (n) (pro) ; # Nominal items
+
+LIST Number = (sg) (pl) ; # Numbers
+
+LIST NounClass = (cl1) (cl3) (cl5) (cl7) (cl9p6) (cl9p10) (cl11p6) (cl11p10) (cl12p6) (cl12p13) (cl14) (cl15) ; # Noun classes
+
 SECTION
 # If there is a singular noun to the right, I cannot be a verb or noun.
 REMOVE (n) OR (v) IF (1 (n s)) ;
 
 # If there is a conjunction followed by a certain cohort of the same CASE as me, choose me.
 SELECT $$Case IF (1 (cnjcoo) LINK 1C $$Case) ;
+
+# If I am a verb or associative inflected to agree with a certain noun class, select me if the noun or pronoun preceding me is of that class.
+SELECT $$NounClass IF (0 (cop) OR (v) OR (assoc)) (-1 Nominal + $$NounClass ) ; 
+
+# If I am verb or associative inflected to agree with a certain number, select me if the noun or pronoun preceding me is of that number.
+SELECT $$Number IF (0 (cop) OR (v) OR (assoc)) (-1 Nominal + $$Number ) ; 
+
+#If I am a verb followed by a copula, remove me.
+REMOVE (v) IF (0 (v)) (1 (cop)) ;
 
 # Resources:
 # http://visl.sdu.dk/cg3.html

@@ -84,9 +84,18 @@ Rules
 Tx:0 /<= _ ;
    except
        _ (:*) Ty:0 ;
-   where Tx in ( %[%-sg%] %[%-pl%] )
-         Ty in ( %[%+sg%] %[%+pl%] )
+   where Tx in ( %[%-sg%]  )
+         Ty in ( %[%+sg%] )
    matched ;
+
+"Match number prefixes and person 2"
+Tx:0 /<= _ ;
+   except
+       _ (:*) Ty:0 ;
+   where Tx in ( %[%-pl%] )
+         Ty in ( %[%+pl%] )
+   matched ;
+
 
 "Match number prefixes and person 2"
 Tx:0 /<= _ ;

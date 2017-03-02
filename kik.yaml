@@ -57,6 +57,16 @@ Tests:
     cok<v><rempast><compl><p3><cl3><sg><foc>: nĩwacokire
     ndũ<n><cl1><pl>: andũ
     thaka<adj><cl1><pl>: athaka
+  Copulas:
+    rĩ<cop><pres><p1><sg>: ndĩ
+    rĩ<cop><pres><p2><sg>: wĩ
+    <cop><pres><p3><cl5><sg>: nĩ
+    <cop><pres><neg><p3><cl7><sg>: ti
+    uma<cop><currpast><p3><cl3><pl>: yuma
+    rĩ<cop><nearpast><p3><cl5><pl>: mararĩ
+    rĩ<cop><rempast><p3><cl12p6><sg>: karĩ
+    rĩ<cop><nearpast><neg><p3><cl7><pl>: itirarĩ
+    uma<cop><currpast><neg><p3><cl1><sg>: ndauma
   Final Vowel:
     gũ<v><currpast><p3><cl12p13><sg><foc>: nĩkagwa
     haic<v><seq><p3><cl1><sg>: akĩhaica
