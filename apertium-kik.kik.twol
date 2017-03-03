@@ -1,8 +1,8 @@
 ! Note to self!! In the middle of implementing copulas! Just created slippery archiphoneme r ... 
 
 Alphabet
- A B C Ç D E Ä F G H I Ĩ J Ž K L M N Ň O Ö P Q R S Ş T U Ũ Ü V W X Y Ý Z
- a b c ç d e ä f g h i ĩ j ž k l m n ň o ö p q r s ş t u ũ ü v w x y ý z
+ A B C D E G H I Ĩ J K L M N O R S T U Ũ W Y 
+ a b c d e g h i ĩ j k l m n o r s t u ũ w y
  %>:0
  %{K%}:k ! %{K%}:g
  %{C%}:c 
@@ -99,12 +99,12 @@ Rules
 
 !!!!! VOWEL CHANGE RULES !!!!!
 
-"Turn ũ into u before o" ! not working as intended because syllables
-%{Ũ%}:u <=> _ [ %>: ]* %{O%}: ;
-        except
-            %{A%}: (%>: ) _ ;
-            _ (%>: ) %{A%}: ; 
-            _ (%>: ) %{O%}: ;
+! "Turn ũ into u before o" ! not working as intended because syllables
+! %{Ũ%}:u <=> _ [ %>: ]* %{O%}: ;
+!        except
+!            %{A%}: (%>: ) _ ;
+!            _ (%>: ) %{A%}: ; 
+!            _ (%>: ) %{O%}: ;
 
 "Turn ĩ into i before u"
 %{Ĩ%}:i <=> _ [ %>: ]* %{U%}: ;
