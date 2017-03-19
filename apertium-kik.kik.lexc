@@ -38,9 +38,11 @@ Multichar_Symbols
 %<n%>   ! Noun
 %<v%>   ! Verb
 %<adj%> ! Adjective
-%<pro%> ! Pronoun
-%<prep%> ! preposition?
+%<pro%> ! Pronoun ! TODO: change to prn
+%<prep%> ! preposition? ! TODO: change to pr
 %<quant%> ! quantifier?
+%<cnjcoo%> ! coordinating conjunction
+%<cnjsub%> ! subordinating conjunction
 
 ! Number morphology
 %<pl%>  ! Plural
@@ -77,9 +79,9 @@ Multichar_Symbols
 %<neg%>   ! Negative
 %<trans%> ! Transitive
 %<caus%>  ! Causative
-%<app%>   ! Applicative
+%<app%>   ! Applicative ! TODO: appl
 %<recip%> ! Reciprocal
-%<revers%>! Reversive 
+%<revers%>! Reversive ! TODO: rev
 %<intens%>! Intensive
 
 %<cop%> ! copula
@@ -102,6 +104,8 @@ Multichar_Symbols
 ! Number
 
 %<num%> ! number
+
+%<loc%> ! locative
 \
 ! Other symbols
 
@@ -240,8 +244,13 @@ Punctuation ;
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 LEXICON NounPluralAgreement
-[%+sg%]%<sg%>: # ;
-[%+pl%]%<pl%>: # ;
+[%+sg%]%<sg%>: NounLocative ;
+[%+pl%]%<pl%>: NounLocative ;
+
+LEXICON NounLocative
+
+%<loc%>:inĩ # ;
+# ;
 
 LEXICON NounRootCl1
 
@@ -285,13 +294,12 @@ rima:%{R%}im%{A%} Cl5 ; ! hole
 ria:%{R%}i%{A%} Cl5 ; ! milk
 bera:ber%{A%} Cl5 ; ! pear
 gũrũ:gũr%{Ũ%} Cl5 ; ! leg
-aĩ:%{A%}%{Ĩ%} Cl5 ; ! water
+aĩ:%{BLOCK%}%{A%}%{BLOCK%}%{Ĩ%} Cl5 ; ! water
 higa:hig%{a%} Cl5 ; ! stone
 embe:%{E}%mb%{e%} Cl5 ; ! mango
 rigũ:%{R%}ig%{Ũ%} Cl5 ; ! banana
 inabu:%{I%}nab%{U%} Cl5 ; 
 ĩciria:%{Ĩ%}ciri%{A%} Cl5 ;
-aĩ:%{A%}%{BLOCK%}%{Ĩ%} Cl5 ; ! water
 taha:%{T%}ah%{A%} Cl5 ; ! mataha (a food made with corn and beans!)
 thangũ:thang%{Ũ%} Cl5 ; ! leaf 
 
@@ -311,6 +319,7 @@ rathi:%{R%}ath%{A%} Cl7 ; ! class
 boko:bok%{O%} Cl7 ;
 imba:%{I%}mb%{A%} Cl7 ;
 ana:%{A%}n%{A%} Cl7 ; ! child
+ambĩrĩria:%{A%}mbĩrĩri%{A%} Cl7 ; ! beginning
 
 LEXICON Cl7
 
@@ -655,7 +664,7 @@ LEXICON VerbTense
 %[%-nearpast%]%[%-perf%]%[%-compl%]%[%-hab%]:r%{A%}%> VerbObjectAgreement ;
 %[%-currpast%]%[%-hab%]%[%-perf%]%[%-noasp%]:%{K%}%{Ũ%}%> VerbObjectAgreement ;
 %[%-currpast%]%[%-compl%]%[%-noasp%]%[%-hab%]%[%-noasp%]:%{A%}%> VerbObjectAgreement ;
-! %[%-currpast%]%[%-compl%]: VerbObjectAgreement ;
+%[%-currpast%]%[%-compl%]: VerbObjectAgreement ;
 %[%-pres%]%[%-noasp%]:%{K%}%{A%}%> VerbObjectAgreement ; ! existence is dubious, see ndũkagũe, whose meaning is not really what we are going for with present... even though that's how it glosses. appears only in imperatives, conditionals
 %[%-pres%]%[%-noasp%]%[%-proc%]:%{RAR%}%{A%}%> VerbObjectAgreement ;
 %[%-pres%]%[%-hab%]: VerbObjectAgreement ; ! highly dubious... but exists sometimes like in nĩainaga
@@ -681,6 +690,7 @@ kũr:%{K%}ũr VerbAfterStem ; ! grow
 ũk:%{Ũ%}k VerbAfterStem ; ! come
 in:%{I%}n VerbAfterStem ; ! sing
 thi:th%{II%} VerbAfterStem ; ! go
+thi:th%{I%} VerbAfterStem ; ! go
 !thi%[%-fvĨ%]:th%{I%} VerbAfterStem; ! go
 thom:thom VerbAfterStem ; ! read
 thamb:thamb VerbAfterStem ;
@@ -733,6 +743,8 @@ humb:humb VerbAfterStem ; ! cover
 ĩk:%{tĨ%}k VerbAfterStem ; ! put
 thek:thek VerbAfterStem ; ! laugh
 tah:tah VerbAfterStem ; ! fetch
+ihũg:%{I%}hũg VerbAfterStem ; ! to get wet
+heenere:heenere VerbAfterStem ; ! deceive
 
 LEXICON VerbAfterStem
 
@@ -839,8 +851,10 @@ LEXICON VerbFocAgreement
 %[%+foc%]%<foc%>: # ;
 # ;
 
+
 LEXICON AdjPrefix
 
+AdjSpecial ;
 %[%-cl1%]%[%-sg%]:m%{Ũ%} AdjRoot ;
 %[%-cl1%]%[%-pl%]:a AdjRoot ;
 %[%-cl3%]%[%-sg%]:m%{Ũ%} AdjRoot ;
@@ -865,6 +879,11 @@ LEXICON AdjPrefix
 %[%-cl14%]%[%-pl%]:ma AdjRoot ;
 %[%-cl15%]%[%-sg%]:%{K%}%{Ũ%} AdjRoot ;
 %[%-cl15%]%[%-pl%]:ma AdjRoot ;
+
+LEXICON AdjSpecial
+! unsure what's going on with these
+
+wega%<adj%>:wega # ; ! good, unclear on noun class agreement (should be with prefix ũ, but grammar does not claim that is the prefix for any noun class)
 
 LEXICON AdjRoot
 
