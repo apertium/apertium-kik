@@ -291,7 +291,7 @@ LEXICON NounRootCl5
 hũa:hũ%{A%} Cl5 ; ! flower
 tunda:%{T%}und%{A%} Cl5 ; ! fruit
 rima:%{R%}im%{A%} Cl5 ; ! hole
-ria:%{R%}i%{A%} Cl5 ; ! milk
+ria:%{R%}i%{A%} Cl5 ; ! milk, or lake/pond
 bera:ber%{A%} Cl5 ; ! pear
 gũrũ:gũr%{Ũ%} Cl5 ; ! leg
 aĩ:%{BLOCK%}%{A%}%{BLOCK%}%{Ĩ%} Cl5 ; ! water
@@ -364,7 +364,7 @@ LEXICON NounRootCl11p1%0
 rũigi:%{R%}ũig%{I%} Cl11p1%0 ;
 gĩrĩ:gĩr%{Ĩ%} Cl11p1%0 ; ! fence, plural category uncertain
 imbo:%{I%}mb%{O%} Cl11p1%0 ; ! song, plural category uncertain
-ũĩ:%{Ũ%}%{Ĩ%} Cl11p1%0 ; ! river, plural category uncertain
+ũĩ:%{Ũ%}%{BLOCK%}%{Ĩ%} Cl11p1%0 ; ! river, plural category uncertain
 ĩgĩ:%{Ĩ%}g%{Ĩ%} Cl11p1%0 ; ! eagle, plural category uncertain
 
 LEXICON Cl11p1%0
@@ -723,7 +723,7 @@ hing:hing VerbAfterStem ; ! close
 amb:%{A%}mb VerbAfterStem ; ! start
 ĩrĩgĩr:%{Ĩ%}rĩgĩr VerbAfterStem ; ! intend
 ĩtĩkĩr:%{Ĩ%}tĩkĩr VerbAfterStem ; ! allow
-rut:%{R%}ut VerbAfterStem ; ! learn 
+rut:%{R%}ut VerbAfterStem ; ! learn, teach, or remove
 ribot:%{R%}ibot VerbAfterStem ; ! report
 anĩrĩr:%{A%}nĩrĩr VerbAfterStem ; ! announce
 on:%{O%}n VerbAfterStem ; ! see
@@ -883,7 +883,7 @@ AdjSpecial ;
 LEXICON AdjSpecial
 ! unsure what's going on with these
 
-wega%<adj%>:wega # ; ! good, unclear on noun class agreement (should be with prefix ũ, but grammar does not claim that is the prefix for any noun class)
+ega%<adj%>:wega # ; ! good, unclear on noun class agreement (should be with prefix ũ, but grammar does not claim that is the prefix for any noun class)
 
 LEXICON AdjRoot
 
