@@ -281,6 +281,7 @@ ciĩ:%{C%}i%{Ĩ%} Cl3 ; ! home
 tĩ:%{T%}%{Ĩ%} Cl3 ; ! tree
 cuha:%{C%}uh%{A%} Cl3 ; ! swing
 rũthi:%{R%}ũth%{I%} Cl3 ; ! lion
+thanga:thang%{A%} Cl3 ; ! sand
 
 LEXICON Cl3
 
@@ -745,6 +746,7 @@ thek:thek VerbAfterStem ; ! laugh
 tah:tah VerbAfterStem ; ! fetch
 ihũg:%{I%}hũg VerbAfterStem ; ! to get wet
 heenere:heenere VerbAfterStem ; ! deceive
+tũũr:tũũr VerbAfterStem ; ! live (or live somewhere)
 
 LEXICON VerbAfterStem
 
