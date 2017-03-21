@@ -38,8 +38,8 @@ Multichar_Symbols
 %<n%>   ! Noun
 %<v%>   ! Verb
 %<adj%> ! Adjective
-%<pro%> ! Pronoun ! TODO: change to prn
-%<prep%> ! preposition? ! TODO: change to pr
+%<prn%> ! Pronoun ! 
+%<pr%> ! preposition? ! 
 %<quant%> ! quantifier?
 %<cnjcoo%> ! coordinating conjunction
 %<cnjsub%> ! subordinating conjunction
@@ -79,9 +79,9 @@ Multichar_Symbols
 %<neg%>   ! Negative
 %<trans%> ! Transitive
 %<caus%>  ! Causative
-%<app%>   ! Applicative ! TODO: appl
+%<appl%>   ! Applicative ! 
 %<recip%> ! Reciprocal
-%<revers%>! Reversive ! TODO: rev
+%<rev%>! Reversive ! 
 %<intens%>! Intensive
 
 %<cop%> ! copula
@@ -764,7 +764,7 @@ VerbRevers ;
 
 LEXICON VerbRevers
 
-%<revers%>:%>%{Ũ%}r VerbCaus ;
+%<rev%>:%>%{Ũ%}r VerbCaus ;
 VerbCaus ;
 
 LEXICON VerbCaus
@@ -774,7 +774,7 @@ VerbApp ;
 
 LEXICON VerbApp
 
-%<app%>:%>%{Ĩ%}r VerbAspect ;
+%<appl%>:%>%{Ĩ%}r VerbAspect ;
 VerbAspect ;
 
 LEXICON VerbAspect
@@ -962,30 +962,30 @@ DemPro ; ! demonstrative pronouns (that one, etc.)
 
 LEXICON PersPro
 
-%<pro%>%<p1%>%<sg%>:niũ # ;
-%<pro%>%<p1%>%<pl%>:ithuĩ # ; 
-%<pro%>%<p2%>%<sg%>:weũ # ;
-%<pro%>%<p2%>%<pl%>:inyuũ # ;
-%<pro%>%<p3%>%<cl1%>%<sg%>:we # ; 
-%<pro%>%<p3%>%<cl1%>%<pl%>:mo # ;
-%<pro%>%<p3%>%<cl3%>%<sg%>:guo # ;
-%<pro%>%<p3%>%<cl3%>%<pl%>:yo # ;
-%<pro%>%<p3%>%<cl5%>%<sg%>:rĩo # ;
-%<pro%>%<p3%>%<cl5%>%<pl%>:mo # ;
-%<pro%>%<p3%>%<cl7%>%<sg%>:kĩo # ;
-%<pro%>%<p3%>%<cl7%>%<pl%>:cio # ;
-%<pro%>%<p3%>%<cl9p1%0%>%<sg%>:yo # ;
-%<pro%>%<p3%>%<cl9p1%0%>%<pl%>:cio # ;
-%<pro%>%<p3%>%<cl11p6%>%<sg%>:ruo # ;
-%<pro%>%<p3%>%<cl11p6%>%<pl%>:mo # ;
-%<pro%>%<p3%>%<cl11p1%0%>%<sg%>:ruo # ;
-%<pro%>%<p3%>%<cl11p1%0%>%<pl%>:cio # ;
-%<pro%>%<p3%>%<cl12p13%>%<sg%>:ko # ;
-%<pro%>%<p3%>%<cl12p13%>%<pl%>:tuo # ;
-%<pro%>%<p3%>%<cl14%>%<sg%>:guo # ;
-%<pro%>%<p3%>%<cl14%>%<pl%>:mo # ;
-%<pro%>%<p3%>%<cl15%>%<sg%>:kuo # ;
-%<pro%>%<p3%>%<cl15%>%<pl%>:mo # ;
+%<prn%>%<p1%>%<sg%>:niũ # ;
+%<prn%>%<p1%>%<pl%>:ithuĩ # ; 
+%<prn%>%<p2%>%<sg%>:weũ # ;
+%<prn%>%<p2%>%<pl%>:inyuũ # ;
+%<prn%>%<p3%>%<cl1%>%<sg%>:we # ; 
+%<prn%>%<p3%>%<cl1%>%<pl%>:mo # ;
+%<prn%>%<p3%>%<cl3%>%<sg%>:guo # ;
+%<prn%>%<p3%>%<cl3%>%<pl%>:yo # ;
+%<prn%>%<p3%>%<cl5%>%<sg%>:rĩo # ;
+%<prn%>%<p3%>%<cl5%>%<pl%>:mo # ;
+%<prn%>%<p3%>%<cl7%>%<sg%>:kĩo # ;
+%<prn%>%<p3%>%<cl7%>%<pl%>:cio # ;
+%<prn%>%<p3%>%<cl9p1%0%>%<sg%>:yo # ;
+%<prn%>%<p3%>%<cl9p1%0%>%<pl%>:cio # ;
+%<prn%>%<p3%>%<cl11p6%>%<sg%>:ruo # ;
+%<prn%>%<p3%>%<cl11p6%>%<pl%>:mo # ;
+%<prn%>%<p3%>%<cl11p1%0%>%<sg%>:ruo # ;
+%<prn%>%<p3%>%<cl11p1%0%>%<pl%>:cio # ;
+%<prn%>%<p3%>%<cl12p13%>%<sg%>:ko # ;
+%<prn%>%<p3%>%<cl12p13%>%<pl%>:tuo # ;
+%<prn%>%<p3%>%<cl14%>%<sg%>:guo # ;
+%<prn%>%<p3%>%<cl14%>%<pl%>:mo # ;
+%<prn%>%<p3%>%<cl15%>%<sg%>:kuo # ;
+%<prn%>%<p3%>%<cl15%>%<pl%>:mo # ;
 
 LEXICON DepPro 
 
@@ -1033,7 +1033,7 @@ LEXICON PossProOwner
 
 LEXICON RelPro
 
-%<rel%>%<pro%>: RelProRoot ; 
+%<rel%>%<prn%>: RelProRoot ; 
 
 !TODO: What is going on here???
 
@@ -1266,9 +1266,9 @@ LEXICON NumIrregularAgreement
 
 LEXICON LittleWord
 
-na%<prep%>:na # ; ! with
+na%<pr%>:na # ; ! with
 o%<quant%>:o # ; ! all
-kuma%<prep%>:kuma # ; ! from
+kuma%<pr%>:kuma # ; ! from
 kana:kana # ; ! if 
 no:no # ; ! but
 mũno:mũno # ; ! very 
@@ -1305,6 +1305,7 @@ LEXICON Punctuation
 ! http://hfst.sourceforge.net/
 ! http://www.cis.upenn.edu/~cis639/docs/lexc.html
 ! http://wiki.apertium.org/wiki/Hfst
+
 
 
 
