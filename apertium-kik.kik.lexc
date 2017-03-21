@@ -662,18 +662,18 @@ VerbTense ;
 LEXICON VerbTense
 
 %[%-rempast%]%[%-perf%]%[%-compl%]%[%-hab%]:%{A%}%> VerbObjectAgreement ;
+%[%-rempast%]%[%-perf%]%[%-compl%]%[%-hab%]:%{BLOCK%}%{A%}%> VerbObjectAgreement ; !needed to relax into aa... maybe better modeled with spellrelax? annoying.
 %[%-nearpast%]%[%-perf%]%[%-compl%]%[%-hab%]:r%{A%}%> VerbObjectAgreement ;
-%[%-currpast%]%[%-hab%]%[%-perf%]%[%-noasp%]:%{K%}%{Ũ%}%> VerbObjectAgreement ;
-%[%-currpast%]%[%-compl%]%[%-noasp%]%[%-hab%]%[%-noasp%]:%{A%}%> VerbObjectAgreement ;
+%[%-currpast%][%-perf%]:%{K%}%{Ũ%}%> VerbObjectAgreement ; ! maybe hab? noasp?
+%[%-currpast%]%[%-noasp%]:%{BLOCK%}%{A%}%> VerbObjectAgreement ; ! maybe hab? maybe compl?
 %[%-currpast%]%[%-compl%]: VerbObjectAgreement ;
 %[%-pres%]%[%-noasp%]:%{K%}%{A%}%> VerbObjectAgreement ; ! existence is dubious, see ndũkagũe, whose meaning is not really what we are going for with present... even though that's how it glosses. appears only in imperatives, conditionals
 %[%-pres%]%[%-noasp%]%[%-proc%]:%{RAR%}%{A%}%> VerbObjectAgreement ;
-%[%-pres%]%[%-hab%]: VerbObjectAgreement ; ! highly dubious... but exists sometimes like in nĩainaga
+%[%-pres%]%[%-hab%]%[%-perf%]: VerbObjectAgreement ; ! highly dubious... but exists sometimes like in nĩainaga. probably just homophonic with the other aga
 %[%-currfut%]%[%-noasp%]:%{K%}%{Ũ%}%> VerbObjectAgreement ; ! maybe habitual is possible ???
 ! %[%-currfut%]%[%-fvE%]%[%-hab%]%[%-noasp%]: VerbObjectAgreement ;
 %[%-remfut%]%[%-noasp%]:%{K%}%{A%}%> VerbObjectAgreement ;
 ! %[%-remfut%]%[%-noasp%]%[%-remfutagr%]: VerbObjectAgreement ; ! Difference between ka and null form unclear; may be predictable
-%[%-seq%]%[%-noasp%]:%{K%}%{tĨ%}%> VerbObjectAgreement ;
 
 LEXICON VerbObjectAgreement
 
