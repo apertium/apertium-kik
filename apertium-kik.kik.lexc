@@ -712,7 +712,7 @@ rĩ:%{R%}%{Ĩ%} VerbAfterStem ; ! eat
 ririkan:%{R%}irikan VerbAfterStem ; ! remember
 ĩtĩk:%{Ĩ%}tĩk VerbAfterStem ; ! believe
 iy:%{I%}y VerbAfterStem ; ! steal
-igu:%{I%}g%{U%} VerbAfterStem ; ! hear 
+igu:%{I%}g%{U%} VerbAfterStem ; ! hear / obey
 ug:%{U%}g VerbAfterStem ; ! say
 ĩr:%{Ĩ%}r VerbAfterStem ; ! tell
 dũm:dũm VerbAfterStem ; ! send
