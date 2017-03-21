@@ -490,8 +490,8 @@ IrregularCopula ;
 
 LEXICON IrregularCopula
 
-%<cop%>%<pres%>%<p3%>:nĩ IrregularCopulaClass ;
-%<cop%>%<pres%>%<neg%>%<p3%>:ti IrregularCopulaClass ;
+rĩ%<cop%>%<pres%>%<p3%>:nĩ IrregularCopulaClass ;
+rĩ%<cop%>%<pres%>%<neg%>%<p3%>:ti IrregularCopulaClass ;
 rĩ%<cop%>%<pres%>%<p1%>%<sg%>:ndĩ # ; 
 
 LEXICON IrregularCopulaNumber
