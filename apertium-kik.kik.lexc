@@ -351,10 +351,12 @@ thaa:tha%{A%} Cl9p1%0 ; ! hour, plural category uncertain
 bakũri:bakũr%{I%} Cl9p1%0 ; 
 dahi:dah%{I%} Cl9p1%0 ;
 thia:thi%{A%} Cl9p1%0 ;
+thĩ:thĩ Cl9p1%0 ; ! not sure if this actually belongs here but it's my best guess based on agreement
 
 LEXICON NounRootCl9p1%0Irr
 
 batĩ:bat%{Ĩ%} Cl9p1%0 ;
+
 
 LEXICON Cl9p1%0
 
@@ -748,6 +750,7 @@ ihũg:%{I%}hũg VerbAfterStem ; ! to get wet
 heenere:heenere VerbAfterStem ; ! deceive
 tũũr:tũũr VerbAfterStem ; ! live (or live somewhere)
 nyu:nyu VerbAfterStem ; ! drink
+it:%{I%}t VerbAfterStem ; ! pour
 
 LEXICON VerbAfterStem
 
@@ -905,6 +908,7 @@ kenge:kenge AdjAgree ; ! baby
 thaka:thaka AdjAgree ; ! beautiful
 irũ:irũ AdjAgree ; ! black
 raihu:raihu AdjAgree ; ! tall
+mata:mata AdjAgree ; ! thick, creamy (possibly sour?)
 
 LEXICON AdjAgree
 
