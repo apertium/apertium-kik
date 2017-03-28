@@ -73,6 +73,8 @@ Multichar_Symbols
 
 %<refl%>    ! reflexive
 
+%<mid%>     ! middle voice
+
 ! Other verb morphology
 
 %<refl%>  ! Reflexive
@@ -751,6 +753,8 @@ heenere:heenere VerbAfterStem ; ! deceive
 tũũr:tũũr VerbAfterStem ; ! live (or live somewhere)
 nyu:nyu VerbAfterStem ; ! drink
 it:%{I%}t VerbAfterStem ; ! pour
+ur:%{U%}r VerbAfterStem ; ! rain
+hũr:hũr VerbAfterStem ; ! beat
 
 LEXICON VerbAfterStem
 
@@ -764,8 +768,13 @@ VerbIntens ;
 
 LEXICON VerbIntens
 
-%<intens%>:%>%{Ĩ%}rĩr VerbRevers ;
-%<intens%>:%>%{Ũ%}rũr VerbRevers ;
+%<intens%>:%>%{Ĩ%}rĩr VerbMid ;
+%<intens%>:%>%{Ũ%}rũr VerbMid ;
+VerbMid ;
+
+LEXICON VerbMid
+
+%<mid%>:%>%{Ĩ%}k VerbMid ;
 VerbRevers ;
 
 LEXICON VerbRevers
