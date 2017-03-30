@@ -38,6 +38,7 @@ Multichar_Symbols
 %<n%>   ! Noun
 %<v%>   ! Verb
 %<adj%> ! Adjective
+%<adv%> ! adverb
 %<prn%> ! Pronoun ! 
 %<pr%> ! preposition? ! 
 %<quant%> ! quantifier?
@@ -86,10 +87,15 @@ Multichar_Symbols
 %<rev%>! Reversive ! 
 %<intens%>! Intensive
 
+%<p1%> ! first person
+%<p2%> ! second person
+%<p3%> ! third person
+
 %<cop%> ! copula
 
 ! Pronoun types
 
+%<pers%> ! personal pronoun
 %<dep%> ! dependent pronoun
 %<poss%> ! possessive pronoun
 %<rel%> ! relative pronoun
@@ -240,6 +246,7 @@ ProperName ;
 ! Quantifier ;
 Miscellany ;
 Punctuation ;
+Adverb ;
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!                          L E X I C O N                                  !!!
@@ -968,7 +975,7 @@ a%<assoc%>%<cl14%>%<pl%>:ma # ;
 a%<assoc%>%<cl15%>%<sg%>:kũa # ;
 a%<assoc%>%<cl15%>%<pl%>:ma # ;
 
-LEXICON Pronoun 
+LEXICON Pronoun
 
 PersPro ; ! personal pronouns
 DepPro ; ! dependent pronouns ("and/with X")
@@ -978,38 +985,43 @@ DemPro ; ! demonstrative pronouns (that one, etc.)
 
 LEXICON PersPro
 
-%<prn%>%<p1%>%<sg%>:niũ # ;
-%<prn%>%<p1%>%<pl%>:ithuĩ # ; 
-%<prn%>%<p2%>%<sg%>:weũ # ;
-%<prn%>%<p2%>%<pl%>:inyuũ # ;
-%<prn%>%<p3%>%<cl1%>%<sg%>:we # ; 
-%<prn%>%<p3%>%<cl1%>%<pl%>:mo # ;
-%<prn%>%<p3%>%<cl3%>%<sg%>:guo # ;
-%<prn%>%<p3%>%<cl3%>%<pl%>:yo # ;
-%<prn%>%<p3%>%<cl5%>%<sg%>:rĩo # ;
-%<prn%>%<p3%>%<cl5%>%<pl%>:mo # ;
-%<prn%>%<p3%>%<cl7%>%<sg%>:kĩo # ;
-%<prn%>%<p3%>%<cl7%>%<pl%>:cio # ;
-%<prn%>%<p3%>%<cl9p1%0%>%<sg%>:yo # ;
-%<prn%>%<p3%>%<cl9p1%0%>%<pl%>:cio # ;
-%<prn%>%<p3%>%<cl11p6%>%<sg%>:ruo # ;
-%<prn%>%<p3%>%<cl11p6%>%<pl%>:mo # ;
-%<prn%>%<p3%>%<cl11p1%0%>%<sg%>:ruo # ;
-%<prn%>%<p3%>%<cl11p1%0%>%<pl%>:cio # ;
-%<prn%>%<p3%>%<cl12p13%>%<sg%>:ko # ;
-%<prn%>%<p3%>%<cl12p13%>%<pl%>:tuo # ;
-%<prn%>%<p3%>%<cl14%>%<sg%>:guo # ;
-%<prn%>%<p3%>%<cl14%>%<pl%>:mo # ;
-%<prn%>%<p3%>%<cl15%>%<sg%>:kuo # ;
-%<prn%>%<p3%>%<cl15%>%<pl%>:mo # ;
+pro%<prn%>%<pers%>: ProEnds ;
+! pro%<prn%>%<pers%>: ProEnds ; 
+
+LEXICON ProEnds
+
+%<p1%>%<sg%>:niũ # ;
+%<p1%>%<pl%>:ithuĩ # ; 
+%<p2%>%<sg%>:weũ # ;
+%<p2%>%<pl%>:inyuũ # ;
+%<p3%>%<cl1%>%<sg%>:we # ; 
+%<p3%>%<cl1%>%<pl%>:mo # ;
+%<p3%>%<cl3%>%<sg%>:guo # ;
+%<p3%>%<cl3%>%<pl%>:yo # ;
+%<p3%>%<cl5%>%<sg%>:rĩo # ;
+%<p3%>%<cl5%>%<pl%>:mo # ;
+%<p3%>%<cl7%>%<sg%>:kĩo # ;
+%<p3%>%<cl7%>%<pl%>:cio # ;
+%<p3%>%<cl9p1%0%>%<sg%>:yo # ;
+%<p3%>%<cl9p1%0%>%<pl%>:cio # ;
+%<p3%>%<cl11p6%>%<sg%>:ruo # ;
+%<p3%>%<cl11p6%>%<pl%>:mo # ;
+%<p3%>%<cl11p1%0%>%<sg%>:ruo # ;
+%<p3%>%<cl11p1%0%>%<pl%>:cio # ;
+%<p3%>%<cl12p13%>%<sg%>:ko # ;
+%<p3%>%<cl12p13%>%<pl%>:tuo # ;
+%<p3%>%<cl14%>%<sg%>:guo # ;
+%<p3%>%<cl14%>%<pl%>:mo # ;
+%<p3%>%<cl15%>%<sg%>:kuo # ;
+%<p3%>%<cl15%>%<pl%>:mo # ;
 
 LEXICON DepPro 
 
-%<dep%>:na PersPro ;
+pro%<prn%>%<dep%>:na ProEnds ;
 
 LEXICON PossPro 
 
-%<poss%>: PossProObject ;
+pro%<prn%>%<poss%>: PossProObject ;
 
 LEXICON PossProObject
 
@@ -1049,7 +1061,7 @@ LEXICON PossProOwner
 
 LEXICON RelPro
 
-%<rel%>%<prn%>: RelProRoot ; 
+pro%<prn%>%<rel%>: RelProRoot ; 
 
 !TODO: What is going on here???
 
@@ -1082,9 +1094,9 @@ LEXICON RelProRoot
 
 LEXICON DemPro
 
-%<dem%>%<dist%>: DistDem ;
-%<dem%>%<prox%>: ProxDem ;
-%<dem%>%<ana%>: AnaDem ;
+pro%<dem%>%<dist%>: DistDem ;
+pro%<dem%>%<prox%>: ProxDem ;
+pro%<dem%>%<ana%>: AnaDem ;
 
 LEXICON DistDem
 
@@ -1312,6 +1324,11 @@ LEXICON Punctuation
 %!%<sent%>:%! # ;
 ,%<cm%>:, # ;
 %"%<quot%>:%: # ;
+
+LEXICON Adverb ! there aren't many of these
+
+ira%<adv%>:ira # ; ! yesterday 
+ũmũthĩ%<adv%>:ũmũthĩ # ; ! today
 
 ! Resources:
 ! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Lexicon
