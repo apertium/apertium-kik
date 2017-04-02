@@ -866,7 +866,7 @@ LEXICON VerbSubjectConcordAgreement
 %[%+cl12p6%]%<p3%>%<cl12p6%>: VerbSubjectNumberAgreement  ; ! Noun class 12p6
 %[%+cl12p13%]%<p3%>%<cl12p13%>: VerbSubjectNumberAgreement ; ! Noun class 12p13
 %[%+cl14%]%<p3%>%<cl14%>: VerbSubjectNumberAgreement ;   ! Noun class 14
-%[%+cl15%]%<p3%>%<cl14%>: VerbSubjectNumberAgreement ;   ! Noun class 15
+%[%+cl15%]%<p3%>%<cl15%>: VerbSubjectNumberAgreement ;   ! Noun class 15
 
 LEXICON VerbFocAgreement
 
