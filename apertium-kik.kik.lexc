@@ -765,8 +765,8 @@ hũr:hũr VerbAfterStem ; ! beat
 
 LEXICON VerbAfterStem
 
-%<v%>: VerbTenseAgreement ;
 %<v%>%[%+imp%]%<imp%>%[%-fvA%]: VerbFinalVowel ;
+%<v%>: VerbTenseAgreement ;
 
 LEXICON VerbRecip
 
