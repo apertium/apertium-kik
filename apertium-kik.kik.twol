@@ -45,84 +45,84 @@ Rules
 !!!!! VOWEL COALESCENCE RULES !!!!!
 
 "Remove repeated i"
-%{I%}:0 <=> _ [ %>: ]* %{I%}: ;
+%{I%}:0 <=> _ [ (%>: ) (%{NULL%}: ) ]* %{I%}: ;
 
 "Remove repeated ĩ"
-%{Ĩ%}:0 <=> V1: [ %>: ]* _ ;
+%{Ĩ%}:0 <=> V1: [ (%>: ) (%{NULL%}: ) ]* _ ;
         except
-            _ [ %>: (%{NULL%}: ) ]* %{Ũ%}: ;
-            _ [ %>: (%{NULL%}: ) ]* %{A%}: ;
-            _ [ %>: (%{NULL%}: ) ]* %{E%}: ;
-            _ [ %>: (%{NULL%}: ) ]* %{O%}: ;
-            _ [ %>: (%{NULL%}: ) ]* %{U%}: ;
-            %{I%}: [ %>: ]* %{Ĩ%}: [ %>: ]* _ ;
+            _ [ (%>: ) (%{NULL%}: ) ]* %{Ũ%}: ;
+            _ [ (%>: ) (%{NULL%}: ) ]* %{A%}: ;
+            _ [ (%>: ) (%{NULL%}: ) ]* %{E%}: ;
+            _ [ (%>: ) (%{NULL%}: ) ]* %{O%}: ;
+            _ [ (%>: )(%{NULL%}: ) ]* %{U%}: ;
+            %{I%}: [ (%>: ) (%{NULL%}: ) ]* %{Ĩ%}: [ (%>: ) (%{NULL%}: ) ]* _ ;
             where V1 in ( %{Ĩ%} %{IRI%} ) ;
 
 "Remove a before certain vowels"
-%{A%}:0 <=> _  [ %>: ]*   Vo: ;
+%{A%}:0 <=> _  [ (%>: ) (%{NULL%}: ) ]*   Vo: ;
         except
-            _ [ %>: (%{NULL%}: ) ]* %{Ĩ%}: %{Ũ%}: ;
-            _ [ %>: (%{NULL%}: ) ]* %{Ĩ%}: %{A%}: ;
-            _ [ %>: (%{NULL%}: ) ]* %{Ĩ%}: %{E%}: ;
-            _ [ %>: (%{NULL%}: ) ]* %{Ĩ%}: %{O%}: ;
-            _ [ %>: (%{NULL%}: ) ]* %{Ĩ%}: %{U%}: ;
+            _ [ (%>: ) (%{NULL%}: ) ]* %{Ĩ%}: %{Ũ%}: ;
+            _ [ (%>: ) (%{NULL%}: ) ]* %{Ĩ%}: %{A%}: ;
+            _ [ (%>: ) (%{NULL%}: ) ]* %{Ĩ%}: %{E%}: ;
+            _ [ (%>: ) (%{NULL%}: ) ]* %{Ĩ%}: %{O%}: ;
+            _ [ (%>: ) (%{NULL%}: ) ]* %{Ĩ%}: %{U%}: ;
         where Vo in ( %{A%} %{E%} %{O%} %{Ĩ%} %{Ũ%} %{tĨ%} ) ;              
 
 "Turn ĩ into e after a"
-%{Ĩ%}:e <=> %{A%}: [ %>: ]*  _ ;
+%{Ĩ%}:e <=> %{A%}: [ (%>: ) (%{NULL%}: ) ]*  _ ;
         except
-            _ [ %>: (%{NULL%}: ) ]* %{Ũ%}: ;
-            _ [ %>: (%{NULL%}: ) ]* %{A%}: ;
-            _ [ %>: (%{NULL%}: ) ]* %{E%}: ;
-            _ [ %>: (%{NULL%}: ) ]* %{O%}: ;
-            _ [ %>: (%{NULL%}: ) ]* %{U%}: ;
+            _ [ (%>: ) (%{NULL%}: ) ]* %{Ũ%}: ;
+            _ [ (%>: ) (%{NULL%}: ) ]* %{A%}: ;
+            _ [ (%>: ) (%{NULL%}: ) ]* %{E%}: ;
+            _ [ (%>: ) (%{NULL%}: ) ]* %{O%}: ;
+            _ [ (%>: ) (%{NULL%}: ) ]* %{U%}: ;
 
 ! "Turn ĩ into e after r"
 ! %{Ĩ%}:e <=> :r %>: _ ;
 
 
 "Turn ũ into o after a"
-%{Ũ%}:o <=> %{A%}: [ %>: ]* _ ;
+%{Ũ%}:o <=> %{A%}: [ (%>: ) (%{NULL%}: ) ]* _ ;
         except
-            _ [ %>: (%{NULL%}: ) ]* %{A%}: ;
-            _ [ %>: (%{NULL%}: ) ]* %{O%}: ;
-            _ [ %>: (%{NULL%}: ) ]* %{AA%}: ;
+            _ [ (%>: ) (%{NULL%}: ) ]* %{A%}: ;
+            _ [ (%>: ) (%{NULL%}: ) ]* %{O%}: ;
+            _ [ (%>: ) (%{NULL%}: ) ]* %{AA%}: ;
 
 "Turn ĩ into 0 after e"
-%{Ĩ%}:0 <=> %{E%}: [ %>: ]* _  ;
+%{Ĩ%}:0 <=> %{E%}: [ (%>: ) (%{NULL%}: ) ]* _  ;
         except
-            _ [ %>: (%{NULL%}: ) ]* %{Ũ%}: ;
-            _ [ %>: (%{NULL%}: ) ]* %{A%}: ;
-            _ [ %>: (%{NULL%}: ) ]* %{E%}: ;
-            _ [ %>: (%{NULL%}: ) ]* %{O%}: ;
-            _ [ %>: (%{NULL%}: ) ]* %{U%}: ;
+            _ [ (%>: ) (%{NULL%}: ) ]* %{Ũ%}: ;
+            _ [ (%>: ) (%{NULL%}: ) ]* %{A%}: ;
+            _ [ (%>: ) (%{NULL%}: ) ]* %{E%}: ;
+            _ [ (%>: ) (%{NULL%}: ) ]* %{O%}: ;
+            _ [ (%>: ) (%{NULL%}: ) ]* %{U%}: ;
 
 
 !!!!! VOWEL CHANGE RULES !!!!!
 
 ! "Turn ũ into u before o" ! not working as intended because syllables
-! %{Ũ%}:u <=> _ [ %>: ]* %{O%}: ;
+! %{Ũ%}:u <=> _ [ (%>: ) (%{NULL%}: ) ]* %{O%}: ;
 !        except
 !            %{A%}: (%>: ) _ ;
 !            _ (%>: ) (%{NULL%}: ) %{A%}: ; 
 !            _ (%>: ) (%{NULL%}: ) %{O%}: ;
 
 "Turn ĩ into i before u"
-%{Ĩ%}:i <=> _ [ %>: ]* %{U%}: ;
+%{Ĩ%}:i <=> _ [ (%>: ) (%{NULL%}: ) ]* %{U%}: ;
         except
             %>: (%{NULL%}: ) _ ;
 
 !!!!! GLIDE FORMATION RULES !!!!!
 
 "Turn ũ into w before certain vowels (?)" ! not working as intended because syllables. serious issue
-%{Ũ%}:w <=> _  [ %>: ]* V1: ;
+%{Ũ%}:w <=> _  [ (%>: ) (%{NULL%}: ) ]* V1: ;
         except
-            %{A%}: [ %>: (%{NULL%}: ) ]* _ ;
+            %{A%}: [ (%>: ) (%{NULL%}: ) ]* _ ;
         where V1 in ( %{A%} %{O%} %{AA%} %{Ĩ%} ) ;
 
 
 !"Turn ĩ into y syllable-intially before vowel"
-!%{Ĩ%}:y <=> %>: _ [ %>: (%{NULL%}: ) ]* Vo: ;
+!%{Ĩ%}:y <=> %>: _ [ (%>: ) (%{NULL%}: ) ]* Vo: ;
 !        where Vo in ( %{A%} %{E%} %{O%} %{U%} %{Ũ%} ) ;
 
 
@@ -138,122 +138,122 @@ Rules
             _ %{I%}: %>: %{U%}: ;
             _ %{I%}: %>: %{Ũ%}: ;
             _ %{I%}: %>: %{Ĩ%}: ;
-            %{N3%}: [ %>: ]* _ ; ! this is actually wrong; the rule conflict should be prevented the other way. but excepting the cases where this rule applies is very very complicated.
+            %{N3%}: [ (%>: ) (%{NULL%}: ) ]* _ ; ! this is actually wrong; the rule conflict should be prevented the other way. but excepting the cases where this rule applies is very very complicated.
 
 "Convert prefix i- to rĩ- when vowel initial, part 1"
-%{RRI%}:r <=> _ %{IRI%}: [ %>: (%{NULL%}: ) ]* V1: ;
+%{RRI%}:r <=> _ %{IRI%}: [ (%>: ) (%{NULL%}: ) ]* V1: ;
          where V1 in UnderVowels ;
 
 "Convert prefix i- to rĩ when vowel initial, part 2"
-%{IRI%}:ĩ <=> _ [ %>: (%{NULL%}: ) ]* V1: ; 
+%{IRI%}:ĩ <=> _ [ (%>: ) (%{NULL%}: ) ]* V1: ; 
          where V1 in UnderVowels ;
 
 "Turn FV into ĩ after i"
-FV:ĩ <=> %{II%}: [ %>: (%{NULL%}: ) ]* _ ;
+FV:ĩ <=> %{II%}: [ (%>: ) (%{NULL%}: ) ]* _ ;
      where FV in ( %{EE%} %{AA%} ) ;
 
 "Don't allow first place negative before consonant"
 %{D%}:d /<= _ ;
      except
-        _ [ %>: (%{NULL%}: ) ]* %{Ũ%}: ;
-        _ [ %>: (%{NULL%}: ) ]* %{A%}: ;
-        _ [ %>: (%{NULL%}: ) ]* %{Ĩ%}: ;
+        _ [ (%>: ) (%{NULL%}: ) ]* %{Ũ%}: ;
+        _ [ (%>: ) (%{NULL%}: ) ]* %{A%}: ;
+        _ [ (%>: ) (%{NULL%}: ) ]* %{Ĩ%}: ;
 
 !!!!! NASAL PREFIX RULES !!!!!
 
 "Convert nasal prefix to m"
-%{N%}:m <=> _ %{N2%}: %{N3%}: [ %>: ]* :Co ;
+%{N%}:m <=> _ %{N2%}: %{N3%}: [ (%>: ) (%{NULL%}: ) ]* :Co ;
         where Co in ( b ) ;
 
 "Delete nasal prefix"
-%{N%}:0 <=> _ %{N2%}: %{N3%}: [ %>: ]* :Na ;
+%{N%}:0 <=> _ %{N2%}: %{N3%}: [ (%>: ) (%{NULL%}: ) ]* :Na ;
         where Na in ( n m h ) ;
 
 "Delete nasal prefix before th"
-%{N%}:0 <=> _ %{N2%}: %{N3%}: [ %>: ]* :t :h ;
+%{N%}:0 <=> _ %{N2%}: %{N3%}: [ (%>: ) (%{NULL%}: ) ]* :t :h ;
 
 "Convert character after nasal prefix 1"
-%{C%}:j <=> %{N%}: %{N2%}: %{N3%}: [ %>: ]* _ ;
+%{C%}:j <=> %{N%}: %{N2%}: %{N3%}: [ (%>: ) (%{NULL%}: ) ]* _ ;
 
 "Convert character after nasal prefix 2"
-%{K%}:g <=> %{N%}: %{N2%}: %{N3%}: [ %>: ]* _ ;
+%{K%}:g <=> %{N%}: %{N2%}: %{N3%}: [ (%>: ) (%{NULL%}: ) ]* _ ;
 
 "Convert character after nasal prefix 3"
-C1p:d <=> %{N%}: %{N2%}: %{N3%}: [ %>: ]* _ ;
+C1p:d <=> %{N%}: %{N2%}: %{N3%}: [ (%>: ) (%{NULL%}: ) ]* _ ;
         where C1p in ( %{T%} %{R%} ) ;
 
 "Convert nasal prefix before vowel"
-%{N2%}:j <=> _ %{N3%}: [ %>: ]* Vo: ;
+%{N2%}:j <=> _ %{N3%}: [ (%>: ) (%{NULL%}: ) ]* Vo: ;
          except
-             _ %{N3%}: [ %>: ]* %{Ũ%}: :m ; 
-             _ %{N3%}: [ %>: ]* %{Ĩ%}: :m ; 
-             _ %{N3%}: [ %>: ]* %{U%}: :m ; 
-             _ %{N3%}: [ %>: ]* %{O%}: :m ; 
-             _ %{N3%}: [ %>: ]* %{I%}: :m ; 
-             _ %{N3%}: [ %>: ]* %{E%}: :m ; 
-             _ %{N3%}: [ %>: ]* %{A%}: :m ;
-             _ %{N3%}: [ %>: ]* %{tĨ%}: :m ; 
-             _ %{N3%}: [ %>: ]* %{Ũ%}: :n ; 
-             _ %{N3%}: [ %>: ]* %{Ĩ%}: :n ; 
-             _ %{N3%}: [ %>: ]* %{U%}: :n ; 
-             _ %{N3%}: [ %>: ]* %{O%}: :n ; 
-             _ %{N3%}: [ %>: ]* %{I%}: :n ; 
-             _ %{N3%}: [ %>: ]* %{E%}: :n ; 
-             _ %{N3%}: [ %>: ]* %{A%}: :n ;
-             _ %{N3%}: [ %>: ]* %{tĨ%}: :n ; 
+             _ %{N3%}: [ (%>: ) (%{NULL%}: ) ]* %{Ũ%}: :m ; 
+             _ %{N3%}: [ (%>: ) (%{NULL%}: ) ]* %{Ĩ%}: :m ; 
+             _ %{N3%}: [ (%>: ) (%{NULL%}: ) ]* %{U%}: :m ; 
+             _ %{N3%}: [ (%>: ) (%{NULL%}: ) ]* %{O%}: :m ; 
+             _ %{N3%}: [ (%>: ) (%{NULL%}: ) ]* %{I%}: :m ; 
+             _ %{N3%}: [ (%>: ) (%{NULL%}: ) ]* %{E%}: :m ; 
+             _ %{N3%}: [ (%>: ) (%{NULL%}: ) ]* %{A%}: :m ;
+             _ %{N3%}: [ (%>: ) (%{NULL%}: ) ]* %{tĨ%}: :m ; 
+             _ %{N3%}: [ (%>: ) (%{NULL%}: ) ]* %{Ũ%}: :n ; 
+             _ %{N3%}: [ (%>: ) (%{NULL%}: ) ]* %{Ĩ%}: :n ; 
+             _ %{N3%}: [ (%>: ) (%{NULL%}: ) ]* %{U%}: :n ; 
+             _ %{N3%}: [ (%>: ) (%{NULL%}: ) ]* %{O%}: :n ; 
+             _ %{N3%}: [ (%>: ) (%{NULL%}: ) ]* %{I%}: :n ; 
+             _ %{N3%}: [ (%>: ) (%{NULL%}: ) ]* %{E%}: :n ; 
+             _ %{N3%}: [ (%>: ) (%{NULL%}: ) ]* %{A%}: :n ;
+             _ %{N3%}: [ (%>: ) (%{NULL%}: ) ]* %{tĨ%}: :n ; 
          where Vo in UnderVowels ;
 
 "Convert nasal prefix before vowel and nasal"
-%{N2%}:y <=> _ %{N3%}: [ %>: ]* Vo: :Na ;
+%{N2%}:y <=> _ %{N3%}: [ (%>: ) (%{NULL%}: ) ]* Vo: :Na ;
          where Vo in UnderVowels 
                Na in ( m n ) ;
 
 "Convert final nasal prefix to ĩ"
-%{N3%}:ĩ <=> _ [ %>: ]* %{RAR%}: ;
+%{N3%}:ĩ <=> _ [ (%>: ) (%{NULL%}: ) ]* %{RAR%}: ;
 
 "Convert second nasal prefix to d"
-%{N2%}:d <=> _ %{N3%}: [ %>: ]* %{RAR%}: ;
+%{N2%}:d <=> _ %{N3%}: [ (%>: ) (%{NULL%}: ) ]* %{RAR%}: ;
 
 !!!!! OTHER RULES !!!!!
 
 "Convert k to g before certain consonants"
-%{K%}:g <=> _ [ V1: ] [ %>: ]* UC1: ;
+%{K%}:g <=> _ [ V1: ] [ (%>: ) (%{NULL%}: ) ]* UC1: ;
         except 
-            %{N3%}: [ %>: ]* _ ;
+            %{N3%}: [ (%>: ) (%{NULL%}: ) ]* _ ;
         where V1 in UnderVowels 
               UC1 in ( %{T%} %{C%} %{K%} ) ;
 
 "Convert k to g before certain consonants part 2"
-%{K%}:g <=> _  [ V1: ] [ %>: ]* :C1 ;
+%{K%}:g <=> _  [ V1: ] [ (%>: ) (%{NULL%}: ) ]* :C1 ;
         except
-            _ %{U%}: [ %>: (%{NULL%}: ) ]* %{T%}: ;
-            _ %{U%}: [ %>: (%{NULL%}: ) ]* %{C%}: ;
-            _ %{U%}: [ %>: (%{NULL%}: ) ]* %{K%}: ;
-            _ %{A%}: [ %>: (%{NULL%}: ) ]* %{T%}: ;
-            _ %{A%}: [ %>: (%{NULL%}: ) ]* %{C%}: ;
-            _ %{A%}: [ %>: (%{NULL%}: ) ]* %{K%}: ;
-            _ %{E%}: [ %>: (%{NULL%}: ) ]* %{T%}: ;
-            _ %{E%}: [ %>: (%{NULL%}: ) ]* %{C%}: ;
-            _ %{E%}: [ %>: (%{NULL%}: ) ]* %{K%}: ;
-            _ %{I%}: [ %>: (%{NULL%}: ) ]* %{T%}: ;
-            _ %{I%}: [ %>: (%{NULL%}: ) ]* %{C%}: ;
-            _ %{I%}: [ %>: (%{NULL%}: ) ]* %{K%}: ;
-            _ %{O%}: [ %>: (%{NULL%}: ) ]* %{T%}: ;
-            _ %{O%}: [ %>: (%{NULL%}: ) ]* %{C%}: ;
-            _ %{O%}: [ %>: (%{NULL%}: ) ]* %{K%}: ;
-            _ %{Ũ%}: [ %>: (%{NULL%}: ) ]* %{T%}: ;
-            _ %{Ũ%}: [ %>: (%{NULL%}: ) ]* %{C%}: ;
-            _ %{Ũ%}: [ %>: (%{NULL%}: ) ]* %{K%}: ;
-            _ %{Ĩ%}: [ %>: (%{NULL%}: ) ]* %{T%}: ;
-            _ %{Ĩ%}: [ %>: (%{NULL%}: ) ]* %{C%}: ;
-            _ %{Ĩ%}: [ %>: (%{NULL%}: ) ]* %{K%}: ;
-            _ %{tĨ%}: [ %>: (%{NULL%}: ) ]* %{T%}: ;
-            _ %{tĨ%}: [ %>: (%{NULL%}: ) ]* %{C%}: ;
-            _ %{tĨ%}: [ %>: (%{NULL%}: ) ]* %{K%}: ;
-            _ [ %>: (%{NULL%}: ) ]* %{T%}: ;
-            _ [ %>: (%{NULL%}: ) ]* %{C%}: ;
-            _ [ %>: (%{NULL%}: ) ]* %{K%}: ;
-            %{N3%}: [ %>: (%{NULL%}: ) ]* _ ; 
+            _ %{U%}: [ (%>: ) (%{NULL%}: ) ]* %{T%}: ;
+            _ %{U%}: [ (%>: ) (%{NULL%}: ) ]* %{C%}: ;
+            _ %{U%}: [ (%>: ) (%{NULL%}: ) ]* %{K%}: ;
+            _ %{A%}: [ (%>: ) (%{NULL%}: ) ]* %{T%}: ;
+            _ %{A%}: [ (%>: ) (%{NULL%}: ) ]* %{C%}: ;
+            _ %{A%}: [ (%>: ) (%{NULL%}: ) ]* %{K%}: ;
+            _ %{E%}: [ (%>: ) (%{NULL%}: ) ]* %{T%}: ;
+            _ %{E%}: [ (%>: ) (%{NULL%}: ) ]* %{C%}: ;
+            _ %{E%}: [ (%>: ) (%{NULL%}: ) ]* %{K%}: ;
+            _ %{I%}: [ (%>: ) (%{NULL%}: ) ]* %{T%}: ;
+            _ %{I%}: [ (%>: ) (%{NULL%}: ) ]* %{C%}: ;
+            _ %{I%}: [ (%>: ) (%{NULL%}: ) ]* %{K%}: ;
+            _ %{O%}: [ (%>: ) (%{NULL%}: ) ]* %{T%}: ;
+            _ %{O%}: [ (%>: ) (%{NULL%}: ) ]* %{C%}: ;
+            _ %{O%}: [ (%>: ) (%{NULL%}: ) ]* %{K%}: ;
+            _ %{Ũ%}: [ (%>: ) (%{NULL%}: ) ]* %{T%}: ;
+            _ %{Ũ%}: [ (%>: ) (%{NULL%}: ) ]* %{C%}: ;
+            _ %{Ũ%}: [ (%>: ) (%{NULL%}: ) ]* %{K%}: ;
+            _ %{Ĩ%}: [ (%>: ) (%{NULL%}: ) ]* %{T%}: ;
+            _ %{Ĩ%}: [ (%>: ) (%{NULL%}: ) ]* %{C%}: ;
+            _ %{Ĩ%}: [ (%>: ) (%{NULL%}: ) ]* %{K%}: ;
+            _ %{tĨ%}: [ (%>: ) (%{NULL%}: ) ]* %{T%}: ;
+            _ %{tĨ%}: [ (%>: ) (%{NULL%}: ) ]* %{C%}: ;
+            _ %{tĨ%}: [ (%>: ) (%{NULL%}: ) ]* %{K%}: ;
+            _ [ (%>: ) (%{NULL%}: ) ]* %{T%}: ;
+            _ [ (%>: ) (%{NULL%}: ) ]* %{C%}: ;
+            _ [ (%>: ) (%{NULL%}: ) ]* %{K%}: ;
+            %{N3%}: [ (%>: ) (%{NULL%}: ) ]* _ ; 
         where V1 in UnderVowels 
               C1 in ( t c k ) ;
 
