@@ -342,7 +342,8 @@ ndũ:nd%{Ũ%} Cl7 ; ! nothing
 tũmi:%{T%}ũm%{I%} ; ! reason
 ũria:%{Ũ%}ri%{A%} Cl7 ; ! problem
 rumi:rum%{I%} Cl7 ; ! curse
-
+thama:tham%{A%} Cl7 ; ! island
+roto:rot%{O%} Cl7 ; ! dream (nominalized)
 
 LEXICON Cl7
 
@@ -379,7 +380,7 @@ yoka:y%{O%}k%{A%} Cl9p1%0 ; ! snake
 goga:gog%{A%} Cl9p1%0 ; ! grace
 goro:gor%{O%} Cl9p1%0 ; ! heart
 guo:gu%{O%} Cl9p1%0 ; ! garment
-
+muoy%{O%}:muoy%{O%} Cl9p1%0 ; ! life
 
 LEXICON NounRootCl9p1%0Irr
 
@@ -831,6 +832,9 @@ kaani:kaan%{I%} ; ! prohibit
 geri:ger%{I%} ; ! try
 cay:%{C%}ay ; ! complain
 rathim:rathim ; ! bless
+rĩmi:rĩm%{I%} ; ! earn
+giũr:giũr ; ! trample
+rot:rot ; ! dream
 
 LEXICON VerbAfterStem
 
