@@ -340,7 +340,10 @@ ana:%{A%}n%{A%} Cl7 ; ! child
 ambĩrĩria:%{A%}mbĩrĩri%{A%} Cl7 ; ! beginning
 ndũ:nd%{Ũ%} Cl7 ; ! nothing
 tũmi:%{T%}ũm%{I%} ; ! reason
-ũria:%{Ũ%}ri%{A%} Cl7 ! problem
+ũria:%{Ũ%}ri%{A%} Cl7 ; ! problem
+rumi:rum%{I%} Cl7 ; ! curse
+
+
 LEXICON Cl7
 
 %<n%>%<cl7%>:%{NULL%} NounPluralAgreement ;
@@ -373,7 +376,9 @@ thia:thi%{A%} Cl9p1%0 ;
 thĩ:thĩ Cl9p1%0 ; ! not sure if this actually belongs here but it's my best guess based on agreement
 tuma:%{T%}um%{A%} Cl9p1%0 ; ! darkness
 yoka:y%{O%}k%{A%} Cl9p1%0 ; ! snake
-goga:gog%{A%} Cl9p1%0 ; grace
+goga:gog%{A%} Cl9p1%0 ; ! grace
+goro:gor%{O%} Cl9p1%0 ; ! heart
+guo:gu%{O%} Cl9p1%0 ; ! garment
 
 
 LEXICON NounRootCl9p1%0Irr
@@ -392,6 +397,7 @@ gĩrĩ:gĩr%{Ĩ%} Cl11p1%0 ; ! fence, plural category uncertain
 imbo:%{I%}mb%{O%} Cl11p1%0 ; ! song, plural category uncertain
 ũĩ:%{Ũ%}%{BLOCK%}%{Ĩ%} Cl11p1%0 ; ! river, plural category uncertain
 ĩgĩ:%{Ĩ%}g%{Ĩ%} Cl11p1%0 ; ! eagle, plural category uncertain
+teto:tet%{O%} Cl11p1%0 ; ! word
 
 LEXICON Cl11p1%0
 
@@ -425,10 +431,15 @@ LEXICON NounRootCl14
 wendi:wend%{I%} Cl14 ;
 cũrũ:%{C%}ũr%{Ũ%} Cl14 ; ! porridge
 goro:gor%{O%} Cl14 ; ! expense
+menyi:menyi Cl14-alt ; ! information
 
 LEXICON Cl14
 
 %<n%>%<cl14%>:%{NULL%} NounPluralAgreement ;
+
+LEXICON Cl14-alt
+
+%<n%>%<cl14%>:%{Ũ%} NounPluralAgreement ;
 
 LEXICON NounRootCl15
 
@@ -754,7 +765,6 @@ amb:%{A%}mb VerbAfterStem ; ! start
 rut:%{R%}ut VerbAfterStem ; ! learn, teach, or remove
 ribot:%{R%}ibot VerbAfterStem ; ! report
 anĩrĩr:%{A%}nĩrĩr VerbAfterStem ; ! announce
-on:%{O%}n VerbAfterStem ; ! see
 ĩcir:%{Ĩ%}cir VerbAfterStem ; ! think
 ĩtu:%{Ĩ%}t%{U%} VerbAfterStem ; ! pretend
 rot:%{R%}ot VerbAfterStem ; ! dream
@@ -783,7 +793,7 @@ tig:%{T%}ig VerbAfterStem ; ! leave
 on:%{O%}n VerbAfterStem ; ! see
 ĩt:%{Ĩ%}t VerbAfterStem ; ! call
 hĩtũki:hĩtũk%{I%} VerbAfterStem ; ! pass (exceed)
-twar:%{T%}war VerbAfterStem ; ! take
+twar:%{T%}war VerbAfterStem ; ! take, or drive
 ku:k%{U%} VerbAfterStem ; ! die
 ũri:%{Ũ%}r%{I%} VerbAfterStem ; ! ask
 maki:mak%{I%} VerbAfterStem ; ! scare
@@ -798,6 +808,29 @@ meny:meny VerbAfterStem ; ! know
 ambatĩri:%{A%}mbatĩr%{I%} VerbAfterStem ; ! advance (in status)
 rũgam:rũgam VerbAfterstem ; ! stand
 ken:ken VerbAfterStem ; ! rejoice
+maki:mak%{I%} VerbAfterStem ; ! surprise
+cari:car%{I%} VerbAfterStem ; ! search
+amũkĩr:%{A%}mũkĩr VerbAfterStem ; ! accept
+reki:rek%{I%} VerbAfterStem ; ! send
+ũmb:%{Ũ%}mb VerbAfterStem ; ! create (make)
+ari:%{A%}r%{I%} VerbAfterStem ; ! discuss
+tu:t%{U%} VerbAfterStem ; ! decide
+ĩhũg:%{Ĩ%}hũg VerbAfterStem ; ! watch
+reg:reg VerbAfterStem ; ! refuse
+iki:%{I%}k%{I%} VerbAfterStem ; ! throw
+tigithani:tigithan%{I%} VerbAfterStem ; ! separate
+buĩri:buĩr%{I%} ; ! disappear
+end:%{E%}nd ; ! love
+ĩti:%{Ĩ%}t%{I%} ; ! to plead (as in plead guilty)
+niin:niin ; ! finish
+ĩhumb:%{Ĩ%}humb ; ! wear
+kuu:ku%{U%} ; ! carry
+thuurũkani:thuurũkan%{I%} ; ! analyse
+haragani:haragan%{I%} ; ! disperse
+kaani:kaan%{I%} ; ! prohibit
+geri:ger%{I%} ; ! try
+cay:%{C%}ay ; ! complain
+rathim:rathim ; ! bless
 
 LEXICON VerbAfterStem
 
