@@ -36,6 +36,7 @@ Multichar_Symbols
 
 ! Part of speech categories
 %<n%>   ! Noun
+%<prop%> ! proper noun
 %<v%>   ! Verb
 %<adj%> ! Adjective
 %<adv%> ! adverb
@@ -292,6 +293,10 @@ tĩ:%{T%}%{Ĩ%} Cl3 ; ! tree
 cuha:%{C%}uh%{A%} Cl3 ; ! swing
 rũthi:%{R%}ũth%{I%} Cl3 ; ! lion
 thanga:thang%{A%} Cl3 ; ! sand
+ĩkĩre:%{Ĩ%}kĩr%{E%} Cl3 ; ! method
+thenya:theny%{A%} Cl3 ; ! day; also gap
+gũnda:gũnd%{A%} Cl3 ; ! garden
+gambĩre:gambĩre Cl3 ; ! voice
 
 LEXICON Cl3
 
@@ -304,7 +309,7 @@ tunda:%{T%}und%{A%} Cl5 ; ! fruit
 rima:%{R%}im%{A%} Cl5 ; ! hole
 ria:%{R%}i%{A%} Cl5 ; ! milk, or lake/pond
 bera:ber%{A%} Cl5 ; ! pear
-gũrũ:gũr%{Ũ%} Cl5 ; ! leg
+gũrũ:gũr%{Ũ%} Cl5 ; ! sky
 aĩ:%{BLOCK%}%{A%}%{BLOCK%}%{Ĩ%} Cl5 ; ! water
 higa:hig%{a%} Cl5 ; ! stone
 embe:%{E}%mb%{e%} Cl5 ; ! mango
@@ -313,6 +318,8 @@ inabu:%{I%}nab%{U%} Cl5 ;
 ĩciria:%{Ĩ%}ciri%{A%} Cl5 ;
 taha:%{T%}ah%{A%} Cl5 ; ! mataha (a food made with corn and beans!)
 thangũ:thang%{Ũ%} Cl5 ; ! leaf
+mithimithi:mithimith%{I%} Cl5 ; ! twilight, always plural
+twa:%{T%}w%{A%} Cl5 ; ! name
 
 LEXICON Cl5
 
@@ -331,6 +338,7 @@ boko:bok%{O%} Cl7 ;
 imba:%{I%}mb%{A%} Cl7 ;
 ana:%{A%}n%{A%} Cl7 ; ! child
 ambĩrĩria:%{A%}mbĩrĩri%{A%} Cl7 ; ! beginning
+ndũ:nd%{Ũ%} Cl7 ; ! nothing
 
 LEXICON Cl7
 
@@ -362,6 +370,8 @@ bakũri:bakũr%{I%} Cl9p1%0 ;
 dahi:dah%{I%} Cl9p1%0 ;
 thia:thi%{A%} Cl9p1%0 ;
 thĩ:thĩ Cl9p1%0 ; ! not sure if this actually belongs here but it's my best guess based on agreement
+tuma:%{T%}um%{A%} Cl9p1%0 ; ! darkness
+yoka:y%{O%}k%{A%} Cl9p1%0 ; ! snake
 
 LEXICON NounRootCl9p1%0Irr
 
@@ -422,6 +432,7 @@ tũ:%{T%}%{Ũ%} Cl15 ;
 rug:%{R%}ug Cl15 ; ! cook/cooking
 theka:theka Cl15 ; ! laugh
 oko:%{O%}k%{O%} Cl15 ;
+gũrũ:gũr%{Ũ%} Cl15 ; ! leg
 
 LEXICON Cl15
 
@@ -714,7 +725,7 @@ humb:humb VerbAfterStem ;
 ror:%{R%}or VerbAfterStem ;
 gũ:g%{Ũ%} VerbAfterStem ; ! fall
 ũr:%{Ũ%}r VerbAfterStem ; ! run away
-cok:%{C%}ok VerbAfterStem ;
+cok:%{C%}ok VerbAfterStem ; return
 ik:%{I%}k VerbAfterStem ; ! throw
 nyit:nyit VerbAfterStem ; ! catch
 tin:tin VerbAfterStem ; ! cut
@@ -751,6 +762,7 @@ no:n%{O%} VerbAfterStem ; ! can/must (?)
 hot:hot VerbAfterStem ; ! might
 tũm:%{T%}ũm VerbAfterStem ; !
 ũm:%{Ũ%}m VerbAfterStem ; ! dry
+h%[%-fvE%]:h VerbAfterStem ; ! give
 hith:hith VerbAfterStem ; ! hide
 humb:humb VerbAfterStem ; ! cover
 ĩk:%{tĨ%}k VerbAfterStem ; ! put
@@ -763,6 +775,20 @@ nyu:nyu VerbAfterStem ; ! drink
 it:%{I%}t VerbAfterStem ; ! pour
 ur:%{U%}r VerbAfterStem ; ! rain
 hũr:hũr VerbAfterStem ; ! beat
+tig:%{T%}ig VerbAfterStem ; ! leave
+on:%{O%}n VerbAfterStem ; ! see
+ĩt:%{Ĩ%}t VerbAfterStem ; ! call
+hĩtũki:hĩtũk%{I%} VerbAfterStem ; ! pass (exceed)
+twar:%{T%}war VerbAfterStem ; ! take
+ku:k%{U%} VerbAfterStem ; ! die
+ũri:%{Ũ%}r%{I%} VerbAfterStem ; ! ask
+maki:mak%{I%} VerbAfterStem ; ! scare
+hot:hot VerbAfterStem ; ! can (as in be able)
+ig:ig VerbAfterStem ; ! put
+rath:rath VerbAfterStem ; ! predict
+ĩk:%{Ĩ%}k VerbAfterStem ; ! do
+bay:bay VerbAfterStem ; ! wrap
+
 
 LEXICON VerbAfterStem
 
@@ -1296,19 +1322,32 @@ LEXICON NumIrregularAgreement
 LEXICON LittleWord
 
 na%<pr%>:na # ; ! with
+na%<cnjcoo%>:na # ; ! and
 o%<quant%>:o # ; ! all
 kuma%<pr%>:kuma # ; ! from
 kana:kana # ; ! if
 no:no # ; ! but
 mũno:mũno # ; ! very
+ati%<cnjsub%>:ati # ; ! that
 
 LEXICON ProperName
 
-Kenya:Kenya # ; ! Kenya
-Abĩrika:Abĩrika # ; ! Africa
-Abirika:Abirika # ; ! Africa
-Mũtiiri:Mũtiiri # ; ! Mũtiiri
-Gĩgĩkũyũ:Gĩgĩkũyũ # ; ! Gĩgĩkũyũ
+Kenya:Kenya ProperNameEnding ; ! Kenya
+Abĩrika:Abĩrika ProperNameEnding ; ! Africa
+Abirika:Abirika ProperNameEnding ; ! Africa
+Mũtiiri:Mũtiiri ProperNameEnding ; ! Mũtiiri
+Gĩgĩkũyũ:Gĩgĩkũyũ ProperNameEnding ; ! Gĩgĩkũyũ
+thĩ:thĩ ProperNameEnding ; ! earth
+Mwathani:Mwathani ProperNameEnding ; ! God
+Edeni:Edeni ProperNameEnding ; Eden
+Pishoni:Pishoni ProperNameEnding ; ! Pison
+Havila:Havila ProperNameEnding ; ! a biblical river
+Gihoni:Gihoni ProperNameEnding ; ! a biblical river
+Farati:Farati ProperNameEnding ; ! a biblical river
+
+LEXICON ProperNameEnding ; !
+
+%<n%>%<prop%>:%{NULL%} # ; 
 
 ! LEXICON Quantifier
 
