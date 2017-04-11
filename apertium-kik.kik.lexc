@@ -339,7 +339,7 @@ imba:%{I%}mb%{A%} Cl7 ;
 ana:%{A%}n%{A%} Cl7 ; ! child
 ambĩrĩria:%{A%}mbĩrĩri%{A%} Cl7 ; ! beginning
 ndũ:nd%{Ũ%} Cl7 ; ! nothing
-tũmi:%{T%}ũm%{I%} ; ! reason
+tũmi:%{T%}ũm%{I%} Cl7 ; ! reason
 ũria:%{Ũ%}ri%{A%} Cl7 ; ! problem
 rumi:rum%{I%} Cl7 ; ! curse
 thama:tham%{A%} Cl7 ; ! island
@@ -741,7 +741,7 @@ humb:humb VerbAfterStem ;
 ror:%{R%}or VerbAfterStem ;
 gũ:g%{Ũ%} VerbAfterStem ; ! fall
 ũr:%{Ũ%}r VerbAfterStem ; ! run away
-cok:%{C%}ok VerbAfterStem ; return
+cok:%{C%}ok VerbAfterStem ; ! return
 ik:%{I%}k VerbAfterStem ; ! throw
 nyit:nyit VerbAfterStem ; ! catch
 tin:tin VerbAfterStem ; ! cut
@@ -807,7 +807,7 @@ thir:thir VerbAfterStem ; ! fail
 onek:%{O%}nek VerbAfterStem ; ! appear
 meny:meny VerbAfterStem ; ! know
 ambatĩri:%{A%}mbatĩr%{I%} VerbAfterStem ; ! advance (in status)
-rũgam:rũgam VerbAfterstem ; ! stand
+rũgam:rũgam VerbAfterStem ; ! stand
 ken:ken VerbAfterStem ; ! rejoice
 maki:mak%{I%} VerbAfterStem ; ! surprise
 cari:car%{I%} VerbAfterStem ; ! search
@@ -820,21 +820,21 @@ tu:t%{U%} VerbAfterStem ; ! decide
 reg:reg VerbAfterStem ; ! refuse
 iki:%{I%}k%{I%} VerbAfterStem ; ! throw
 tigithani:tigithan%{I%} VerbAfterStem ; ! separate
-buĩri:buĩr%{I%} ; ! disappear
-end:%{E%}nd ; ! love
-ĩti:%{Ĩ%}t%{I%} ; ! to plead (as in plead guilty)
-niin:niin ; ! finish
-ĩhumb:%{Ĩ%}humb ; ! wear
-kuu:ku%{U%} ; ! carry
-thuurũkani:thuurũkan%{I%} ; ! analyse
-haragani:haragan%{I%} ; ! disperse
-kaani:kaan%{I%} ; ! prohibit
-geri:ger%{I%} ; ! try
-cay:%{C%}ay ; ! complain
-rathim:rathim ; ! bless
-rĩmi:rĩm%{I%} ; ! earn
-giũr:giũr ; ! trample
-rot:rot ; ! dream
+buĩri:buĩr%{I%} VerbAfterStem ; ! disappear
+end:%{E%}nd VerbAfterStem ; ! love
+ĩti:%{Ĩ%}t%{I%} VerbAfterStem ; ! to plead (as in plead guilty)
+niin:niin VerbAfterStem ; ! finish
+ĩhumb:%{Ĩ%}humb VerbAfterStem ; ! wear
+kuu:ku%{U%} VerbAfterStem ; ! carry
+thuurũkani:thuurũkan%{I%} VerbAfterStem ; ! analyse
+haragani:haragan%{I%} VerbAfterStem ; ! disperse
+kaani:kaan%{I%} VerbAfterStem ; ! prohibit
+geri:ger%{I%} VerbAfterStem ; ! try
+cay:%{C%}ay VerbAfterStem ; ! complain
+rathim:rathim VerbAfterStem ; ! bless
+rĩmi:rĩm%{I%} VerbAfterStem ; ! earn
+giũr:giũr VerbAfterStem ; ! trample
+rot:rot VerbAfterStem ; ! dream
 
 LEXICON VerbAfterStem
 
@@ -1372,11 +1372,11 @@ na%<cnjcoo%>:na # ; ! and
 o%<quant%>:o # ; ! all
 kuma%<pr%>:kuma # ; ! from
 kana%<cnjsub%>:kana # ; ! if
-kana%<cnjcoo%>:kana ; ! or ! potential disambiguation
-no:no # ; ! but
+kana%<cnjcoo%>:kana # ; ! or ! potential disambiguation
+no%<cnjcoo%>:no # ; ! but
 mũno:mũno # ; ! very
 ati%<cnjsub%>:ati # ; ! that
-ũguo%<cnjcoo%>:ũguo # 
+ũguo%<cnjcoo%>:ũguo # ; 
 
 LEXICON ProperName
 
@@ -1387,14 +1387,15 @@ Mũtiiri:Mũtiiri ProperNameEnding ; ! Mũtiiri
 Gĩgĩkũyũ:Gĩgĩkũyũ ProperNameEnding ; ! Gĩgĩkũyũ
 thĩ:thĩ ProperNameEnding ; ! earth
 Mwathani:Mwathani ProperNameEnding ; ! God
-Edeni:Edeni ProperNameEnding ; Eden
+Edeni:Edeni ProperNameEnding ; ! Eden
 Pishoni:Pishoni ProperNameEnding ; ! Pison
 Havila:Havila ProperNameEnding ; ! a biblical river
 Gihoni:Gihoni ProperNameEnding ; ! a biblical river
 Farati:Farati ProperNameEnding ; ! a biblical river
 Adamu:Adamu ProperNameEnding ; ! Adam (biblical)
+Ngai:Ngai ProperNameEnding ; ! God
 
-LEXICON ProperNameEnding ; !
+LEXICON ProperNameEnding
 
 %<n%>%<prop%>:%{NULL%} # ; 
 
