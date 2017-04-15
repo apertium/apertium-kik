@@ -6,9 +6,15 @@ LIST Case = (n s) (n p) ; # A set that matches either a Noun Singular or a Noun 
 
 LIST Nominal = (n) (pro) ; # Nominal items
 
-LIST Number = (sg) (pl) ; # Numbers
+LIST Verbal = (v) (cop) ; # Verbal items
 
-LIST NounClass = (cl1) (cl3) (cl5) (cl7) (cl9p6) (cl9p10) (cl11p6) (cl11p10) (cl12p6) (cl12p13) (cl14) (cl15) ; # Noun classes
+LIST Number = (sg) (pl) ; # Number
+
+LIST Person = (p1) (p2) (p3) ; # Person
+
+LIST NounClass = (cl1) (cl3) (cl5) (cl7) (cl9p6) (cl9p10) (cl11p6) (cl11p10) (cl12p6) (cl12p13) (cl14) (cl15) (cl16) (cl17) ; # Noun classes
+
+LIST NounAgreementWord = (v) (cop) (adj) (assoc) (prn dem) ; # words that need to agree with nouns
 
 SECTION
 # If there is a singular noun to the right, I cannot be a verb or noun.
@@ -17,14 +23,50 @@ REMOVE (n) OR (v) IF (1 (n s)) ;
 # If there is a conjunction followed by a certain cohort of the same CASE as me, choose me.
 SELECT $$Case IF (1 (cnjcoo) LINK 1C $$Case) ;
 
-# If I am a verb or associative inflected to agree with a certain noun class, select me if the noun or pronoun preceding me is of that class.
-SELECT $$NounClass IF (0 (cop) OR (v) OR (assoc)) (-1 Nominal + $$NounClass ) ; 
+# If I am a verb, adjective, demonstrative, or associative inflected to agree with a certain noun class, select me if the noun or pronoun preceding me is of that class.
+SELECT $$NounClass IF (0 NounAgreementWord) (-1 Nominal + $$NounClass ) ; 
 
-# If I am verb or associative inflected to agree with a certain number, select me if the noun or pronoun preceding me is of that number.
-SELECT $$Number IF (0 (cop) OR (v) OR (assoc)) (-1 Nominal + $$Number ) ; 
+# If I am verb, adjective, demonstrative, or associative inflected to agree with a certain number, select me if the noun or pronoun preceding me is of that number.
+SELECT $$Number IF (0 NounAgreementWord) (-1 Nominal + $$Number ) ; 
+
+# If I am a verb, demonstrative, or associative inflected to agree with a certain number, select me if I am preceded by an adjective preceded by a noun of that number.
+SELECT $$NounClass IF (0 Verbal OR (dem) or (assoc)) (-1 (adj)) (-2 Nominal + $$NounClass ) ;
+
+# If I am a verb, demonstrative, or associative inflected to agree with a certain noun class, select me if I am preceded by an adjective preceded by a noun of that noun class.
+SELECT $$Number IF (0 Verbal OR (dem) or (assoc)) (-1 (adj)) (-2 Nominal + $$Number ) ;
+
+
+# If I am a verb inflected to agree with a certain noun class, select me if I am preceded by a demonstrative preceded by a noun of that noun class.
+SELECT $$NounClass IF (0 Verbal) (-1 (dem)) (-2 Nominal + $$NounClass ) ;
+
+# If I am a verb inflected to agree with a certain  number, select me if I am preceded by a demonstrative preceded by a noun of that number.
+SELECT $$Number IF (0 Verbal) (-1 (dem)) (-2 Nominal + $$Number ) ;
+
+# If I am a verb inflected to agree with a certain noun class, select me if I am preceded by a number preceded by an associative preceded by a noun of that noun class.
+SELECT $$NounClass IF (0 Verbal) (-1 (num)) (-2 (assoc)) (-3 Nominal + $$NounClass ) ;
+
+# If I am a verb inflected to agree with a certain noun class, select me if I am preceded by a number preceded by an associative preceded by a noun of that noun class.
+SELECT $$Number IF (0 Verbal) (-1 (num)) (-2 (assoc)) (-3 Nominal + $$Number ) ;
+
+# If I am a verb inflected to agree with a certain  number, select me if I am preceded by a demonstrative preceded by a noun of that number.
+SELECT $$Number IF (0 Verbal) (-1 (dem)) (-2 Nominal + $$Number ) ;
+
+
+# If I am a verb inflected to agree with a certain person, select me if the noun or pronoun preceding me is of that person.
+SELECT $$Person IF (0 Verbal) (-1 Nominal + $$Person)  ;
+
+# If I am a demonstrative inflected to agree with a certain noun class, select me if the noun following me is of that class.
+SELECT $$NounClass IF (0 (prn dem)) (1 Nominal + $$NounClass ) ;
+
+# If I am a demonstrative inflected to agree with a certain number, select me if the noun or pronoun preceding me is of that number.
+SELECT $$Number IF (0 NounAgreementWord) (1 Nominal + $$Number ) ;
 
 #If I am a verb followed by a copula, remove me.
 REMOVE (v) IF (0 (v)) (1 (cop)) ;
+
+#If I am a preposition followed by a verb, remove me.
+REMOVE (pr) IF (0 (pr)) (1 Verbal);
+
 
 # Resources:
 # http://visl.sdu.dk/cg3.html

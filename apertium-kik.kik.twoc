@@ -97,12 +97,36 @@ Tx:0 /<= _ ;
    matched ;
 
 
-"Match number prefixes and person 2"
+"Match number prefixes and person 2a"
 Tx:0 /<= _ ;
    except
        _ (:*) Ty:0 ;
-   where Tx in ( %[%-p1%] %[%-p2%] )
-         Ty in ( %[%+p1%] %[%+p2%] )
+   where Tx in ( %[%-p2%] )
+         Ty in ( %[%+p2%] )
+   matched ;
+
+"Match number prefixes and person 2b"
+Tx:0 /<= _ ;
+   except
+       _ (:*) Ty:0 ;
+   where Tx in ( %[%-p1%] )
+         Ty in ( %[%+p1%] )
+   matched ;
+
+"Match number prefixes and person s2a"
+Tx:0 /<= _ ;
+   except
+       _ (:*) Ty:0 ;
+   where Tx in ( %[%-p2%] )
+         Ty in ( %[%+p2%] )
+   matched ;
+
+"Match number prefixes and person s2b"
+Tx:0 /<= _ ;
+   except
+       _ (:*) Ty:0 ;
+   where Tx in ( %[%-p1%] )
+         Ty in ( %[%+p1%] )
    matched ;
 
 "Match tense and focus, part 1a"
@@ -139,51 +163,203 @@ Tx:0 /<= _ ;
 
 "Match tense and focus, part 2b"
 Tx:0 /<= _ ;
-   except
+   except!
        _ (:*) Ty:0 ;
    where Tx in ( %[%-rempast%] %[%-nearpast%] )
          Ty in ( %[%+rempast%] %[%+nearpast%] )
    matched ;
 
-"Match noun class and person, part 1a"
+
+!"Match noun class and person, part s1a"
+!Tx:0 /<= _ ;
+!   except
+!       _ (:*) Ty:0 ;
+!   where Tx in  ( %[%-scl3%] )
+!         Ty in ( %[%+scl3%] )
+!   matched ;
+
+
+!"Match noun class and person, part s1a2"
+!Tx:0 /<= _ ;
+!   except
+!       _ (:*) Ty:0 ;
+!   where Tx in  ( %[%-scl1%] )
+!         Ty in ( %[%+scl1%] )
+!   matched ;
+
+
+!"Match noun class and person, part s2a"
+!Tx:0 /<= _ ;
+!   except
+!       _ (:*) Ty:0 ;
+!   where Tx in  ( %[%-scl9p1%0%] )
+!         Ty in (%[%+scl9p1%0%] )
+!   matched ;
+
+!"Match noun class and person, part s2a2"
+!Tx:0 /<= _ ;
+!   except
+!       _ (:*) Ty:0 ;
+!   where Tx in  (  %[%-scl9p6%] )
+!         Ty in ( %[%+scl9p6%] )
+!   matched ;
+
+
+!"Match noun class and person, part s3a"
+!Tx:0 /<= _ ;
+!   except
+!       _ (:*) Ty:0 ;
+!   where Tx in  ( %[%-scl12p13%] )
+!         Ty in ( %[%+scl12p13%] )
+!   matched ;
+
+!"Match noun class and person, part s3a2"
+!Tx:0 /<= _ ;
+!   except
+!       _ (:*) Ty:0 ;
+!   where Tx in  ( %[%-cl12p6%] )
+!         Ty in ( %[%+cl12p6%] )
+!   matched ;
+
+
+!"Match noun class and person, part s1b"
+!Tx:0 /<= _ ;
+!   except
+!       _ (:*) Ty:0 ;
+!   where Tx in  ( %[%-scl7%] )
+!         Ty in ( %[%+scl7%] )
+!   matched ;
+
+!"Match noun class and person, part s1b2"
+!Tx:0 /<= _ ;
+!   except
+!       _ (:*) Ty:0 ;
+!   where Tx in  ( %[%-scl5%] )
+!         Ty in ( %[%+scl5%] )
+!   matched ;
+
+
+!"Match noun class and person, part s2b"
+!Tx:0 /<= _ ;
+!   except
+!       _ (:*) Ty:0 ;
+!   where Tx in  ( %[%-scl11p6%] )
+!         Ty in ( %[%+scl11p6%] )
+!   matched ;
+
+!"Match noun class and person, part s2b2"
+!Tx:0 /<= _ ;
+
+!   except
+!       _ (:*) Ty:0 ;
+!   where Tx in  ( %[%-scl11p1%0%] )
+!         Ty in ( %[%+scl11p1%0%] )
+!   matched ;
+
+
+!"Match noun class and person, part s3b"
+!Tx:0 /<= _ ;
+!   except
+!       _ (:*) Ty:0 ;
+!   where Tx in  ( %[%-scl14%] )
+!         Ty in ( %[%+scl14%] )
+!   matched ;
+
+
+!"Match noun class and person, part s3b2"
+!Tx:0 /<= _ ;
+!   except
+!       _ (:*) Ty:0 ;
+!   where Tx in  (%[%-scl15%] )
+!         Ty in (%[%+scl15%] )
+!   matched ;
+
+
+"Match noun class and person, parts1a"
 Tx:0 /<= _ ;
    except
        _ (:*) Ty:0 ;
-   where Tx in  ( %[%-cl1%] %[%-cl3%] )
-         Ty in ( %[%+cl1%] %[%+cl3%] )
+   where Tx in  ( %[%-scl3%] )
+         Ty in ( %[%+scl3%] )
    matched ;
+
+
+"Match noun class and person, part 1a2"
+Tx:0 /<= _ ;
+   except
+       _ (:*) Ty:0 ;
+   where Tx in  ( %[%-cl1%] )
+         Ty in ( %[%+cl1%] )
+   matched ;
+
 
 "Match noun class and person, part 2a"
 Tx:0 /<= _ ;
    except
        _ (:*) Ty:0 ;
-   where Tx in  (  %[%-cl9p6%] %[%-cl9p1%0%] )
-         Ty in ( %[%+cl9p6%] %[%+cl9p1%0%] )
+   where Tx in  ( %[%-cl9p1%0%] )
+         Ty in (%[%+cl9p1%0%] )
    matched ;
+
+"Match noun class and person, part 2a2"
+Tx:0 /<= _ ;
+   except
+       _ (:*) Ty:0 ;
+   where Tx in  (  %[%-cl9p6%] )
+         Ty in ( %[%+cl9p6%] )
+   matched ;
+
 
 "Match noun class and person, part 3a"
 Tx:0 /<= _ ;
    except
        _ (:*) Ty:0 ;
-   where Tx in  ( %[%-cl12p6%] %[%-cl12p13%] )
-         Ty in ( %[%+cl12p6%] %[%+cl12p13%] )
+   where Tx in  ( %[%-cl12p13%] )
+         Ty in ( %[%+cl12p13%] )
    matched ;
+
+"Match noun class and person, part 3a2"
+Tx:0 /<= _ ;
+   except
+       _ (:*) Ty:0 ;
+   where Tx in  ( %[%-cl12p6%] )
+         Ty in ( %[%+cl12p6%] )
+   matched ;
+
 
 "Match noun class and person, part 1b"
 Tx:0 /<= _ ;
    except
        _ (:*) Ty:0 ;
-   where Tx in  ( %[%-cl5%] %[%-cl7%] )
-         Ty in ( %[%+cl5%] %[%+cl7%] )
+   where Tx in  ( %[%-cl7%] )
+         Ty in ( %[%+cl7%] )
    matched ;
+
+"Match noun class and person, part 1b2"
+Tx:0 /<= _ ;
+   except
+       _ (:*) Ty:0 ;
+   where Tx in  ( %[%-cl5%] )
+         Ty in ( %[%+cl5%] )
+   matched ;
+
 
 "Match noun class and person, part 2b"
 Tx:0 /<= _ ;
    except
        _ (:*) Ty:0 ;
-   where Tx in  ( %[%-cl11p6%] %[%-cl11p1%0%] )
-         Ty in ( %[%+cl11p6%] %[%+cl11p1%0%] )
+   where Tx in  ( %[%-cl11p6%] )
+         Ty in ( %[%+cl11p6%] )
    matched ;
+
+"Match noun class and person, part 2b2"
+Tx:0 /<= _ ;
+   except
+       _ (:*) Ty:0 ;
+   where Tx in  ( %[%-cl11p1%0%] )
+         Ty in ( %[%+cl11p1%0%] )
+   matched ;
+
 
 "Match noun class and person, part 3b"
 Tx:0 /<= _ ;
@@ -192,6 +368,32 @@ Tx:0 /<= _ ;
    where Tx in  ( %[%-cl14%] %[%-cl15%] )
          Ty in ( %[%+cl14%] %[%+cl15%] )
    matched ;
+
+
+"Match noun class and person, part 3b2"
+Tx:0 /<= _ ;
+   except
+       _ (:*) Ty:0 ;
+   where Tx in  (%[%-cl15%] )
+         Ty in (%[%+cl15%] )
+   matched ;
+
+"Match noun class and person, part 4"
+Tx:0 /<= _ ;
+   except
+       _ (:*) Ty:0 ;
+   where Tx in  (%[%-cl16%]  %[%-cl17%] )
+         Ty in (%[%+cl16%] %[%+cl17%] )
+   matched ;
+
+"Match no object"
+Tx:0 /<= _ ;
+   except
+       _ (:*) Ty:0 ;
+   where Tx in  (%[%-noobj%] )
+         Ty in (%[%+noobj%] )
+   matched ;
+
 
 "Match reflexive, imperative, and negative part 1"
 Tx:0 /<= _ ;
@@ -254,8 +456,16 @@ Tx:0 /<= _ ;
  Tx:0 /<= _ ;
    except
        Ty:0 (:*) _ ;
-   where Tx in  ( %[%+fvA%] %[%+fvE%] )
-         Ty in ( %[%-fvA%] %[%-fvE%] )
+   where Tx in  ( %[%+fvA%] )
+         Ty in ( %[%-fvA%]  )
+   ;
+
+ "Coordinate final vowels 2"
+ Tx:0 /<= _ ;
+   except
+       Ty:0 (:*) _ ;
+   where Tx in  ( %[%+fvE%] )
+         Ty in ( %[%-fvE%] )
    matched ;
 
 
@@ -263,9 +473,16 @@ Tx:0 /<= _ ;
  Tx:0 /<= _ ;
    except
        _ (:*) Ty:0 ;
-!       _ (:*) %[%+fvĨ%]:0 ;
-   where Ty in  ( %[%+fvA%] %[%+fvE%]  )
-         Tx in ( %[%-fvA%] %[%-fvE%] )
+   where Ty in  ( %[%+fvA%] )
+         Tx in ( %[%-fvA%] )
+   matched ;
+
+ "Coordinate final vowels (reverse) 2 "
+ Tx:0 /<= _ ;
+   except
+       _ (:*) Ty:0 ;
+   where Ty in  ( %[%+fvE%] )
+         Tx in ( %[%-fvE%] )
    matched ;
 
 ! "Coordinate final vowels 2"

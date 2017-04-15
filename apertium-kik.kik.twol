@@ -1,4 +1,3 @@
-! Note to self!! In the middle of implementing copulas! Just created slippery archiphoneme r ... 
 
 Alphabet
  A B C D E G H I Ĩ J K L M N O R S T U Ũ W Y 
@@ -118,13 +117,17 @@ Rules
 %{Ũ%}:w <=> _  [ (%>: ) (%{NULL%}: ) ]* V1: ;
         except
             %{A%}: [ (%>: ) (%{NULL%}: ) ]* _ ;
-        where V1 in ( %{A%} %{O%} %{AA%} %{Ĩ%} ) ;
+        where V1 in ( %{A%} %{O%} %{AA%} %{Ĩ%} %{I%} %{E%} );
 
 
 !"Turn ĩ into y syllable-intially before vowel"
+! hard to work out because being syllable-initial is really complicated... unless word-initial of course.
 !%{Ĩ%}:y <=> %>: _ [ (%>: ) (%{NULL%}: ) ]* Vo: ;
 !        where Vo in ( %{A%} %{E%} %{O%} %{U%} %{Ũ%} ) ;
 
+"Turn ĩ into y syllable-intially before vowel"
+%{yĨ%}:y <=> %>: _ [ (%>: ) (%{NULL%}: ) ]* Vo: ;
+        where Vo in ( %{A%} %{E%} %{O%} %{U%} %{Ũ%} ) ;
 
 !!!!! RULES SPECIFIC TO CERTAIN MORPHEMES !!!!! 
 

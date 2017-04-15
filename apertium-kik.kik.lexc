@@ -15,6 +15,8 @@ Multichar_Symbols
 %<cl12p13%> ! Noun class 12p13
 %<cl14%>    ! Noun class 14
 %<cl15%>    ! Noun class 15
+%<cl16%>    ! Noun class 16
+%<cl17%>    ! Noun class 17
 %<???%>     ! helpful placeholder
 
 ! Secondary noun classes
@@ -92,6 +94,16 @@ Multichar_Symbols
 %<p2%> ! second person
 %<p3%> ! third person
 
+%<assoc%>
+
+%<imp%>
+
+%<sp1%>
+%<sp2%>
+%<sp3%>
+%<spl%>
+%<ssg%> ! object concord agreement 
+
 %<cop%> ! copula
 
 ! Pronoun types
@@ -149,6 +161,10 @@ Multichar_Symbols
 %[%-p2%]
 %[%+p1%]
 %[%+p2%]
+%[-sp1%]
+%[-sp2%]
+%[+sp1%]
+%[+sp2%]
 
 %[%-cl1%] ! Noun class 1
 %[%-cl3%] ! Noun class 3
@@ -175,6 +191,37 @@ Multichar_Symbols
 %[%+cl12p13%] ! Noun class 12p13
 %[%+cl14%]    ! Noun class 14
 %[%+cl15%]    ! Noun class 15
+
+! noun classes for object
+
+%[%-scl1%] ! Noun class 1
+%[%-scl3%] ! Noun class 3
+%[%-scl5%] ! Noun class 6
+%[%-scl7%] ! Noun class 7
+%[%-scl9p6%]   ! Noun class 9p6
+%[%-scl9p1%0%]  ! Noun class 9p1%0
+%[%-scl11p6%]  ! Noun class 11p6
+%[%-scl11p1%0%] ! Noun class 11p1%0
+%[%-scl12p6%] ! Noun class 12p6
+%[%-scl12p13%] ! Noun class 12p13
+%[%-scl14%]    ! Noun class 14
+%[%-scl15%]    ! Noun class 15
+
+%[%+scl1%] ! Noun class 1
+%[%+scl3%] ! Noun class 3
+%[%+scl5%] ! Noun class 6
+%[%+scl7%] ! Noun class 7
+%[%+scl9p6%]   ! Noun class 9p6
+%[%+scl9p1%0%]  ! Noun class 9p1%0
+%[%+scl11p6%]  ! Noun class 11p6
+%[%+scl11p1%0%] ! Noun class 11p1%0
+%[%+scl12p6%] ! Noun class 12p6
+%[%+scl12p13%] ! Noun class 12p13
+%[%+scl14%]    ! Noun class 14
+%[%+scl15%]    ! Noun class 15
+
+%[%-noobj%] ! no object tag
+%[%+noobj%] ! no object tag
 
 %[%+refl%]
 %[%-refl%]
@@ -228,8 +275,9 @@ Multichar_Symbols
 %{EE%} ! fv e
 %{AA%} ! fv a
 %{D%} ! for nasal prefix
+%{yĨ%} ! special ĩ that becomes y before vowels, for when we know that's what we want
 %{BLOCK%} ! coalescence-blocking, only surfaces as 0
-%{NULL%} !
+%{NULL%} ! always surfaces as null. useful for evading Apertium non-generation bug, maybe
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!                       M O R P H O T A C T I C S                         !!!
@@ -269,6 +317,7 @@ ndũ:nd%{Ũ%} Cl1 ; ! person
 arimũ:arim%{Ũ%} Cl1 ; ! teacher
 rĩmi:%{R%}ĩm%{I%} Cl1 ; ! farmer
 timia:%{T%}imi%{A%} Cl1 ; ! woman
+tumia:%{T%}umi%{A%} Cl1 ; ! woman, alternate spelling
 nyina:nyin%{A%} Cl1 ; ! mother
 thomi:thom%{I%} Cl1 ; ! student
 thuri:thur%{I%} Cl1 ; ! man
@@ -311,8 +360,8 @@ ria:%{R%}i%{A%} Cl5 ; ! milk, or lake/pond
 bera:ber%{A%} Cl5 ; ! pear
 gũrũ:gũr%{Ũ%} Cl5 ; ! sky
 aĩ:%{BLOCK%}%{A%}%{BLOCK%}%{Ĩ%} Cl5 ; ! water
-higa:hig%{a%} Cl5 ; ! stone
-embe:%{E}%mb%{e%} Cl5 ; ! mango
+higa:hig%{A%} Cl5 ; ! stone
+embe:%{E}%mb%{E%} Cl5 ; ! mango
 rigũ:%{R%}ig%{Ũ%} Cl5 ; ! banana
 inabu:%{I%}nab%{U%} Cl5 ;
 ĩciria:%{Ĩ%}ciri%{A%} Cl5 ;
@@ -381,6 +430,8 @@ goga:gog%{A%} Cl9p1%0 ; ! grace
 goro:gor%{O%} Cl9p1%0 ; ! heart
 guo:gu%{O%} Cl9p1%0 ; ! garment
 muoy%{O%}:muoy%{O%} Cl9p1%0 ; ! life
+tiihũ:%{T%}iih%{Ũ%} Cl9p1%0 ; ! wave
+tihũ:%{T%}ih%{Ũ%} Cl9p1%0 ; ! wave
 
 LEXICON NounRootCl9p1%0Irr
 
@@ -454,6 +505,22 @@ LEXICON Cl15
 
 %<n%>%<cl15%>:%{NULL%} NounPluralAgreement ;
 
+LEXICON NounRootCl16
+
+ndũ:hand%{Ũ%} Cl16 ; ! place
+
+LEXICON Cl16
+
+%<n%>%<cl16%>%<sg%>%<def%>:%{NULL%} # ;
+
+LEXICON NounRootCl17
+
+ndũ:kũnd%{Ũ%} Cl17 ; ! place
+
+LEXICON Cl17
+
+%<n%>%<cl17%>%<sg%>%<indef%>:%{NULL%} # ;
+
 LEXICON NounPrefix
 
 NounPrefixCl1 ;
@@ -466,6 +533,8 @@ NounPrefixCl11p6 ;
 NounPrefixCl12p13 ;
 NounPrefixCl14 ;
 NounPrefixCl15 ;
+NounPrefixCl16 ;
+NounPrefixCl17 ;
 
 LEXICON NounPrefixCl1
 
@@ -521,6 +590,13 @@ LEXICON NounPrefixCl15
 %[%-sg%]:%{K%}%{Ũ%}%> NounRootCl15 ;
 %[%-pl%]:m%{A%}%> NounRootCl15 ;
 
+LEXICON NounPrefixCl16
+
+NounRootCl16 ;
+
+LEXICON NounPrefixCl17
+
+NounRootCl17 ;
 
 LEXICON Copula
 
@@ -558,7 +634,7 @@ LEXICON CopVerbNeg1
 %[%-neg%]:n%{D%}%> CopVerbSubjectConcord ;
 CopVerbSubjectConcord ;
 
-LEXICON CopVerbSubjectConcord
+LEXICON CopVerbSubjectConcord 
 
 %[%-p1%]%[%-sg%]:%{N%}%{N2%}%{N3%}%> CopVerbNeg2 ;
 %[%-p1%]%[%-pl%]:%{T%}%{Ũ%}%> CopVerbNeg2 ;
@@ -567,7 +643,7 @@ LEXICON CopVerbSubjectConcord
 %[%-cl1%]%[%-sg%]:%{A%}%> CopVerbTense ;
 %[%-cl1%]%[%-pl%]:m%{A%}%> CopVerbNeg2 ;
 %[%-cl3%]%[%-sg%]:%{Ũ%}%> CopVerbTense ;
-%[%-cl3%]%[%-pl%]:%{Ĩ%}%> CopVerbTense ;
+%[%-cl3%]%[%-pl%]:%{yĨ%}%> CopVerbTense ;
 %[%-cl5%]%[%-sg%]:r%{Ĩ%}%> CopVerbNeg2 ;
 %[%-cl5%]%[%-pl%]:m%{A%}%> CopVerbNeg2 ;
 %[%-cl7%]%[%-sg%]:%{K%}%{Ĩ%}%> CopVerbNeg2 ;
@@ -702,7 +778,7 @@ LEXICON VerbTense
 
 %[%-rempast%]%[%-perf%]%[%-compl%]%[%-hab%]:%{A%}%> VerbObjectAgreement ;
 %[%-rempast%]%[%-perf%]%[%-compl%]%[%-hab%]:%{BLOCK%}%{A%}%> VerbObjectAgreement ; !needed to relax into aa... maybe better modeled with spellrelax? annoying.
-%[%-nearpast%]%[%-perf%]%[%-compl%]%[%-hab%]:r%{A%}%> VerbObjectAgreement ;
+%[%-nearpast%]%[%-perf%]%[%-compl%]%[%-hab%]%[%-noasp%]:%{R%}%{A%}%> VerbObjectAgreement ;
 %[%-currpast%][%-perf%]:%{K%}%{Ũ%}%> VerbObjectAgreement ; ! maybe hab? noasp?
 %[%-currpast%]%[%-noasp%]:%{BLOCK%}%{A%}%> VerbObjectAgreement ; ! maybe hab? maybe compl?
 %[%-currpast%]%[%-compl%]:%{NULL%} VerbObjectAgreement ;
@@ -710,12 +786,36 @@ LEXICON VerbTense
 %[%-pres%]%[%-noasp%]%[%-proc%]:%{RAR%}%{A%}%> VerbObjectAgreement ;
 %[%-pres%]%[%-hab%]%[%-perf%]:%{NULL%} VerbObjectAgreement ; ! highly dubious... but exists sometimes like in nĩainaga. probably just homophonic with the other aga
 %[%-currfut%]%[%-noasp%]:%{K%}%{Ũ%}%> VerbObjectAgreement ; ! maybe habitual is possible ???
-! %[%-currfut%]%[%-fvE%]%[%-hab%]%[%-noasp%]:%{NULL%} VerbObjectAgreement ;
 %[%-remfut%]%[%-noasp%]:%{K%}%{A%}%> VerbObjectAgreement ;
-! %[%-remfut%]%[%-noasp%]%[%-remfutagr%]:%{NULL%} VerbObjectAgreement ; ! Difference between ka and null form unclear; may be predictable
+%[%-seq%]%[%-noasp%]:%{K%}%{Ĩ%}%> VerbObjectAgreement ;
+%[%-seq%]%[%-noasp%]:%{K%}%{I%}%> VerbObjectAgreement ; ! alternate spelling, possibly biblical
 
 LEXICON VerbObjectAgreement
 
+!%[%-sp1%]%[%-ssg%]:%{N%}%{N2%}%{N3%}%> VerbReflexive ;
+!%[%-sp1%]%[%-spl%]:%{T%}%{Ũ%}%> VerbReflexive ;
+!%[%-sp2%]%[%-ssg%]:%{K%}%{Ũ%}%> VerbReflexive ;
+!%[%-sp2%]%[%-spl%]:m%{U%}%> VerbReflexive ;
+!%[%-scl1%]%[%-ssg%]:m%{Ũ%}%> VerbReflexive ;
+!%[%-scl1%]%[%-spl%]:m%{A%}%> VerbReflexive ;
+!%[%-scl3%]%[%-ssg%]:m%{Ũ%}%> VerbReflexive ;
+!%[%-scl3%]%[%-spl%]:m%{Ĩ%}%> VerbReflexive ;
+!%[%-scl5%]%[%-ssg%]:%{R%}{Ĩ%}%> VerbReflexive ;
+!%[%-scl5%]%[%-spl%]:m%{A%}%> VerbReflexive ;
+!%[%-scl7%]%[%-ssg%]:%{K%}%{Ĩ%}%> VerbReflexive ;
+!%[%-scl7%]%[%-spl%]:c%{I%}%> VerbReflexive ;
+!%[%-scl9p1%0%]%[%-ssg%]:m%{Ĩ%}%> VerbReflexive ;
+!%[%-scl9p1%0%]%[%-spl%]:c%{I%}%> VerbReflexive ;
+!%[%-scl11p1%0%]%[%-ssg%]:%{R%}%{Ũ%}%> VerbReflexive ;
+!%[%-scl11p1%0%]%[%-spl%]:c%{I%}%> VerbReflexive ;
+!%[%-scl12p13%]%[%-ssg%]:%{K%}%{A%}%> VerbReflexive ;
+!%[%-scl12p13%]%[%-spl%]:%{T%}%{Ũ%}%> VerbReflexive ;
+!%[%-scl14%]%[%-ssg%]:%{Ũ%}%> VerbReflexive ;
+!%[%-scl14%]%[%-spl%]:m%{A%}%> VerbReflexive ;
+!%[%-scl15%]%[%-ssg%]:%{K%}%{Ũ%}%> VerbReflexive ;
+!%[%-scl15%]%[%-ssg%]:%{K%}%{U%}%> VerbReflexive ; ! should fix
+!%[%-scl15%]%[%-spl%]:m%{A%}%> VerbReflexive ;
+!%[%-noobj%]:%{NULL%} VerbReflexive ;
 VerbReflexive ;
 
 LEXICON VerbReflexive
@@ -737,16 +837,17 @@ thamb:thamb VerbAfterStem ;
 rĩm:%{R%}ĩm VerbAfterStem ; ! cultivate
 haic:haic VerbAfterStem ;
 on:on VerbAfterStem ;
-humb:humb VerbAfterStem ;
 ror:%{R%}or VerbAfterStem ;
 gũ:g%{Ũ%} VerbAfterStem ; ! fall
 ũr:%{Ũ%}r VerbAfterStem ; ! run away
 cok:%{C%}ok VerbAfterStem ; ! return
+! cook:%{C%}ook VerbAfterStem ; ! probably alternate spelling of return(?), possibly biblical
+cooker:%{C%}ooker VerbAfterStem ; ! say(?) (meaning is  fairly confusing, but common in Bible)
 ik:%{I%}k VerbAfterStem ; ! throw
 nyit:nyit VerbAfterStem ; ! catch
 tin:tin VerbAfterStem ; ! cut
 hanyũk:hanyũk VerbAfterStem ; ! run
-ikar:%{I%}kar VerbAfterStem ; ! stay/sit
+ikar:ikar VerbAfterStem ; ! stay/sit
 rĩ:%{R%}%{Ĩ%} VerbAfterStem ; ! eat
 ririkan:%{R%}irikan VerbAfterStem ; ! remember
 ĩtĩk:%{Ĩ%}tĩk VerbAfterStem ; ! believe
@@ -769,7 +870,7 @@ anĩrĩr:%{A%}nĩrĩr VerbAfterStem ; ! announce
 ĩcir:%{Ĩ%}cir VerbAfterStem ; ! think
 ĩtu:%{Ĩ%}t%{U%} VerbAfterStem ; ! pretend
 rot:%{R%}ot VerbAfterStem ; ! dream
-ĩrir:%{ĨE%}rir VerbAfterStem ; ! regret
+ĩrir:%{Ĩ%}rir VerbAfterStem ; ! regret
 ken:{%K%}en VerbAfterStem ; ! be happy
 rakar:%{R%}akar VerbAfterStem ; ! be angry
 ĩhok:%{Ĩ%}hok VerbAfterStem ; ! hope
@@ -855,6 +956,7 @@ VerbMid ;
 LEXICON VerbMid
 
 %<mid%>:%>%{Ĩ%}k VerbMid ;
+%<mid%>%<rev%>:%>%{Ũ%}k VerbCaus ;
 VerbRevers ;
 
 LEXICON VerbRevers
@@ -915,14 +1017,34 @@ LEXICON VerbTenseAgreement
 %<v%>%[%+currpast%]%<currpast%>:%{NULL%} VerbRecip ;
 %<v%>%[%+pres%]%<pres%>:%{NULL%} VerbRecip ;
 %<v%>%[%+currfut%]%<currfut%>:%{NULL%} VerbRecip ;
-! %[%+nearfut%]%<nearfut%>:%{NULL%} VerbRecip ;
 %<v%>%[%+remfut%]%<remfut%>:%{NULL%} VerbRecip ;
 %[%+seq%]%<seq%>:%{NULL%} VerbRecip ;
 
 LEXICON VerbSubjectNumberAgreement
 
-%[%+sg%]%<sg%>:%{NULL%} VerbFocAgreement ;
-%[%+pl%]%<pl%>:%{NULL%} VerbFocAgreement ;
+%[%+sg%]%<sg%>:%{NULL%} VerbObjectConcordAgreement ;
+%[%+pl%]%<pl%>:%{NULL%} VerbObjectConcordAgreement ;
+
+LEXICON VerbObjectConcordAgreement 
+
+!%<sp1%>%[%+sp1%]:%{NULL%} VerbObjectNumberAgreement ;
+!%<sp2%>%[%+sp2%]:%{NULL%} VerbObjectNumberAgreement ;
+!%<sp3%>%<scl1%>%[%+scl1%]:%{NULL%} VerbObjectNumberAgreement ;
+!%<sp3%>%<scl3%>%[%+scl3%]:%{NULL%} VerbObjectNumberAgreement ;
+!%<sp3%>%<scl5%>%[%+scl5%]:%{NULL%} VerbObjectNumberAgreement ;
+!%<sp3%>%<scl7%>%[%+scl7%]:%{NULL%} VerbObjectNumberAgreement ;
+!%<sp3%>%<scl9p1%0%>%[%+scl9p1%0%]:%{NULL%} VerbObjectNumberAgreement ;
+!%<sp3%>%<scl11p1%0%>%[%+scl11p1%0%]:%{NULL%} VerbObjectNumberAgreement ;
+!%<sp3%>%<scl12p13%>%[%+scl12p13%]:%{NULL%} VerbObjectNumberAgreement ;
+!%<sp3%>%<scl14%>%[%+scl14%]:%{NULL%} VerbObjectNumberAgreement ;
+!%<sp3%>%<scl15%>%[%+scl15%]:%{NULL%} VerbObjectNumberAgreement ;
+!%[%+noobj%]:%{NULL%} VerbFocAgreement ;
+VerbFocAgreement ;
+
+!LEXICON VerbObjectNumberAgreement
+
+!%<ssg%>%[%+ssg%]:%{NULL%} VerbFocAgreement ;
+!%<spl%>%[%+spl%]:%{NULL%} VerbFocAgreement ;
 
 LEXICON VerbSubjectConcordAgreement
 
@@ -949,7 +1071,6 @@ LEXICON VerbFocAgreement
 
 LEXICON AdjPrefix
 
-AdjSpecial ;
 %[%-cl1%]%[%-sg%]:m%{Ũ%} AdjRoot ;
 %[%-cl1%]%[%-pl%]:a AdjRoot ;
 %[%-cl3%]%[%-sg%]:m%{Ũ%} AdjRoot ;
@@ -971,33 +1092,34 @@ AdjSpecial ;
 %[%-cl12p13%]%[%-sg%]:%{K%}a AdjRoot ;
 %[%-cl12p13%]%[%-pl%]:t%{Ũ%} AdjRoot ;
 %[%-cl14%]%[%-sg%]:m%{Ũ%} AdjRoot ;
+%[%-cl14%]%[%-sg%]:%{Ũ%} AdjRoot ;
 %[%-cl14%]%[%-pl%]:ma AdjRoot ;
 %[%-cl15%]%[%-sg%]:%{K%}%{Ũ%} AdjRoot ;
 %[%-cl15%]%[%-pl%]:ma AdjRoot ;
-
-LEXICON AdjSpecial
-! unsure what's going on with these
-
-ega%<adj%>:wega # ; ! good, unclear on noun class agreement (should be with prefix ũ, but grammar does not claim that is the prefix for any noun class)
+%[%-cl16%]%[%-sg%]:h%{A%} AdjRoot ;
+%[%-cl17%]%[%-sg%]:%{K%}%{Ũ%} AdjRoot ;
+%[%-cl17%]%[%-sg%]:g%{U%} AdjRoot ; ! possibly irregular ?
 
 LEXICON AdjRoot
 
 nene:nene AdjAgree ; ! big
-kũrũ:kũrũ AdjAgree ; ! old
-ega:ega AdjAgree ; ! good
-tune:tune AdjAgree ; ! red
+kũrũ:%{K%}ũrũ AdjAgree ; ! old
+ega:%{E%}ga AdjAgree ; ! good
+tune:%{T%}une AdjAgree ; ! red
 rũarũ:rũarũ AdjAgree ; ! sick
 nini:nini AdjAgree ; ! small/young
-erũ:erũ AdjAgree ; ! neq
-ũru:ũru AdjAgree ; ! bad
-erũ:erũ AdjAgree ; ! white
-athĩki:athĩki AdjAgree ; ! obedient
-kuhĩ:kuhĩ AdjAgree ; ! short
-kenge:kenge AdjAgree ; ! baby
+erũ:%{E%}rũ AdjAgree ; ! neq
+ũru:%{Ũ%}ru AdjAgree ; ! bad
+erũ:%{E%}rũ AdjAgree ; ! white
+athĩki:%{A%}thĩki AdjAgree ; ! obedient
+kuhĩ:%{K%}uhĩ AdjAgree ; ! short
+kenge:%{K%}enge AdjAgree ; ! baby
 thaka:thaka AdjAgree ; ! beautiful
-irũ:irũ AdjAgree ; ! black
+irũ:%{I%}rũ AdjAgree ; ! black
 raihu:raihu AdjAgree ; ! tall
 mata:mata AdjAgree ; ! thick, creamy (possibly sour?)
+ingĩ:%{I%}ngĩ AdjAgree ; ! many
+othe:%{O%}the AdjAgree ; ! all
 
 LEXICON AdjAgree
 
@@ -1017,6 +1139,8 @@ LEXICON AdjClassAgree
 %[%+cl12p13%]%<cl12p13%>:%{NULL%} AdjNumberAgree ; ! Noun class 12p13
 %[%+cl14%]%<cl14%>:%{NULL%} AdjNumberAgree ;   ! Noun class 14
 %[%+cl15%]%<cl15%>:%{NULL%} AdjNumberAgree ;   ! Noun class 15
+%[%+cl16%]%<cl16%>:%{NULL%} AdjNumberAgree ;
+%[%+cl17%]%<cl17%>:%{NULL%} AdjNumberAgree ;
 
 LEXICON AdjNumberAgree
 
@@ -1040,6 +1164,7 @@ a%<assoc%>%<cl9p1%0%>%<sg%>:ya # ;
 a%<assoc%>%<cl9p1%0%>%<pl%>:cia # ;
 a%<assoc%>%<cl11p1%0%>%<pl%>:cia # ;
 a%<assoc%>%<cl11p6%>%<sg%>:rũa # ;
+a%<assoc%>%<cl11p6%>%<sg%>:rwa # ; ! alternate, possibly biblical form 
 a%<assoc%>%<cl11p1%0%>%<sg%>:rũa # ;
 a%<assoc%>%<cl12p13%>%<sg%>:ka # ;
 a%<assoc%>%<cl12p13%>%<pl%>:tũa # ;
@@ -1058,17 +1183,40 @@ DemPro ; ! demonstrative pronouns (that one, etc.)
 
 LEXICON PersPro
 
-pro%<prn%>%<pers%>:%{NULL%} ProEnds ;
-! pro%<prn%>%<pers%>:%{NULL%} ProEnds ;
+pro%<prn%>%<pers%>%<p1%>%<sg%>:niũ # ;
+pro%<prn%>%<pers%>%<p1%>%<pl%>:ithuĩ # ;
+pro%<prn%>%<pers%>%<p2%>%<sg%>:weũ # ;
+pro%<prn%>%<pers%>%<p2%>%<pl%>:inyuũ # ;
+pro%<prn%>%<pers%>%<p3%>%<cl1%>%<sg%>:we # ;
+pro%<prn%>%<pers%>%<p3%>%<cl1%>%<pl%>:mo # ;
+pro%<prn%>%<pers%>%<p3%>%<cl3%>%<sg%>:guo # ;
+pro%<prn%>%<pers%>%<p3%>%<cl3%>%<pl%>:yo # ;
+pro%<prn%>%<pers%>%<p3%>%<cl5%>%<sg%>:rĩo # ;
+pro%<prn%>%<pers%>%<p3%>%<cl5%>%<pl%>:mo # ;
+pro%<prn%>%<pers%>%<p3%>%<cl7%>%<sg%>:kĩo # ;
+pro%<prn%>%<pers%>%<p3%>%<cl7%>%<pl%>:cio # ;
+pro%<prn%>%<pers%>%<p3%>%<cl9p1%0%>%<sg%>:yo # ;
+pro%<prn%>%<pers%>%<p3%>%<cl9p1%0%>%<pl%>:cio # ;
+pro%<prn%>%<pers%>%<p3%>%<cl11p6%>%<sg%>:ruo # ;
+pro%<prn%>%<pers%>%<p3%>%<cl11p6%>%<pl%>:mo # ;
+pro%<prn%>%<pers%>%<p3%>%<cl11p1%0%>%<sg%>:ruo # ;
+pro%<prn%>%<pers%>%<p3%>%<cl11p1%0%>%<pl%>:cio # ;
+pro%<prn%>%<pers%>%<p3%>%<cl12p13%>%<sg%>:ko # ;
+pro%<prn%>%<pers%>%<p3%>%<cl12p13%>%<pl%>:tuo # ;
+pro%<prn%>%<pers%>%<p3%>%<cl14%>%<sg%>:guo # ;
+pro%<prn%>%<pers%>%<p3%>%<cl14%>%<pl%>:mo # ;
+pro%<prn%>%<pers%>%<p3%>%<cl15%>%<sg%>:kuo # ;
+pro%<prn%>%<pers%>%<p3%>%<cl15%>%<pl%>:mo # ;
 
-LEXICON ProEnds
+LEXICON DepProEnds
 
-%<p1%>%<sg%>:niũ # ;
+%<p1%>%<sg%>:niĩ # ;
 %<p1%>%<pl%>:ithuĩ # ;
-%<p2%>%<sg%>:weũ # ;
-%<p2%>%<pl%>:inyuũ # ;
-%<p3%>%<cl1%>%<sg%>:we # ;
-%<p3%>%<cl1%>%<pl%>:mo # ;
+%<p2%>%<sg%>:we # ;
+%<p2%>%<pl%>:inyuĩ # ;
+%<p3%>%<cl1%>%<sg%>:ke # ;
+%<p3%>%<cl1%>%<sg%>:ake # ; ! alternate form, possibly biblical
+%<p3%>%<cl1%>%<pl%>:o # ;
 %<p3%>%<cl3%>%<sg%>:guo # ;
 %<p3%>%<cl3%>%<pl%>:yo # ;
 %<p3%>%<cl5%>%<sg%>:rĩo # ;
@@ -1090,38 +1238,34 @@ LEXICON ProEnds
 
 LEXICON DepPro
 
-pro%<prn%>%<dep%>:na ProEnds ;
+pro%<prn%>%<dep%>:na DepProEnds ;
 
 LEXICON PossPro
 
-pro%<prn%>%<poss%>:%{NULL%} PossProObject ;
-
-LEXICON PossProObject
-
-%<cl1%>%<sg%>:w%{A%}%> PossProOwner ;
-%<cl1%>%<pl%>:%{A%}%> PossProOwner ;
-%<cl3%>%<sg%>:w%{A%}%> PossProOwner ;
-%<cl3%>%<pl%>:y%{A%}%> PossProOwner ;
-%<cl5%>%<sg%>:rĩ%{A%}%> PossProOwner ;
-%<cl5%>%<pl%>:m%{A%}%> PossProOwner ;
-%<cl7%>%<sg%>:gĩ%{A%}%> PossProOwner ;
-%<cl7%>%<pl%>:ci%{A%}%> PossProOwner ;
-%<cl9p6%>%<sg%>:y%{A%}%> PossProOwner ;
-%<cl9p6%>%<pl%>:m%{A%}%> PossProOwner ;
-%<cl9p10%>%<sg%>:y%{A%}%> PossProOwner ;
-%<cl9p10%>%<pl%>:ci%{A%}%> PossProOwner ;
-%<cl11p6%>%<sg%>:rũ%{A%}%> PossProOwner ;
-%<cl11p6%>%<pl%>:m%{A%}%> PossProOwner ;
-%<cl11p10%>%<sg%>:rũ%{A%}%> PossProOwner ;
-%<cl11p10%>%<pl%>:ci%{A%}%> PossProOwner ;
-%<cl12p6%>%<sg%>:g%{A%}%> PossProOwner ;
-%<cl12p6%>%<pl%>:m%{A%}%> PossProOwner ;
-%<cl12p13%>%<sg%>:g%{A%}%> PossProOwner ;
-%<cl12p13%>%<pl%>:tũ%{A%}%> PossProOwner ;
-%<cl14%>%<sg%>:w%{A%}%> PossProOwner ;
-%<cl14%>%<pl%>:m%{A%}%> PossProOwner ;
-%<cl15%>%<sg%>:gũ%{A%}%> PossProOwner ;
-%<cl15%>%<pl%>:m%{A%}%> PossProOwner ;
+pro%<prn%>%<poss%>%<cl1%>%<sg%>:w%{A%}%> PossProOwner ;
+pro%<prn%>%<poss%>%<cl1%>%<pl%>:%{A%}%> PossProOwner ;
+pro%<prn%>%<poss%>%<cl3%>%<sg%>:w%{A%}%> PossProOwner ;
+pro%<prn%>%<poss%>%<cl3%>%<pl%>:y%{A%}%> PossProOwner ;
+pro%<prn%>%<poss%>%<cl5%>%<sg%>:rĩ%{A%}%> PossProOwner ;
+pro%<prn%>%<poss%>%<cl5%>%<pl%>:m%{A%}%> PossProOwner ;
+pro%<prn%>%<poss%>%<cl7%>%<sg%>:gĩ%{A%}%> PossProOwner ;
+pro%<prn%>%<poss%>%<cl7%>%<pl%>:ci%{A%}%> PossProOwner ;
+pro%<prn%>%<poss%>%<cl9p6%>%<sg%>:y%{A%}%> PossProOwner ;
+pro%<prn%>%<poss%>%<cl9p6%>%<pl%>:m%{A%}%> PossProOwner ;
+pro%<prn%>%<poss%>%<cl9p1%0%>%<sg%>:y%{A%}%> PossProOwner ;
+pro%<prn%>%<poss%>%<cl9p1%0%>%<pl%>:ci%{A%}%> PossProOwner ;
+pro%<prn%>%<poss%>%<cl11p6%>%<sg%>:rũ%{A%}%> PossProOwner ;
+pro%<prn%>%<poss%>%<cl11p6%>%<pl%>:m%{A%}%> PossProOwner ;
+pro%<prn%>%<poss%>%<cl11p1%0%>%<sg%>:rũ%{A%}%> PossProOwner ;
+pro%<prn%>%<poss%>%<cl11p1%0%>%<pl%>:ci%{A%}%> PossProOwner ;
+pro%<prn%>%<poss%>%<cl12p6%>%<sg%>:g%{A%}%> PossProOwner ;
+pro%<prn%>%<poss%>%<cl12p6%>%<pl%>:m%{A%}%> PossProOwner ;
+pro%<prn%>%<poss%>%<cl12p13%>%<sg%>:g%{A%}%> PossProOwner ;
+pro%<prn%>%<poss%>%<cl12p13%>%<pl%>:tũ%{A%}%> PossProOwner ;
+pro%<prn%>%<poss%>%<cl14%>%<sg%>:w%{A%}%> PossProOwner ;
+pro%<prn%>%<poss%>%<cl14%>%<pl%>:m%{A%}%> PossProOwner ;
+pro%<prn%>%<poss%>%<cl15%>%<sg%>:gũ%{A%}%> PossProOwner ;
+pro%<prn%>%<poss%>%<cl15%>%<pl%>:m%{A%}%> PossProOwner ;
 
 LEXICON PossProOwner
 
@@ -1134,116 +1278,133 @@ LEXICON PossProOwner
 
 LEXICON RelPro
 
-pro%<prn%>%<rel%>:%{NULL%} RelProRoot ;
-
-!TODO:%{NULL%} What is going on here???
-
-LEXICON RelProRoot
-
-%<cl1%>%<sg%>:ũrĩa # ;
-%<cl1%>%<pl%>:%{A%}rĩa # ;
-%<cl3%>%<sg%>:ũrĩa # ;
-%<cl3%>%<pl%>:ĩrĩa # ;
-%<cl5%>%<sg%>:rĩrĩa # ;
-%<cl5%>%<pl%>:m%{A%}rĩa # ;
-%<cl7%>%<sg%>:kĩrĩa # ;
-%<cl7%>%<pl%>:irĩa # ;
-%<cl9p6%>%<sg%>:ĩria # ;
-%<cl9p6%>%<pl%>:m%{A%}rĩa # ;
-%<cl9p10%>%<sg%>:irĩa # ;
-%<cl9p10%>%<pl%>:iria # ;
-%<cl11p6%>%<sg%>:rũrĩa # ;
-%<cl11p6%>%<pl%>:m%{A%rĩa # ;
-%<cl11p10%>%<sg%>:rũrĩa # ;
-%<cl11p10%>%<pl%>:iria # ;
-%<cl12p6%>%<sg%>:k%{A%}rĩa # ;
-%<cl12p6%>%<pl%>:m%{A%}rĩa # ;
-%<cl12p13%>%<sg%>:k%{A%}rĩa # ;
-%<cl12p13%>%<pl%>:tũrĩa # ;
-%<cl14%>%<sg%>:ũrĩa # ;
-%<cl14%>%<pl%>:m%{A%}rĩa # ;
-%<cl15%>%<sg%>:kũrĩa # ;
-%<cl15%>%<pl%>:m%{A%}rĩa # ;
+pro%<prn%>%<rel%>%<cl1%>%<sg%>:ũrĩa # ;
+pro%<prn%>%<rel%>%<cl1%>%<pl%>:%{A%}rĩa # ;
+pro%<prn%>%<rel%>%<cl3%>%<sg%>:ũrĩa # ;
+pro%<prn%>%<rel%>%<cl3%>%<pl%>:ĩrĩa # ;
+pro%<prn%>%<rel%>%<cl5%>%<sg%>:rĩrĩa # ;
+pro%<prn%>%<rel%>%<cl5%>%<pl%>:m%{A%}rĩa # ;
+pro%<prn%>%<rel%>%<cl7%>%<sg%>:kĩrĩa # ;
+pro%<prn%>%<rel%>%<cl7%>%<pl%>:irĩa # ;
+pro%<prn%>%<rel%>%<cl9p6%>%<sg%>:ĩria # ;
+pro%<prn%>%<rel%>%<cl9p6%>%<pl%>:m%{A%}rĩa # ;
+pro%<prn%>%<rel%>%<cl9p1%0%>%<sg%>:irĩa # ;
+pro%<prn%>%<rel%>%<cl9p1%0%>%<pl%>:iria # ;
+pro%<prn%>%<rel%>%<cl11p6%>%<sg%>:rũrĩa # ;
+pro%<prn%>%<rel%>%<cl11p6%>%<pl%>:m%{A%}rĩa # ;
+pro%<prn%>%<rel%>%<cl11p1%0%>%<sg%>:rũrĩa # ;
+pro%<prn%>%<rel%>%<cl11p1%0%>%<pl%>:iria # ;
+pro%<prn%>%<rel%>%<cl12p6%>%<sg%>:k%{A%}rĩa # ;
+pro%<prn%>%<rel%>%<cl12p6%>%<pl%>:m%{A%}rĩa # ;
+pro%<prn%>%<rel%>%<cl12p13%>%<sg%>:k%{A%}rĩa # ;
+pro%<prn%>%<rel%>%<cl12p13%>%<pl%>:tũrĩa # ;
+pro%<prn%>%<rel%>%<cl14%>%<sg%>:ũrĩa # ;
+pro%<prn%>%<rel%>%<cl14%>%<pl%>:m%{A%}rĩa # ;
+pro%<prn%>%<rel%>%<cl15%>%<sg%>:kũrĩa # ;
+pro%<prn%>%<rel%>%<cl15%>%<pl%>:m%{A%}rĩa # ;
 
 LEXICON DemPro
 
-pro%<dem%>%<dist%>:%{NULL%} DistDem ;
-pro%<dem%>%<prox%>:%{NULL%} ProxDem ;
-pro%<dem%>%<ana%>:%{NULL%} AnaDem ;
+DistDem ;
+ProxDem ;
+AnaDem ;
 
 LEXICON DistDem
 
-RelProRoot ; ! relative pronouns have same orthography as distal demonstratives
+pro%<prn%>%<dem%>%<dist%>%<cl1%>%<sg%>:ũrĩa # ;
+pro%<prn%>%<dem%>%<dist%>%<cl1%>%<pl%>:%{A%}rĩa # ;
+pro%<prn%>%<dem%>%<dist%>%<cl3%>%<sg%>:ũrĩa # ;
+pro%<prn%>%<dem%>%<dist%>%<cl3%>%<pl%>:ĩrĩa # ;
+pro%<prn%>%<dem%>%<dist%>%<cl5%>%<sg%>:rĩrĩa # ;
+pro%<prn%>%<dem%>%<dist%>%<cl5%>%<pl%>:m%{A%}rĩa # ;
+pro%<prn%>%<dem%>%<dist%>%<cl7%>%<sg%>:kĩrĩa # ;
+pro%<prn%>%<dem%>%<dist%>%<cl7%>%<pl%>:irĩa # ;
+pro%<prn%>%<dem%>%<dist%>%<cl9p6%>%<sg%>:ĩria # ;
+pro%<prn%>%<dem%>%<dist%>%<cl9p6%>%<pl%>:m%{A%}rĩa # ;
+pro%<prn%>%<dem%>%<dist%>%<cl9p1%0%>%<sg%>:irĩa # ;
+pro%<prn%>%<dem%>%<dist%>%<cl9p1%0%>%<pl%>:iria # ;
+pro%<prn%>%<dem%>%<dist%>%<cl11p6%>%<sg%>:rũrĩa # ;
+pro%<prn%>%<dem%>%<dist%>%<cl11p6%>%<pl%>:m%{A%}rĩa # ;
+pro%<prn%>%<dem%>%<dist%>%<cl11p1%0%>%<sg%>:rũrĩa # ;
+pro%<prn%>%<dem%>%<dist%>%<cl11p1%0%>%<pl%>:iria # ;
+pro%<prn%>%<dem%>%<dist%>%<cl12p6%>%<sg%>:k%{A%}rĩa # ;
+pro%<prn%>%<dem%>%<dist%>%<cl12p6%>%<pl%>:m%{A%}rĩa # ;
+pro%<prn%>%<dem%>%<dist%>%<cl12p13%>%<sg%>:k%{A%}rĩa # ;
+pro%<prn%>%<dem%>%<dist%>%<cl12p13%>%<pl%>:tũrĩa # ;
+pro%<prn%>%<dem%>%<dist%>%<cl14%>%<sg%>:ũrĩa # ;
+pro%<prn%>%<dem%>%<dist%>%<cl14%>%<pl%>:m%{A%}rĩa # ;
+pro%<prn%>%<dem%>%<dist%>%<cl15%>%<sg%>:kũrĩa # ;
+pro%<prn%>%<dem%>%<dist%>%<cl15%>%<pl%>:m%{A%}rĩa # ;
 
 LEXICON ProxDem
 
-%<cl1%>%<sg%>:ũyũ # ;
-%<cl1%>%<pl%>:aya # ;
-%<cl3%>%<sg%>:ũyũ # ;
-%<cl3%>%<pl%>:ĩno # ;
-%<cl5%>%<sg%>:rĩrĩ # ;
-%<cl5%>%<pl%>:maya # ;
-%<cl7%>%<sg%>:gĩkĩ # ;
-%<cl7%>%<pl%>:ici # ;
-%<cl9p6%>%<sg%>:ĩno # ;
-%<cl9p6%>%<pl%>:maya # ;
-%<cl9p10%>%<sg%>:ĩno # ;
-%<cl9p10%>%<pl%>:ici # ;
-%<cl11p6%>%<sg%>:rũrũ # ;
-%<cl11p6%>%<pl%>:maya # ;
-%<cl11p10%>%<sg%>:rũrũ # ;
-%<cl11p10%>%<pl%>:ici # ;
-%<cl12p6%>%<sg%>:gaka # ;
-%<cl12p6%>%<pl%>:maya # ;
-%<cl12p13%>%<sg%>:gaka # ;
-%<cl12p13%>%<pl%>:tũtũ # ;
-%<cl14%>%<sg%>:ũyũ # ;
-%<cl14%>%<pl%>:maya # ;
-%<cl15%>%<sg%>:gũkũ # ;
-%<cl15%>%<pl%>:maya # ;
+pro%<prn%>%<dem%>%<prox%>%<cl1%>%<sg%>:ũyũ # ;
+pro%<prn%>%<dem%>%<prox%>%<cl1%>%<pl%>:aya # ;
+pro%<prn%>%<dem%>%<prox%>%<cl3%>%<sg%>:ũyũ # ;
+pro%<prn%>%<dem%>%<prox%>%<cl3%>%<pl%>:ĩno # ;
+pro%<prn%>%<dem%>%<prox%>%<cl5%>%<sg%>:rĩrĩ # ;
+pro%<prn%>%<dem%>%<prox%>%<cl5%>%<pl%>:maya # ;
+pro%<prn%>%<dem%>%<prox%>%<cl7%>%<sg%>:gĩkĩ # ;
+pro%<prn%>%<dem%>%<prox%>%<cl7%>%<pl%>:ici # ;
+pro%<prn%>%<dem%>%<prox%>%<cl9p6%>%<sg%>:ĩno # ;
+pro%<prn%>%<dem%>%<prox%>%<cl9p6%>%<pl%>:maya # ;
+pro%<prn%>%<dem%>%<prox%>%<cl9p1%0%>%<sg%>:ĩno # ;
+pro%<prn%>%<dem%>%<prox%>%<cl9p1%0%>%<pl%>:ici # ;
+pro%<prn%>%<dem%>%<prox%>%<cl11p6%>%<sg%>:rũrũ # ;
+pro%<prn%>%<dem%>%<prox%>%<cl11p6%>%<pl%>:maya # ;
+pro%<prn%>%<dem%>%<prox%>%<cl11p1%0%>%<sg%>:rũrũ # ;
+pro%<prn%>%<dem%>%<prox%>%<cl11p1%0%>%<pl%>:ici # ;
+pro%<prn%>%<dem%>%<prox%>%<cl12p6%>%<sg%>:gaka # ;
+pro%<prn%>%<dem%>%<prox%>%<cl12p6%>%<pl%>:maya # ;
+pro%<prn%>%<dem%>%<prox%>%<cl12p13%>%<sg%>:gaka # ;
+pro%<prn%>%<dem%>%<prox%>%<cl12p13%>%<pl%>:tũtũ # ;
+pro%<prn%>%<dem%>%<prox%>%<cl14%>%<sg%>:ũyũ # ;
+pro%<prn%>%<dem%>%<prox%>%<cl14%>%<pl%>:maya # ;
+pro%<prn%>%<dem%>%<prox%>%<cl15%>%<sg%>:gũkũ # ;
+pro%<prn%>%<dem%>%<prox%>%<cl15%>%<pl%>:maya # ;
 
 LEXICON AnaDem
 
-%<cl1%>%<sg%>:ũcio # ;
-%<cl1%>%<sg%>:ũu # ;
-%<cl1%>%<pl%>:acio # ;
-%<cl1%>%<pl%>:au # ;
-%<cl3%>%<sg%>:ũcio # ;
-%<cl3%>%<sg%>:ũu # ;
-%<cl3%>%<pl%>:ĩyo # ;
-%<cl3%>%<pl%>:ĩu # ;
-%<cl5%>%<sg%>:rĩu # ;
-%<cl5%>%<pl%>:macia # ;
-%<cl5%>%<pl%>:mau # ;
-%<cl7%>%<sg%>:kĩu # ;
-%<cl7%>%<pl%>:icio # ;
-%<cl7%>%<pl%>:iu # ;
-%<cl9p6%>%<sg%>:ĩyo # ;
-%<cl9p6%>%<sg%>:ĩu # ;
-%<cl9p6%>%<pl%>:macio # ;
-%<cl9p6%>%<pl%>:mau # ;
-%<cl9p10%>%<sg%>:ĩno # ;
-%<cl9p10%>%<sg%>:ĩno # ;
-%<cl9p10%>%<pl%>:icio # ;
-%<cl9p10%>%<pl%>:iu # ;
-%<cl11p6%>%<sg%>:rũu # ;
-%<cl11p6%>%<pl%>:macio # ;
-%<cl11p6%>%<pl%>:mau # ;
-%<cl11p10%>%<sg%>:rũu # ;
-%<cl11p10%>%<pl%>:icio # ;
-%<cl11p10%>%<pl%>:iu # ;
-%<cl12p6%>%<sg%>:kau # ;
-%<cl12p6%>%<pl%>:macio # ;
-%<cl12p6%>%<pl%>:mau # ;
-%<cl12p13%>%<sg%>:kau # ;
-%<cl12p13%>%<pl%>:tũu # ;
-%<cl14%>%<sg%>:ũcio # ;
-%<cl14%>%<sg%>:ũu # ;
-%<cl14%>%<pl%>:macio # ;
-%<cl14%>%<pl%>:mau # ;
-%<cl15%>%<sg%>:kũu # ;
-%<cl15%>%<pl%>:macio # ;
-%<cl15%>%<pl%>:mau # ;
+pro%<prn%>%<dem%>%<ana%>%<cl1%>%<sg%>:ũcio # ;
+pro%<prn%>%<dem%>%<ana%>%<cl1%>%<sg%>:ũu # ;
+pro%<prn%>%<dem%>%<ana%>%<cl1%>%<pl%>:acio # ;
+pro%<prn%>%<dem%>%<ana%>%<cl1%>%<pl%>:au # ;
+pro%<prn%>%<dem%>%<ana%>%<cl3%>%<sg%>:ũcio # ;
+pro%<prn%>%<dem%>%<ana%>%<cl3%>%<sg%>:ũu # ;
+pro%<prn%>%<dem%>%<ana%>%<cl3%>%<pl%>:ĩyo # ;
+pro%<prn%>%<dem%>%<ana%>%<cl3%>%<pl%>:ĩu # ;
+pro%<prn%>%<dem%>%<ana%>%<cl5%>%<sg%>:rĩu # ;
+pro%<prn%>%<dem%>%<ana%>%<cl5%>%<pl%>:macia # ;
+pro%<prn%>%<dem%>%<ana%>%<cl5%>%<pl%>:mau # ;
+pro%<prn%>%<dem%>%<ana%>%<cl7%>%<sg%>:kĩu # ;
+pro%<prn%>%<dem%>%<ana%>%<cl7%>%<pl%>:icio # ;
+pro%<prn%>%<dem%>%<ana%>%<cl7%>%<pl%>:iu # ;
+pro%<prn%>%<dem%>%<ana%>%<cl9p6%>%<sg%>:ĩyo # ;
+pro%<prn%>%<dem%>%<ana%>%<cl9p6%>%<sg%>:ĩu # ;
+pro%<prn%>%<dem%>%<ana%>%<cl9p6%>%<pl%>:macio # ;
+pro%<prn%>%<dem%>%<ana%>%<cl9p6%>%<pl%>:mau # ;
+pro%<prn%>%<dem%>%<ana%>%<cl9p1%0%>%<sg%>:ĩno # ;
+pro%<prn%>%<dem%>%<ana%>%<cl9p1%0%>%<sg%>:ĩno # ;
+pro%<prn%>%<dem%>%<ana%>%<cl9p1%0%>%<pl%>:icio # ;
+pro%<prn%>%<dem%>%<ana%>%<cl9p1%0%>%<pl%>:iu # ;
+pro%<prn%>%<dem%>%<ana%>%<cl11p6%>%<sg%>:rũu # ;
+pro%<prn%>%<dem%>%<ana%>%<cl11p6%>%<pl%>:macio # ;
+pro%<prn%>%<dem%>%<ana%>%<cl11p6%>%<pl%>:mau # ;
+pro%<prn%>%<dem%>%<ana%>%<cl11p1%0%>%<sg%>:rũu # ;
+pro%<prn%>%<dem%>%<ana%>%<cl11p1%0%>%<pl%>:icio # ;
+pro%<prn%>%<dem%>%<ana%>%<cl11p1%0%>%<pl%>:iu # ;
+pro%<prn%>%<dem%>%<ana%>%<cl12p6%>%<sg%>:kau # ;
+pro%<prn%>%<dem%>%<ana%>%<cl12p6%>%<pl%>:macio # ;
+pro%<prn%>%<dem%>%<ana%>%<cl12p6%>%<pl%>:mau # ;
+pro%<prn%>%<dem%>%<ana%>%<cl12p13%>%<sg%>:kau # ;
+pro%<prn%>%<dem%>%<ana%>%<cl12p13%>%<pl%>:tũu # ;
+pro%<prn%>%<dem%>%<ana%>%<cl14%>%<sg%>:ũcio # ;
+pro%<prn%>%<dem%>%<ana%>%<cl14%>%<sg%>:ũu # ;
+pro%<prn%>%<dem%>%<ana%>%<cl14%>%<pl%>:macio # ;
+pro%<prn%>%<dem%>%<ana%>%<cl14%>%<pl%>:mau # ;
+pro%<prn%>%<dem%>%<ana%>%<cl15%>%<sg%>:kũu # ;
+pro%<prn%>%<dem%>%<ana%>%<cl15%>%<pl%>:macio # ;
+pro%<prn%>%<dem%>%<ana%>%<cl15%>%<pl%>:mau # ;
 
 LEXICON Numeral
 
@@ -1267,8 +1428,8 @@ LEXICON LargeNumber
 
 gana%<num%>%<cl5%>%<sg%>:igana # ; ! one hundred
 gana%<num%>%<cl5%>%<pl%>:magana # ; ! hundreds
-giri%<num%>%<cl9p10%>%<sg%>:ngiri # ; ! one thousand
-giri%<num%>%<cl9p10%>%<pl%>:ngiri # ; ! thousands
+giri%<num%>%<cl9p1%0%>%<sg%>:ngiri # ; ! one thousand
+giri%<num%>%<cl9p1%0%>%<pl%>:ngiri # ; ! thousands
 kũmi%<num%>%<cl3%>%<sg%>:ikũmi # ; ! ten
 rongo%<num%>%<cl3%>%<pl%>:mĩrongo # ; ! tens
 
@@ -1357,9 +1518,9 @@ LEXICON NumIrregularAgreement
 %<cl5%>%<pl%>:%{NULL%} # ;
 %<cl7%>%<pl%>:%{NULL%} # ;
 %<cl9p6%>%<pl%>:%{NULL%} # ;
-%<cl9p10%>%<pl%>:%{NULL%} # ;
+%<cl9p1%0%>%<pl%>:%{NULL%} # ;
 %<cl11p6%>%<pl%>:%{NULL%} # ;
-%<cl11p10%>%<pl%>:%{NULL%} # ;
+%<cl11p1%0%>%<pl%>:%{NULL%} # ;
 %<cl12p6%>%<pl%>:%{NULL%} # ;
 %<cl12p13%>%<pl%>:%{NULL%} # ;
 %<cl14%>%<pl%>:%{NULL%} # ;
@@ -1375,8 +1536,14 @@ kana%<cnjsub%>:kana # ; ! if
 kana%<cnjcoo%>:kana # ; ! or ! potential disambiguation
 no%<cnjcoo%>:no # ; ! but
 mũno:mũno # ; ! very
-ati%<cnjsub%>:ati # ; ! that
-ũguo%<cnjcoo%>:ũguo # ; 
+atĩ%<cnjsub%>:atĩ # ; ! that
+atĩrĩ:atĩrĩ # ; ! a discourse marker, means sort of then, as a consequence 
+ThusWords ;
+
+LEXICON ThusWords
+
+guo%<cnjcoo%>:ũguo # ; ! thus
+guo%<cnjcoo%>:nĩguo # ; ! thus
 
 LEXICON ProperName
 
@@ -1385,8 +1552,8 @@ Abĩrika:Abĩrika ProperNameEnding ; ! Africa
 Abirika:Abirika ProperNameEnding ; ! Africa
 Mũtiiri:Mũtiiri ProperNameEnding ; ! Mũtiiri
 Gĩgĩkũyũ:Gĩgĩkũyũ ProperNameEnding ; ! Gĩgĩkũyũ
-thĩ:thĩ ProperNameEnding ; ! earth
-Mwathani:Mwathani ProperNameEnding ; ! God
+! thĩ:thĩ ProperNameEnding ; ! earth
+Mwathani:Mwathani ProperNameEnding ; ! Lord (as in Lord God)
 Edeni:Edeni ProperNameEnding ; ! Eden
 Pishoni:Pishoni ProperNameEnding ; ! Pison
 Havila:Havila ProperNameEnding ; ! a biblical river
@@ -1394,6 +1561,7 @@ Gihoni:Gihoni ProperNameEnding ; ! a biblical river
 Farati:Farati ProperNameEnding ; ! a biblical river
 Adamu:Adamu ProperNameEnding ; ! Adam (biblical)
 Ngai:Ngai ProperNameEnding ; ! God
+Roho:Roho ProperNameEnding ; ! Spirit (as in God's Spirit)
 
 LEXICON ProperNameEnding
 
