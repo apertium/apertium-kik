@@ -955,7 +955,7 @@ VerbMid ;
 
 LEXICON VerbMid
 
-%<mid%>:%>%{Ĩ%}k VerbMid ;
+%<mid%>:%>%{Ĩ%}k VerbRevers ;
 %<mid%>%<rev%>:%>%{Ũ%}k VerbCaus ;
 VerbRevers ;
 
