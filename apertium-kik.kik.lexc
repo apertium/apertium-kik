@@ -1269,12 +1269,12 @@ pro%<prn%>%<poss%>%<cl15%>%<pl%>:m%{A%}%> PossProOwner ;
 
 LEXICON PossProOwner
 
-%<p1%>%<ssg%>:%{A%}kwa # ;
-%<p1%>%<spl%>:%{I%}tũ # ;
-%<p2%>%<ssg%>:%{A%}ku # ;
-%<p2%>%<spl%>:%{A%}nyu # ;
-%<p3%>%<scl1%>%<ssg%>:%{A%}ke # ;
-%<p3%>%<scl1%>%<spl%>:%{A%}o # ;
+%<sp1%>%<ssg%>:%{A%}kwa # ;
+%<sp1%>%<spl%>:%{I%}tũ # ;
+%<sp2%>%<ssg%>:%{A%}ku # ;
+%<sp2%>%<spl%>:%{A%}nyu # ;
+%<sp3%>%<scl1%>%<ssg%>:%{A%}ke # ;
+%<sp3%>%<scl1%>%<spl%>:%{A%}o # ;
 
 LEXICON RelPro
 
