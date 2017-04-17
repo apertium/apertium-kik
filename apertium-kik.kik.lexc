@@ -178,6 +178,8 @@ Multichar_Symbols
 %[%-cl12p13%] ! Noun class 12p13
 %[%-cl14%]    ! Noun class 14
 %[%-cl15%]    ! Noun class 15
+%[%-cl16%]
+%[%-cl17%]
 
 %[%+cl1%] ! Noun class 1
 %[%+cl3%] ! Noun class 3
@@ -191,6 +193,8 @@ Multichar_Symbols
 %[%+cl12p13%] ! Noun class 12p13
 %[%+cl14%]    ! Noun class 14
 %[%+cl15%]    ! Noun class 15
+%[%+cl16%]
+%[%+cl17%]
 
 ! noun classes for object
 
@@ -936,6 +940,7 @@ rathim:rathim VerbAfterStem ; ! bless
 rĩmi:rĩm%{I%} VerbAfterStem ; ! earn
 giũr:giũr VerbAfterStem ; ! trample
 rot:rot VerbAfterStem ; ! dream
+kor:%{K%}or VerbAfterStem ; ! find
 
 LEXICON VerbAfterStem
 

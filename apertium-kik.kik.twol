@@ -23,6 +23,7 @@ Alphabet
  %{IRI%}:i
  %{A%}:a !
  %{tĨ%}:ĩ ! true Ĩ
+ %{yĨ%}:ĩ ! should become y when followed by vowel
  %{EE%}:e
  %{AA%}:a
  %{D%}:d
@@ -126,7 +127,7 @@ Rules
 !        where Vo in ( %{A%} %{E%} %{O%} %{U%} %{Ũ%} ) ;
 
 "Turn ĩ into y syllable-intially before vowel"
-%{yĨ%}:y <=> %>: _ [ (%>: ) (%{NULL%}: ) ]* Vo: ;
+%{yĨ%}:y <=> _ [ (%>: ) (%{NULL%}: ) ]* Vo: ;
         where Vo in ( %{A%} %{E%} %{O%} %{U%} %{Ũ%} ) ;
 
 !!!!! RULES SPECIFIC TO CERTAIN MORPHEMES !!!!! 

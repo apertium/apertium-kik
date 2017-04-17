@@ -48,8 +48,8 @@ SELECT $$NounClass IF (0 Verbal) (-1 (num)) (-2 (assoc)) (-3 Nominal + $$NounCla
 # If I am a verb inflected to agree with a certain noun class, select me if I am preceded by a number preceded by an associative preceded by a noun of that noun class.
 SELECT $$Number IF (0 Verbal) (-1 (num)) (-2 (assoc)) (-3 Nominal + $$Number ) ;
 
-# If I am a verb inflected to agree with a certain  number, select me if I am preceded by a demonstrative preceded by a noun of that number.
-SELECT $$Number IF (0 Verbal) (-1 (dem)) (-2 Nominal + $$Number ) ;
+# If I am a verb inflected to agree with a certain  person, select me if I am preceded by a demonstrative preceded by a noun of that person.
+SELECT $$Person IF (0 Verbal) (-1 (dem)) (-2 Nominal + $$Person ) ;
 
 
 # If I am a verb inflected to agree with a certain person, select me if the noun or pronoun preceding me is of that person.

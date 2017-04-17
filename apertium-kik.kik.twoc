@@ -51,6 +51,10 @@ Alphabet
 %[%+cl12p13%]:0 ! Noun class 12p13
 %[%+cl14%]:0    ! Noun class 14
 %[%+cl15%]:0    ! Noun class 15
+%[%+cl16%]:0
+%[%-cl16%]:0
+%[%+cl17%]:0
+%[%-cl17%]:0
 
 %[%-refl%]:0
 %[%+refl%]:0
@@ -365,8 +369,8 @@ Tx:0 /<= _ ;
 Tx:0 /<= _ ;
    except
        _ (:*) Ty:0 ;
-   where Tx in  ( %[%-cl14%] %[%-cl15%] )
-         Ty in ( %[%+cl14%] %[%+cl15%] )
+   where Tx in  ( %[%-cl14%])
+         Ty in ( %[%+cl14%] )
    matched ;
 
 
