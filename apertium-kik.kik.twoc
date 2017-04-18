@@ -14,6 +14,9 @@ Alphabet
 %[%-currfut%]:0
 %[%-remfut%]:0
 
+%[%-inf%]:0
+%[%+inf%]:0
+
 %[%+rempast%]:0
 %[%+nearpast%]:0
 %[%+currpast%]:0
@@ -55,6 +58,9 @@ Alphabet
 %[%-cl16%]:0
 %[%+cl17%]:0
 %[%-cl17%]:0
+
+%[%-dim%]:0
+%[%+dim%]:0
 
 %[%-refl%]:0
 %[%+refl%]:0
@@ -413,6 +419,22 @@ Tx:0 /<= _ ;
        Ty:0 (:*) _ ;
    where Ty in  ( %[%-refl%] %[%-imp%] )
          Tx in ( %[%+refl%] %[%+imp%] )
+   matched ;
+
+"Match infinitive"
+Tx:0 /<= _ ;
+   except
+       Ty:0 (:*) _ ;
+   where Ty in  ( %[%-inf%] %[%-dim%] )
+         Tx in ( %[%+inf%] %[%+dim%] )
+   matched ;
+
+"Match diminutive"
+Tx:0 /<= _ ;
+   except
+       Tx:0 (:*) _ ;
+   where Tx in  ( %[%-dim%] )
+         Ty in ( %[%+dim%] )
    matched ;
 
  "Match reflexive, imperative, and negative part 2"

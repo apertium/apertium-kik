@@ -35,6 +35,7 @@ Multichar_Symbols
 %<scl12p13%> ! Noun class 12p13
 %<scl14%>    ! Noun class 14
 %<scl15%>    ! Noun class 15
+%<dim%> ! dimunitive
 
 ! Part of speech categories
 %<n%>   ! Noun
@@ -89,6 +90,8 @@ Multichar_Symbols
 %<recip%> ! Reciprocal
 %<rev%>! Reversive !
 %<intens%>! Intensive
+%<inf%>
+
 
 %<p1%> ! first person
 %<p2%> ! second person
@@ -134,6 +137,9 @@ Multichar_Symbols
 
 ! Agreement Tags
 
+%[%-dim%]
+%[%+dim%]
+
 %[%-sg%]
 %[%+sg%]
 %[%-pl%]
@@ -142,6 +148,9 @@ Multichar_Symbols
 %[%+foc%]
 %[%-seq%]
 %[%+seq%]
+
+%[%-inf%]
+%[%+inf%]
 
 %[%-rempast%]
 %[%-nearpast%]
@@ -161,10 +170,10 @@ Multichar_Symbols
 %[%-p2%]
 %[%+p1%]
 %[%+p2%]
-%[-sp1%]
-%[-sp2%]
-%[+sp1%]
-%[+sp2%]
+%[%-sp1%]
+%[%-sp2%]
+%[%+sp1%]
+%[%+sp2%]
 
 %[%-cl1%] ! Noun class 1
 %[%-cl3%] ! Noun class 3
@@ -307,12 +316,17 @@ Adverb ;
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 LEXICON NounPluralAgreement
-[%+sg%]%<sg%>:%{NULL%} NounLocative ;
-[%+pl%]%<pl%>:%{NULL%} NounLocative ;
+[%+sg%]%<sg%>:%{NULL%} NounDiminutive ;
+[%+pl%]%<pl%>:%{NULL%} NounDiminutive ;
+
+LEXICON NounDiminutive
+%<dim%>%[%+dim%]:%{NULL%} NounLocative ;
+NounLocative ;
 
 LEXICON NounLocative
 
 %<loc%>:inĩ # ;
+%<loc%>:-inĩ # ;
 # ;
 
 LEXICON NounRootCl1
@@ -373,6 +387,8 @@ taha:%{T%}ah%{A%} Cl5 ; ! mataha (a food made with corn and beans!)
 thangũ:thang%{Ũ%} Cl5 ; ! leaf
 mithimithi:mithimith%{I%} Cl5 ; ! twilight, always plural
 twa:%{T%}w%{A%} Cl5 ; ! name
+thaga:thag%{A%} Cl5 ; !
+itho:%{I%}th%{O%} Cl5 ; ! eye
 
 LEXICON Cl5
 
@@ -397,6 +413,7 @@ tũmi:%{T%}ũm%{I%} Cl7 ; ! reason
 rumi:rum%{I%} Cl7 ; ! curse
 thama:tham%{A%} Cl7 ; ! island
 roto:rot%{O%} Cl7 ; ! dream (nominalized)
+ongo:%{O}%ng%{O%} Cl7 ; ! head 
 
 LEXICON Cl7
 
@@ -436,6 +453,7 @@ guo:gu%{O%} Cl9p1%0 ; ! garment
 muoy%{O%}:muoy%{O%} Cl9p1%0 ; ! life
 tiihũ:%{T%}iih%{Ũ%} Cl9p1%0 ; ! wave
 tihũ:%{T%}ih%{Ũ%} Cl9p1%0 ; ! wave
+doo:do%{O%} Cl9p1%0 ; ! bucket
 
 LEXICON NounRootCl9p1%0Irr
 
@@ -454,6 +472,7 @@ imbo:%{I%}mb%{O%} Cl11p1%0 ; ! song, plural category uncertain
 ũĩ:%{Ũ%}%{BLOCK%}%{Ĩ%} Cl11p1%0 ; ! river, plural category uncertain
 ĩgĩ:%{Ĩ%}g%{Ĩ%} Cl11p1%0 ; ! eagle, plural category uncertain
 teto:tet%{O%} Cl11p1%0 ; ! word
+gano:gan%{O%} Cl11p1%0 ; ! story 
 
 LEXICON Cl11p1%0
 
@@ -526,6 +545,29 @@ LEXICON Cl17
 %<n%>%<cl17%>%<sg%>%<indef%>:%{NULL%} # ;
 
 LEXICON NounPrefix
+
+%[%-dim%]%[%-pl%]:%{T%}%{Ũ%} NounPrefixClasses ;
+%[%-dim%]%[%-sg%]:%{K%}%{A%} NounPrefixClasses ;
+%[%-dim%]%[%-pl%]:%{T%}%{Ũ%} NounRootRedirection ;
+%[%-dim%]%[%-sg%]:%{K%}%{A%} NounRootRedirection ; 
+NounPrefixClasses ;
+
+LEXICON NounRootRedirection 
+
+NounRootCl1 ;
+NounRootCl3 ;
+NounRootCl5 ;
+NounRootCl7 ;
+NounRootCl9p1%0 ;
+NounRootCl11p1%0 ;
+NounRootCl11p6 ;
+NounRootCl12p13 ;
+NounRootCl14 ;
+NounRootCl15 ;
+NounRootCl16 ;
+NounRootCl17 ;
+
+LEXICON NounPrefixClasses
 
 NounPrefixCl1 ;
 NounPrefixCl3 ;
@@ -632,6 +674,8 @@ LEXICON IrregularCopulaClass
 %<cl12p13%>:%{NULL%} IrregularCopulaNumber ;
 %<cl14%>:%{NULL%} IrregularCopulaNumber ;
 %<cl15%>:%{NULL%} IrregularCopulaNumber ;
+%<cl16%>:%{NULL%} IrregularCopulaNumber ;
+%<cl17%>:%{NULL%} IrregularCopulaNumber ; 
 
 LEXICON CopVerbNeg1
 
@@ -668,6 +712,8 @@ LEXICON CopVerbSubjectConcord
 %[%-cl14%]%[%-pl%]:m%{A%}%> CopVerbNeg2 ;
 %[%-cl15%]%[%-sg%]:%{K%}%{Ũ%}%> CopVerbNeg2 ;
 %[%-cl15%]%[%-pl%]:m%{A%}%> CopVerbNeg2 ;
+%[%-cl16%]%[%-sg%]:ha%> CopVerbNeg2 ; 
+%[%-cl17%]%[%-sg%]:k%{Ũ%}%> CopVerbNeg2 ;
 
 ! %{N%}%{N2%}%{N3%}%>%{T%}%{I%}%>%{
 
@@ -720,6 +766,8 @@ LEXICON CopSubjectConcordAgreement
 %[%+cl12p13%]%<p3%>%<cl12p13%>:%{NULL%} CopSubjectNumberAgreement ; ! Noun class 12p13
 %[%+cl14%]%<p3%>%<cl14%>:%{NULL%} CopSubjectNumberAgreement ;   ! Noun class 14
 %[%+cl15%]%<p3%>%<cl15%>:%{NULL%} CopSubjectNumberAgreement ;   ! Noun class 15
+%[%+cl16%]%<p3%>%<cl16%>:%{NULL%} CopSubjectNumberAgreement ;   ! Noun class 16
+%[%+cl17%]%<p3%>%<cl17%>:%{NULL%} CopSubjectNumberAgreement ;   ! Noun class 17
 
 LEXICON CopSubjectNumberAgreement
 
@@ -729,7 +777,8 @@ LEXICON CopSubjectNumberAgreement
 LEXICON VerbPrefix
 
 VerbFoc ;
-%[%-imp%]:%{NULL%} VerbStem ;
+%[%-imp%]:%{NULL%}%> VerbStem ;
+%[%-inf%]:%{K%}%{Ũ%}%> VerbStem ;
 Copula ;
 
 LEXICON VerbFoc
@@ -829,6 +878,10 @@ VerbStem ;
 
 LEXICON VerbStem
 
+gan:gan VerbAfterStem ; ! narrate
+rũg:%{R%}ũg VerbAfterStem ; ! jump
+ag:%{A%}g VerbAfterStem ; ! fail
+um:%{U%}m VerbAfterStem ; ! come.out
 kiny:%{K%}iny VerbAfterStem ; ! arrive
 kũr:%{K%}ũr VerbAfterStem ; ! grow
 ũk:%{Ũ%}k VerbAfterStem ; ! come
@@ -840,7 +893,7 @@ thom:thom VerbAfterStem ; ! read
 thamb:thamb VerbAfterStem ;
 rĩm:%{R%}ĩm VerbAfterStem ; ! cultivate
 haic:haic VerbAfterStem ;
-on:on VerbAfterStem ;
+on:%{O%}n VerbAfterStem ;
 ror:%{R%}or VerbAfterStem ;
 gũ:g%{Ũ%} VerbAfterStem ; ! fall
 ũr:%{Ũ%}r VerbAfterStem ; ! run away
@@ -944,7 +997,8 @@ kor:%{K%}or VerbAfterStem ; ! find
 
 LEXICON VerbAfterStem
 
-%<v%>%[%+imp%]%<imp%>%[%-fvA%]:%{NULL%} VerbFinalVowel ;
+%<v%>%[%+imp%]%<imp%>:%{A%} # ;
+%<v%>%[%+inf%]%<inf%>:%{A%} # ;
 VerbTenseAgreement ;
 
 LEXICON VerbRecip
@@ -1023,7 +1077,7 @@ LEXICON VerbTenseAgreement
 %<v%>%[%+pres%]%<pres%>:%{NULL%} VerbRecip ;
 %<v%>%[%+currfut%]%<currfut%>:%{NULL%} VerbRecip ;
 %<v%>%[%+remfut%]%<remfut%>:%{NULL%} VerbRecip ;
-%[%+seq%]%<seq%>:%{NULL%} VerbRecip ;
+%<v%>%[%+seq%]%<seq%>:%{NULL%} VerbRecip ;
 
 LEXICON VerbSubjectNumberAgreement
 
@@ -1543,6 +1597,8 @@ no%<cnjcoo%>:no # ; ! but
 mũno:mũno # ; ! very
 atĩ%<cnjsub%>:atĩ # ; ! that
 atĩrĩ:atĩrĩ # ; ! a discourse marker, means sort of then, as a consequence 
+ũndũ%<cnjsub%>:ũndũ # ; ! because 
+! inĩ:inĩ # ; in ! actually a locative marker, but sometimes appears after the noun
 ThusWords ;
 
 LEXICON ThusWords
@@ -1567,6 +1623,8 @@ Farati:Farati ProperNameEnding ; ! a biblical river
 Adamu:Adamu ProperNameEnding ; ! Adam (biblical)
 Ngai:Ngai ProperNameEnding ; ! God
 Roho:Roho ProperNameEnding ; ! Spirit (as in God's Spirit)
+Jehova:Jehova ProperNameEnding ; ! Jehova
+Musa:Musa ProperNameEnding ; ! 
 
 LEXICON ProperNameEnding
 

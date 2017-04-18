@@ -1,7 +1,7 @@
 
 Alphabet
  A B C D E G H I Ĩ J K L M N O R S T U Ũ W Y 
- a b c d e g h i ĩ j k l m n o r s t u ũ w y
+ a b c d e g h i ĩ j k l m n o r s t u ũ w y %-
  %>:0
  %{K%}:k ! %{K%}:g
  %{C%}:c 
@@ -88,6 +88,13 @@ Rules
             _ [ (%>: ) (%{NULL%}: ) ]* %{O%}: ;
             _ [ (%>: ) (%{NULL%}: ) ]* %{AA%}: ;
 
+"Turn ũ into u before o"
+%{Ũ%}:u <=>  _ [ (%>: ) (%{NULL%}: ) ]* %{O%}: ;
+        except
+            _ [ (%>: ) (%{NULL%}: ) ]* %{A%}: ;
+            _ [ (%>: ) (%{NULL%}: ) ]* %{AA%}: ;
+            %{A%}: [ (%>: ) (%{NULL%}: ) ]* _ ; 
+
 "Turn ĩ into 0 after e"
 %{Ĩ%}:0 <=> %{E%}: [ (%>: ) (%{NULL%}: ) ]* _  ;
         except
@@ -118,7 +125,7 @@ Rules
 %{Ũ%}:w <=> _  [ (%>: ) (%{NULL%}: ) ]* V1: ;
         except
             %{A%}: [ (%>: ) (%{NULL%}: ) ]* _ ;
-        where V1 in ( %{A%} %{O%} %{AA%} %{Ĩ%} %{I%} %{E%} );
+        where V1 in ( %{A%} %{AA%} %{Ĩ%} %{I%} %{E%} );
 
 
 !"Turn ĩ into y syllable-intially before vowel"
