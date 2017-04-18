@@ -878,6 +878,7 @@ VerbStem ;
 
 LEXICON VerbStem
 
+tega:tega VerbAfterStem ; ! 
 gan:gan VerbAfterStem ; ! narrate
 rũg:%{R%}ũg VerbAfterStem ; ! jump
 ag:%{A%}g VerbAfterStem ; ! fail
