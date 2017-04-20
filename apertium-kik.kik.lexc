@@ -389,6 +389,7 @@ mithimithi:mithimith%{I%} Cl5 ; ! twilight, always plural
 twa:%{T%}w%{A%} Cl5 ; ! name
 thaga:thag%{A%} Cl5 ; !
 itho:%{I%}th%{O%} Cl5 ; ! eye
+rwa:%{R%}w%{A%} Cl5 ; ! letter
 
 LEXICON Cl5
 
@@ -414,6 +415,8 @@ rumi:rum%{I%} Cl7 ; ! curse
 thama:tham%{A%} Cl7 ; ! island
 roto:rot%{O%} Cl7 ; ! dream (nominalized)
 ongo:%{O}%ng%{O%} Cl7 ; ! head 
+roko:%{R%}ok%{O%} Cl7 ; ! morning
+ndo:nd%{O%} Cl7 ; ! thing
 
 LEXICON Cl7
 
@@ -440,7 +443,7 @@ thitembũ:thitemb%{Ũ%} Cl9p1%0 ; ! stamp, plural category uncertain
 bahaca:bahac%{A%} Cl9p1%0 ; ! envelope, plural category uncertain
 yama:yam%{A%} Cl9p1%0 ; ! meat, plural category uncertain
 gũkũ:gũk%{Ũ%} Cl9p1%0 ; ! chicken, plural category uncertain
-thaa:tha%{A%} Cl9p1%0 ; ! hour, plural category uncertain
+thaa:tha%{A%} Cl9p1%0 ; ! hour
 bakũri:bakũr%{I%} Cl9p1%0 ;
 dahi:dah%{I%} Cl9p1%0 ;
 thia:thi%{A%} Cl9p1%0 ;
@@ -454,9 +457,14 @@ muoy%{O%}:muoy%{O%} Cl9p1%0 ; ! life
 tiihũ:%{T%}iih%{Ũ%} Cl9p1%0 ; ! wave
 tihũ:%{T%}ih%{Ũ%} Cl9p1%0 ; ! wave
 doo:do%{O%} Cl9p1%0 ; ! bucket
+nuthu:%{N%}uth%{U%} Cl9p1%0 ; ! half
+hĩndĩ:hĩnd%{Ĩ%} Cl9p1%0 ; ! time (instance)
+dagĩka:dagĩk%{A%} Cl9p1%0 ; ! minute
+bathi:bath%{I%} Cl9p1%0 ; ! bus
 
 LEXICON NounRootCl9p1%0Irr
 
+rumu:rumu Cl9p1%0 ; ! room
 batĩ:bat%{Ĩ%} Cl9p1%0 ;
 
 
@@ -506,15 +514,11 @@ LEXICON NounRootCl14
 wendi:wend%{I%} Cl14 ;
 cũrũ:%{C%}ũr%{Ũ%} Cl14 ; ! porridge
 goro:gor%{O%} Cl14 ; ! expense
-menyi:menyi Cl14-alt ; ! information
+menyi:menyi Cl14 ; ! information
 
 LEXICON Cl14
 
 %<n%>%<cl14%>:%{NULL%} NounPluralAgreement ;
-
-LEXICON Cl14-alt
-
-%<n%>%<cl14%>:%{Ũ%} NounPluralAgreement ;
 
 LEXICON NounRootCl15
 
@@ -629,6 +633,7 @@ LEXICON NounPrefixCl12p13
 LEXICON NounPrefixCl14
 
 %[%-sg%]:%{NULL%} NounRootCl14 ;
+%[%-sg%]:%{Ũ%} NounRootCl14 ;
 %[%-pl%]:m%{A%}%> NounRootCl14 ;
 
 LEXICON NounPrefixCl15
@@ -829,6 +834,8 @@ VerbTense ;
 
 LEXICON VerbTense
 
+!NOTE TO SELF: nd- 1sg prefix before currpast/rempast(?) noasp a
+
 %[%-rempast%]%[%-perf%]%[%-compl%]%[%-hab%]:%{A%}%> VerbObjectAgreement ;
 %[%-rempast%]%[%-perf%]%[%-compl%]%[%-hab%]:%{BLOCK%}%{A%}%> VerbObjectAgreement ; !needed to relax into aa... maybe better modeled with spellrelax? annoying.
 %[%-nearpast%]%[%-perf%]%[%-compl%]%[%-hab%]%[%-noasp%]:%{R%}%{A%}%> VerbObjectAgreement ;
@@ -878,6 +885,9 @@ VerbStem ;
 
 LEXICON VerbStem
 
+cab:cab VerbAfterStem ; ! print
+har:har VerbAfterStem ; ! prepare
+ũkĩr:%{Ũ%}kĩr VerbAfterStem ; ! wake.up
 tega:tega VerbAfterStem ; ! 
 gan:gan VerbAfterStem ; ! narrate
 rũg:%{R%}ũg VerbAfterStem ; ! jump
@@ -1443,8 +1453,8 @@ pro%<prn%>%<dem%>%<ana%>%<cl9p6%>%<sg%>:ĩyo # ;
 pro%<prn%>%<dem%>%<ana%>%<cl9p6%>%<sg%>:ĩu # ;
 pro%<prn%>%<dem%>%<ana%>%<cl9p6%>%<pl%>:macio # ;
 pro%<prn%>%<dem%>%<ana%>%<cl9p6%>%<pl%>:mau # ;
-pro%<prn%>%<dem%>%<ana%>%<cl9p1%0%>%<sg%>:ĩno # ;
-pro%<prn%>%<dem%>%<ana%>%<cl9p1%0%>%<sg%>:ĩno # ;
+pro%<prn%>%<dem%>%<ana%>%<cl9p1%0%>%<sg%>:ĩyo # ;
+pro%<prn%>%<dem%>%<ana%>%<cl9p1%0%>%<sg%>:macio # ;
 pro%<prn%>%<dem%>%<ana%>%<cl9p1%0%>%<pl%>:icio # ;
 pro%<prn%>%<dem%>%<ana%>%<cl9p1%0%>%<pl%>:iu # ;
 pro%<prn%>%<dem%>%<ana%>%<cl11p6%>%<sg%>:rũu # ;
