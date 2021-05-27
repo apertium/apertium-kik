@@ -1,6 +1,6 @@
 AC_PREREQ(2.52)
 
-AC_INIT([Apertium Kikuyu], [0.1.0], [apertium-stuff@lists.sourceforge.net], [apertium-kik], [http://wiki.apertium.org/wiki/Apertium-kik])
+AC_INIT([Apertium Kikuyu], [0.1.0], [apertium-stuff@lists.sourceforge.net], [apertium-kik], [https://wiki.apertium.org/wiki/Apertium-kik])
 AM_INIT_AUTOMAKE
 
 AC_PROG_LN_S
